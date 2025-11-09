@@ -29,7 +29,7 @@ const Navbar = ({ children }: NavbarProps) => {
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest > 50) {
+    if (latest > 40) {
       setVisible(true)
     } else {
       setVisible(false)
@@ -53,7 +53,7 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => {
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
       className={cn('relative w-full bg-transparent', visible && 'bg-background/40')}>
       <motion.div
-        animate={{ width: visible ? '100%' : '0%' }}
+        animate={{ width: visible ? '100%' : '20%' }}
         transition={{ type: 'spring', stiffness: 200, damping: 50 }}
         className='relative mx-auto w-full min-w-xs sm:min-w-xl md:min-w-2xl lg:min-w-4xl xl:min-w-5xl max-w-7xl flex items-center justify-between py-4 px-6'>
         {children}
@@ -68,7 +68,7 @@ const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
       <AvatarImage src="https://github.com/igornicoletti.png" alt="@igornicoletti" />
       <AvatarFallback>IN</AvatarFallback>
     </Avatar>
-    <span>Codecraft</span>
+    <span>CodeCraft</span>
   </Button>
 )
 
