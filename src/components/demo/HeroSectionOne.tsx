@@ -7,12 +7,12 @@ export const HeroSectionOne = () => {
   return (
     <section id='hero' className='relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-16 md:py-32'>
       <div className='flex flex-col items-center text-center gap-6'>
-        <AnimatedShinyText>
+        <AnimatedShinyText className='font-medium text-sm sm:text-base text-muted-foreground/80'>
           <span>Igor Nicoletti</span>
-          <LightningIcon weight='thin' className='text-primary' />
+          <LightningIcon weight='thin' className='text-ring' />
           <span>Desenvolvedor FullStack</span>
         </AnimatedShinyText>
-        <h1 className="font-light leading-tighter tracking-tight text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+        <h1 className="sm:font-light leading-tighter tracking-tight text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
           Experiências web <br className='sm:hidden' />
           <FlipWords words={["modernas", "eficientes", "escaláveis"]} className='text-5xl lg:text-6xl xl:text-7xl' />
         </h1>

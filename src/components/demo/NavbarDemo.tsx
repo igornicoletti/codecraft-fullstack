@@ -8,17 +8,14 @@ import { cn } from '@/lib/utils'
 import { GithubLogoIcon, LinkedinLogoIcon, ListIcon } from '@phosphor-icons/react'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { Children, cloneElement, isValidElement, useState, type ReactElement, type ReactNode } from 'react'
-
 interface NavbarProps {
   children: ReactNode
   className?: string
 }
-
 interface NavbarContentProps {
   children: ReactNode
   visible?: boolean
 }
-
 interface NavbarMenuItemsProps {
   title: string
   id: string
