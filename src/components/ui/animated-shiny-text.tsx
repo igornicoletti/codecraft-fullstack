@@ -21,7 +21,7 @@ export const AnimatedShinyText: FC<AnimatedShinyTextProps> = ({
         } as CSSProperties
       }
       className={cn(
-        "relative mx-auto max-w-xl text-sm font-medium flex items-center gap-2 sm:text-base text-muted-foreground",
+        "relative mx-auto max-w-xl flex items-center gap-2",
 
         // Shine effect
         "animate-shiny-text bg-size-[var(--shiny-width)_100%] bg-clip-text bg-position-[0_0] bg-no-repeat [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite]",
