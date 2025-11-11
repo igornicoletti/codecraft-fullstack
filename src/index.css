@@ -22,7 +22,7 @@
   --destructive:  oklch(0.577 0.245 27.325);
   --border:  oklch(0.92 0.004 286.32);
   --input:  oklch(0.92 0.004 286.32);
-  --ring:  oklch(0.702 0.183 293.541);
+  --ring:  oklch(0.541 0.281 293.009);
   --chart-1:  oklch(0.811 0.111 293.571);
   --chart-2:  oklch(0.606 0.25 292.717);
   --chart-3:  oklch(0.541 0.281 293.009);
@@ -35,12 +35,12 @@
   --sidebar-accent:  oklch(0.967 0.001 286.375);
   --sidebar-accent-foreground:  oklch(0.21 0.006 285.885);
   --sidebar-border:  oklch(0.92 0.004 286.32);
-  --sidebar-ring:  oklch(0.702 0.183 293.541);
-  --color-1: oklch(0.6726 0.2904 341.4084);
-  --color-2: oklch(0.5488 0.2944 299.0954);
-  --color-3: oklch(0.8442 0.1457 209.2851);
-  --color-4: oklch(0.8903 0.1739 171.2690);
-  --color-5: oklch(0.9168 0.1915 101.4070);
+  --sidebar-ring:  oklch(0.541 0.281 293.009);
+  --color-1: oklab(0.6217 0.14967 -0.21135);
+  --color-2:  oklch(0.606 0.25 292.717);
+  --color-3:  oklch(0.541 0.281 293.009);
+  --color-4:  oklch(0.491 0.27 292.581);
+  --color-5:  oklch(0.432 0.232 292.759);
 }
 
 .dark {
@@ -61,7 +61,7 @@
   --destructive:  oklch(0.704 0.191 22.216);
   --border:  oklch(1 0 0 / 10%);
   --input:  oklch(1 0 0 / 15%);
-  --ring:  oklch(0.38 0.189 293.745);
+  --ring:  oklch(0.541 0.281 293.009);
   --chart-1:  oklch(0.811 0.111 293.571);
   --chart-2:  oklch(0.606 0.25 292.717);
   --chart-3:  oklch(0.541 0.281 293.009);
@@ -74,12 +74,12 @@
   --sidebar-accent:  oklch(0.274 0.006 286.033);
   --sidebar-accent-foreground:  oklch(0.985 0 0);
   --sidebar-border:  oklch(1 0 0 / 10%);
-  --sidebar-ring:  oklch(0.38 0.189 293.745);
-  --color-1: oklch(0.6726 0.2904 341.4084);
-  --color-2: oklch(0.5488 0.2944 299.0954);
-  --color-3: oklch(0.8442 0.1457 209.2851);
-  --color-4: oklch(0.8903 0.1739 171.2690);
-  --color-5: oklch(0.9168 0.1915 101.4070);
+  --sidebar-ring:  oklch(0.541 0.281 293.009);
+  --color-1:  oklab(0.6217 0.14967 -0.21135);
+  --color-2:  oklch(0.606 0.25 292.717);
+  --color-3:  oklch(0.541 0.281 293.009);
+  --color-4:  oklch(0.491 0.27 292.581);
+  --color-5:  oklch(0.432 0.232 292.759);
 }
 
 @theme inline {
