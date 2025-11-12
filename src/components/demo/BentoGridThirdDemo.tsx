@@ -1,4 +1,5 @@
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid"
+import { BlurFade } from '@/components/ui/blur-fade'
 import { LightningIcon } from "@phosphor-icons/react"
 import { motion } from "motion/react"
 
@@ -49,7 +50,7 @@ const SkeletonTwo = () => {
   )
 }
 
-const SkeletonFive = () => {
+const SkeletonThree = () => {
   const variants = { initial: { backgroundPosition: "0 50%" }, animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] } }
 
   return (
@@ -90,7 +91,7 @@ const SkeletonFour = () => {
   )
 }
 
-const SkeletonThree = () => {
+const SkeletonFive = () => {
   const first = { initial: { x: 0 }, animate: { x: 5, rotate: -2, transition: { duration: 0.2 } } }
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
@@ -162,14 +163,14 @@ const items = [
 export const BentoGridThirdDemo = () => (
   <section id='expertise' className='relative mx-auto w-full max-w-5xl overflow-hidden px-6 py-16 md:py-32'>
     <BentoGrid>
-      {items.map((item, i) => (
-        <BentoGridItem
-          key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-          className={item.className}
-          icon={item.icon} />
+      {items.map((item, idx) => (
+        <BlurFade key={idx} inView delay={0.25 + idx * 0.05} className={item.className}>
+          <BentoGridItem
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            icon={item.icon} />
+        </BlurFade>
       ))}
     </BentoGrid>
   </section>
