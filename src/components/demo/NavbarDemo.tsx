@@ -8,14 +8,17 @@ import { cn } from '@/lib/utils'
 import { GithubLogoIcon, LinkedinLogoIcon, ListIcon } from '@phosphor-icons/react'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { Children, cloneElement, isValidElement, useState, type ReactElement, type ReactNode } from 'react'
+
 interface NavbarProps {
   children: ReactNode
   className?: string
 }
+
 interface NavbarContentProps {
   children: ReactNode
   visible?: boolean
 }
+
 interface NavbarMenuItemsProps {
   title: string
   id: string
@@ -43,21 +46,19 @@ const Navbar = ({ children }: NavbarProps) => {
   )
 }
 
-const NavbarContent = ({ children, visible }: NavbarContentProps) => {
-  return (
+const NavbarContent = ({ children, visible }: NavbarContentProps) => (
+  <motion.div
+    animate={{ backdropFilter: visible ? 'blur(10px)' : 'none', y: visible ? 0 : 20 }}
+    transition={{ type: 'spring', stiffness: 200, damping: 50 }}
+    className={cn('relative w-full bg-transparent', visible && 'bg-background/40')}>
     <motion.div
-      animate={{ backdropFilter: visible ? 'blur(10px)' : 'none', y: visible ? 0 : 20 }}
+      animate={{ width: visible ? '100%' : '20%' }}
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
-      className={cn('relative w-full bg-transparent', visible && 'bg-background/40')}>
-      <motion.div
-        animate={{ width: visible ? '100%' : '20%' }}
-        transition={{ type: 'spring', stiffness: 200, damping: 50 }}
-        className='relative mx-auto w-full min-w-xs sm:min-w-xl md:min-w-2xl lg:min-w-4xl xl:min-w-5xl max-w-7xl flex items-center justify-between py-4 px-6'>
-        {children}
-      </motion.div>
+      className='relative mx-auto w-full min-w-xs sm:min-w-xl md:min-w-2xl lg:min-w-4xl xl:min-w-5xl max-w-7xl flex items-center justify-between py-4 px-6'>
+      {children}
     </motion.div>
-  )
-}
+  </motion.div>
+)
 
 const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
   <Button onClick={onClick} variant="link" className="p-0 hover:no-underline">
@@ -92,7 +93,7 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <motion.div onMouseLeave={() => setHovered(null)} className="relative inset-0 hidden md:flex items-center gap-4">
+    <motion.div onMouseLeave={() => setHovered(null)} className="relative inset-0 hidden lg:flex items-center gap-4">
       {navigations.map((item) => (
         <Button
           key={item.title}
@@ -156,7 +157,7 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
   }
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
           <Button size='icon' variant="ghost" className='rounded-full'>
@@ -189,6 +190,7 @@ export const NavbarDemo = () => {
 
   const navigations: NavbarMenuItemsProps[] = [
     { title: 'Expertise', id: '#expertise' },
+    { title: 'Experiências', id: '#experience' },
     { title: 'Projetos', id: '#projects' },
   ]
 
