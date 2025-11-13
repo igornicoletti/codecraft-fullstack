@@ -24,7 +24,7 @@ interface NavbarMenuItemsProps {
   id: string
 }
 
-const Navbar = ({ children }: NavbarProps) => {
+const NavbarRoot = ({ children }: NavbarProps) => {
   const [visible, setVisible] = useState<boolean>(false)
   const { scrollY } = useScroll()
 
@@ -52,9 +52,13 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => (
     transition={{ type: 'spring', stiffness: 200, damping: 50 }}
     className={cn('relative w-full bg-transparent', visible && 'bg-background/40')}>
     <motion.div
-      animate={{ width: visible ? '100%' : '20%' }}
+      animate={{
+        width: '100%',
+        paddingLeft: visible ? '16px' : '32px',
+        paddingRight: visible ? '16px' : '32px',
+      }}
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
-      className='relative mx-auto w-full min-w-xs sm:min-w-xl md:min-w-2xl lg:min-w-4xl xl:min-w-5xl max-w-7xl flex items-center justify-between py-4 px-6'>
+      className='container mx-auto flex items-center justify-between py-4'>
       {children}
     </motion.div>
   </motion.div>
@@ -185,10 +189,10 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
   )
 }
 
-export const NavbarDemo = () => {
+export const Navbar = () => {
   const handleLinkClick = useSmoothScroll()
 
-  const navigations: NavbarMenuItemsProps[] = [
+  const NAV_ITEMS: NavbarMenuItemsProps[] = [
     { title: 'Expertise', id: '#expertise' },
     { title: 'Experiências', id: '#experience' },
     { title: 'Projetos', id: '#projects' },
@@ -197,20 +201,20 @@ export const NavbarDemo = () => {
   const brandClickHandler = () => handleLinkClick('#app')
 
   return (
-    <Navbar>
+    <NavbarRoot>
       <NavbarContent>
         <NavbarBrand onClick={brandClickHandler} />
         <div className="flex items-center gap-4">
           <NavbarMenuDesktop
-            navigations={navigations}
+            navigations={NAV_ITEMS}
             onLinkClick={handleLinkClick} />
           <AnimatedThemeToggler />
           <NavbarMenuMobile
-            navigations={navigations}
+            navigations={NAV_ITEMS}
             onBrandClick={brandClickHandler}
             onLinkClick={handleLinkClick} />
         </div>
       </NavbarContent>
-    </Navbar>
+    </NavbarRoot>
   )
 }
