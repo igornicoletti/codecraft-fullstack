@@ -65,9 +65,9 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => (
 )
 
 const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick} variant="link" className="p-0 hover:no-underline">
+  <Button onClick={onClick} variant='link' className='p-0 hover:no-underline'>
     <Avatar>
-      <AvatarImage src="https://github.com/igornicoletti.png" alt="@igornicoletti" />
+      <AvatarImage src='https://github.com/igornicoletti.png' alt='@igornicoletti' />
       <AvatarFallback>IN</AvatarFallback>
     </Avatar>
     <span>CodeCraft</span>
@@ -75,18 +75,18 @@ const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
 )
 
 const NavbarSocialMobile = () => (
-  <div className="flex items-center justify-center gap-4">
+  <div className='flex items-center justify-center gap-4'>
     <DrawerClose asChild>
-      <Button asChild size="icon" variant="ghost">
-        <a href="https://linkedin.com/in/igornicoletti" target="_blank" rel="noopener noreferrer">
-          <LinkedinLogoIcon />
+      <Button asChild size='icon' variant='ghost'>
+        <a href='https://linkedin.com/in/igornicoletti' target='_blank' rel='noopener noreferrer'>
+          <LinkedinLogoIcon className='relative' />
         </a>
       </Button>
     </DrawerClose>
     <DrawerClose asChild>
-      <Button asChild size="icon" variant="ghost">
-        <a href="https://github.com/igornicoletti" target="_blank" rel="noopener noreferrer">
-          <GithubLogoIcon />
+      <Button asChild size='icon' variant='ghost'>
+        <a href='https://github.com/igornicoletti' target='_blank' rel='noopener noreferrer'>
+          <GithubLogoIcon className='relative' />
         </a>
       </Button>
     </DrawerClose>
@@ -97,7 +97,7 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <motion.div onMouseLeave={() => setHovered(null)} className="relative inset-0 hidden lg:flex items-center gap-4">
+    <motion.div onMouseLeave={() => setHovered(null)} className='relative inset-0 hidden lg:flex items-center gap-4'>
       {navigations.map((item) => (
         <Button
           key={item.title}
@@ -106,39 +106,39 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
           onMouseEnter={() => setHovered(item.title)}
           className='relative rounded-full'>
           {hovered === item.title && (
-            <motion.div layoutId="hovered" className="absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50" />
+            <motion.div layoutId='hovered' className='absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50' />
           )}
-          <span className="relative z-20">{item.title}</span>
+          <span className='relative z-20'>{item.title}</span>
         </Button>
       ))}
-      <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
+      <Separator orientation='vertical' className='data-[orientation=vertical]:h-4' />
       <Button
         asChild
-        size="icon"
-        variant="ghost"
+        size='icon'
+        variant='ghost'
         className='rounded-full relative'
-        onMouseEnter={() => setHovered("linkedin")}>
-        <a href="https://linkedin.com/in/igornicoletti" target="_blank" rel="noopener noreferrer">
-          {hovered === "linkedin" && (
-            <motion.div layoutId="hovered" className="absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50" />
+        onMouseEnter={() => setHovered('linkedin')}>
+        <a href='https://linkedin.com/in/igornicoletti' target='_blank' rel='noopener noreferrer'>
+          {hovered === 'linkedin' && (
+            <motion.div layoutId='hovered' className='absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50' />
           )}
-          <LinkedinLogoIcon className="relative z-20" />
+          <LinkedinLogoIcon className='relative' />
         </a>
       </Button>
       <Button
         asChild
-        size="icon"
-        variant="ghost"
+        size='icon'
+        variant='ghost'
         className='rounded-full relative'
-        onMouseEnter={() => setHovered("github")}>
-        <a href="https://github.com/igornicoletti" target="_blank" rel="noopener noreferrer">
-          {hovered === "github" && (
-            <motion.div layoutId="hovered" className="absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50" />
+        onMouseEnter={() => setHovered('github')}>
+        <a href='https://github.com/igornicoletti' target='_blank' rel='noopener noreferrer'>
+          {hovered === 'github' && (
+            <motion.div layoutId='hovered' className='absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50' />
           )}
-          <GithubLogoIcon className="relative z-20" />
+          <GithubLogoIcon className='relative' />
         </a>
       </Button>
-      <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
+      <Separator orientation='vertical' className='data-[orientation=vertical]:h-4' />
     </motion.div>
   )
 }
@@ -161,10 +161,10 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
   }
 
   return (
-    <div className="lg:hidden">
+    <div className='lg:hidden'>
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
-          <Button size='icon' variant="ghost" className='rounded-full'>
+          <Button size='icon' variant='ghost' className='rounded-full'>
             <ListIcon />
           </Button>
         </DrawerTrigger>
@@ -176,7 +176,7 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
             <DrawerDescription />
           </DrawerHeader>
           {navigations.map((item, idx) => (
-            <Button key={`mobile-${idx}`} variant="ghost" onClick={() => handleDrawerLinkClick(item.id)}>
+            <Button key={`mobile-${idx}`} variant='ghost' onClick={() => handleDrawerLinkClick(item.id)}>
               {item.title}
             </Button>
           ))}
@@ -204,7 +204,7 @@ export const Navbar = () => {
     <NavbarRoot>
       <NavbarContent>
         <NavbarBrand onClick={brandClickHandler} />
-        <div className="flex items-center gap-4">
+        <div className='flex items-center gap-4'>
           <NavbarMenuDesktop
             navigations={NAV_ITEMS}
             onLinkClick={handleLinkClick} />

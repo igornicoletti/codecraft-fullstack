@@ -4,7 +4,7 @@ import { ExpertiseSection } from '@/components/sections/ExpertiseSection'
 import { HeroSection } from '@/components/sections/HeroSection'
 
 export const Home = () => (
-  <div id='app' className='relative w-full'>
+  <div id='app'>
     <Navbar />
     <HeroSection />
     <ExpertiseSection />

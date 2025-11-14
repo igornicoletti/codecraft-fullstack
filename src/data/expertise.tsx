@@ -1,10 +1,8 @@
-import { LightningIcon } from '@phosphor-icons/react'
 import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
 export interface ExpertiseData {
   header: ReactNode
-  icon: ReactNode
   title: string
   description: string
   className: string
@@ -15,11 +13,10 @@ const SkeletonOne = () => {
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
   return (
-    <motion.div initial='initial' whileHover='animate' className='flex flex-1 w-full h-full min-h-44 flex-col gap-2'>
-      <motion.div variants={first} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4'>
-        <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full bg-secondary h-4 rounded-full' />
-      </motion.div>
+    <motion.div initial='initial' whileHover='animate' className='flex w-full h-full min-h-48 flex-col gap-2 p-2'> <motion.div variants={first} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4'>
+      <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
+      <div className='w-full bg-secondary h-4 rounded-full' />
+    </motion.div>
       <motion.div variants={second} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4 ml-auto'>
         <div className='w-full bg-secondary h-4 rounded-full' />
         <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
@@ -36,7 +33,7 @@ const SkeletonOne = () => {
   )
 }
 
-export const SkeletonTwo = () => {
+const SkeletonTwo = () => {
   const arr = new Array(6).fill(0)
   const variants = {
     initial: { width: 0 },
@@ -45,7 +42,7 @@ export const SkeletonTwo = () => {
   }
 
   return (
-    <motion.div initial='initial' animate='animate' whileHover='hover' className='flex flex-1 w-full h-full min-h-44 flex-col gap-2'>
+    <motion.div initial='initial' animate='animate' whileHover='hover' className='flex w-full h-full min-h-48 flex-col gap-2'>
       {arr.map((_, i) => (
         <motion.div
           key={'skelenton-two' + i}
@@ -57,7 +54,7 @@ export const SkeletonTwo = () => {
   )
 }
 
-export const SkeletonThree = () => {
+const SkeletonThree = () => {
   const variants = { initial: { backgroundPosition: '0 50%' }, animate: { backgroundPosition: ['0, 50%', '100% 50%', '0 50%'] } }
 
   return (
@@ -66,25 +63,25 @@ export const SkeletonThree = () => {
       animate='animate'
       variants={variants}
       transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
-      className='flex flex-1 w-full h-full min-h-44 rounded-lg flex-col gap-2'
+      className='flex w-full h-full min-h-48 rounded-lg flex-col gap-2'
       style={{ background: 'linear-gradient(-45deg, #8e51ff, #ad46ff, #ad46ff, #8e51ff)', backgroundSize: '400% 400%' }}>
       <motion.div className='h-full w-full rounded-2xl' />
     </motion.div>
   )
 }
 
-export const SkeletonFour = () => {
+const SkeletonFour = () => {
   const first = { initial: { x: 0 }, animate: { x: 5, rotate: -2, transition: { duration: 0.2 } } }
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
   return (
-    <motion.div initial='initial' whileHover='animate' className='flex flex-1 w-full h-full min-h-44 flex-row gap-2'>
+    <motion.div initial='initial' whileHover='animate' className='flex w-full h-full min-h-48 flex-row gap-4'>
       <motion.div variants={first} className='hidden h-full w-1/3 rounded-2xl bg-background p-2 border sm:flex flex-col items-center justify-center gap-4'>
         <div className='h-10 w-10 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
         <div className='w-full bg-secondary h-4 rounded-full' />
         <div className='mx-auto w-full max-w-16 bg-secondary h-5 rounded-full' />
       </motion.div>
-      <motion.div className='h-full relative z-20 w-full sm:w-1/3 rounded-2xl p-2 border bg-background flex flex-col items-center justify-center gap-4'>
+      <motion.div className='relative z-20 w-full h-full sm:w-1/3 rounded-2xl p-2 border bg-background flex flex-col items-center justify-center gap-4'>
         <div className='h-10 w-10 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
         <div className='w-full bg-secondary h-4 rounded-full' />
         <div className='mx-auto w-full max-w-16 bg-secondary h-5 rounded-full' />
@@ -98,12 +95,12 @@ export const SkeletonFour = () => {
   )
 }
 
-export const SkeletonFive = () => {
+const SkeletonFive = () => {
   const first = { initial: { x: 0 }, animate: { x: 5, rotate: -2, transition: { duration: 0.2 } } }
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
   return (
-    <motion.div initial='initial' whileHover='animate' className='flex flex-1 w-full h-full min-h-44 flex-col gap-2'>
+    <motion.div initial='initial' whileHover='animate' className='flex w-full h-full min-h-48 flex-col gap-2'>
       <motion.div variants={first} className='flex rounded-xl border p-2 items-center gap-2 w-full'>
         <div className='size-8 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
         <div className='w-full flex flex-col gap-1'>
@@ -132,37 +129,32 @@ export const SkeletonFive = () => {
 export const expertiseData: ExpertiseData[] = [
   {
     header: <SkeletonOne />,
-    icon: <LightningIcon />,
-    title: 'Lorem ipsum dolor sit amet.',
-    description: 'Sed sint voluptatibus est dicta reprehenderit rem eveniet magni.',
+    title: 'Desenvolvimento Frontend & UI/UX.',
+    description: 'Especialista em arquitetura moderna baseada em componentes e na entrega de interfaces altamente responsivas e pixel-perfect.',
     className: 'md:col-span-1',
   },
   {
     header: <SkeletonTwo />,
-    icon: <LightningIcon />,
-    title: 'Lorem ipsum dolor sit amet.',
-    description: 'Sed sint voluptatibus est dicta reprehenderit rem eveniet magni.',
+    title: 'Escalabilidade Backend & APIs.',
+    description: 'Projeto e implementação de APIs robustas e escaláveis, além de microsserviços para aplicações de alto tráfego.',
     className: 'md:col-span-1',
   },
   {
     header: <SkeletonThree />,
-    icon: <LightningIcon />,
-    title: 'Lorem ipsum dolor sit amet.',
-    description: 'Sed sint voluptatibus est dicta reprehenderit rem eveniet magni.',
+    title: 'Infraestrutura Cloud & DevOps.',
+    description: 'Gerenciamento de recursos em nuvem, pipelines de CI/CD e garantia de alta disponibilidade e tolerância a falhas.',
     className: 'md:col-span-1',
   },
   {
     header: <SkeletonFour />,
-    icon: <LightningIcon />,
-    title: 'Lorem ipsum dolor sit amet.',
-    description: 'Sed sint voluptatibus est dicta reprehenderit rem eveniet magni.',
+    title: 'Arquitetura FullStack & Consultoria.',
+    description: 'Fornecimento de liderança técnica abrangente, desde o conceito inicial até a implantação e estratégia de manutenção de longo prazo.',
     className: 'order-2 md:col-span-2 lg:order-1',
   },
   {
     header: <SkeletonFive />,
-    icon: <LightningIcon />,
-    title: 'Lorem ipsum dolor sit amet.',
-    description: 'Sed sint voluptatibus est dicta reprehenderit rem eveniet magni.',
+    title: 'Gerenciamento de Dados & Bancos de Dados.',
+    description: 'Otimização de consultas a bancos de dados e modelagem de estruturas de dados para aplicações de desempenho crítico.',
     className: 'order-1 md:col-span-1 lg:order-2',
   },
 ]

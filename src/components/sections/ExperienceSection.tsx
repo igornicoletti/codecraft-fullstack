@@ -6,13 +6,13 @@ import { CalendarBlankIcon } from '@phosphor-icons/react'
 export const ExperienceSection = () => (
   <section id='experience' className='px-4 lg:px-8 pt-20 sm:pt-32 pb-16 sm:pb-24'>
     <div className='mx-auto max-w-5xl px-4 sm:px-6 lg:px-8'>
-      <div className="flex flex-col gap-4 sm:text-center">
+      <div className='flex flex-col gap-4 sm:text-center'>
         <BlurFade delay={0.25 + 0 * 0.05} inView>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tighter tracking-tight">
+          <h2 className='text-3xl sm:text-4xl md:text-5xl font-light leading-tighter tracking-tight'>
             {experienceData.title}</h2>
         </BlurFade>
         <BlurFade delay={0.25 + 1 * 0.05} inView>
-          <h3 className="text-base sm:text-lg text-balance font-light">
+          <h3 className='text-base sm:text-lg text-balance font-light'>
             {experienceData.subtitle}</h3>
         </BlurFade>
       </div>

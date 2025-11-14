@@ -46,7 +46,7 @@ export const heroData: HeroData = {
     }
   },
   stacks: [
-    { icon: IconBrandNextjs, label: 'Next' },
+    { icon: IconBrandNextjs, label: 'Next.js' },
     { icon: IconBrandReact, label: 'React' },
     { icon: IconBrandTypescript, label: 'TypeScript' },
     { icon: IconBrandTailwind, label: 'Tailwind CSS' },
