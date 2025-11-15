@@ -6,7 +6,7 @@ import { heroData } from '@/data/hero'
 import { CaretRightIcon, LightningIcon } from '@phosphor-icons/react'
 
 export const HeroSection = () => (
-  <section id='hero' className='relative overflow-hidden py-20 md:py-40'>
+  <section id='hero' className='relative overflow-hidden py-16 md:py-32'>
     <div className='container mx-auto px-6'>
 
       {/* 1. Badge */}
@@ -23,7 +23,7 @@ export const HeroSection = () => (
       </h1>
 
       {/* 3. Description */}
-      <p className='text-lg md:text-xl mb-8 text-center max-w-3xl mx-auto'>
+      <p className='text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto'>
         {heroData.description}
       </p>
 
@@ -42,7 +42,7 @@ export const HeroSection = () => (
       </div>
 
       {/* 5. Icons */}
-      <div className='flex justify-center space-x-2 sm:space-x-6'>
+      <div className='flex items-center justify-center gap-2 sm:gap-6'>
         {heroData.stacks.map(({ icon: Icon, label }) => (
           <Tooltip key={label}>
             <TooltipTrigger>

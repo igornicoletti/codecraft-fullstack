@@ -1,48 +1,37 @@
 import { Badge } from '@/components/ui/badge'
-import { BlurFade } from '@/components/ui/blur-fade'
 import { experienceData } from '@/data/experience'
 import { CalendarBlankIcon } from '@phosphor-icons/react'
 
 export const ExperienceSection = () => (
-  <section id='experience' className='px-4 lg:px-8 pt-20 sm:pt-32 pb-16 sm:pb-24'>
-    <div className='mx-auto max-w-5xl px-4 sm:px-6 lg:px-8'>
-      <div className='flex flex-col gap-4 sm:text-center'>
-        <BlurFade delay={0.25 + 0 * 0.05} inView>
-          <h2 className='text-3xl sm:text-4xl md:text-5xl font-light leading-tighter tracking-tight'>
-            {experienceData.title}</h2>
-        </BlurFade>
-        <BlurFade delay={0.25 + 1 * 0.05} inView>
-          <h3 className='text-base sm:text-lg text-balance font-light'>
-            {experienceData.subtitle}</h3>
-        </BlurFade>
-      </div>
-      <ul className='relative overflow-hidden px-2 mt-16 sm:mt-20'>
-        {experienceData.business.map((experience, idx) => (
-          <li key={idx} className='relative group not-last:pb-12'>
-            <div className='absolute left-0.5 top-2.5 h-full w-0.5 bg-border' />
-            <div className='absolute -left-0.5 top-2.5 size-2.5 rounded-full border-2 border-ring' />
+  <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
+    <div className='container mx-auto max-w-5xl px-6'>
+
+      {/* 1. Title */}
+      <h2 className='text-3xl md:text-4xl mb-4 text-center leading-tight'>
+        {experienceData.title}
+      </h2>
+
+      {/* 2. Description */}
+      <p className='text-base md:text-lg mb-12 text-center max-w-4xl mx-auto'>
+        {experienceData.description}
+      </p>
+
+      {/* 3. Timeline */}
+      <ul className=''>
+        {experienceData.items.map((item, idx) => (
+          <li key={idx} className='relative not-last:pb-12'>
+            <div className='absolute left-0.5 top-2.5 h-full border' />
+            <div className='absolute left-0 top-2.5 size-2 bg-background border-2 border-ring rounded-full' />
             <div className='flex flex-col gap-2 pl-6'>
-              <BlurFade delay={0.25 + idx * 0.05} inView>
-                <h4 className='text-lg sm:text-xl md:text-2xl font-light'>
-                  {experience.company}</h4>
-              </BlurFade>
-              <BlurFade delay={0.25 + idx * 0.05} inView>
-                <div className='flex items-center gap-2'>
-                  <CalendarBlankIcon />
-                  <span className='text-sm font-light'>
-                    {experience.period}</span>
-                </div>
-              </BlurFade>
-              <BlurFade delay={0.25 + idx * 0.05} inView>
-                <p className='text-base text-muted-foreground'>
-                  {experience.description}</p>
-              </BlurFade>
+              <h3 className='text-lg md:text-xl font-medium'>{item.company}</h3>
+              <div className='flex items-center gap-2'>
+                <CalendarBlankIcon />
+                <span>{item.period}</span>
+              </div>
+              <p className='text-base md:text-lg text-muted-foreground'>{item.description}</p>
               <div className='mt-2 flex flex-wrap gap-2'>
-                {experience.technologies.map((tech, idx2) => (
-                  <BlurFade key={idx2} delay={0.25 + idx2 * 0.05} inView>
-                    <Badge variant='secondary'>
-                      {tech}</Badge>
-                  </BlurFade>
+                {item.technologies.map((tech, idx2) => (
+                  <Badge key={idx2} variant='secondary'>{tech}</Badge>
                 ))}
               </div>
             </div>

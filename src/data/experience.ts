@@ -1,20 +1,18 @@
-export interface Experience {
-  company: string
-  period: string
-  description: string
-  technologies: string[]
-}
-
-export interface ExperienceData {
+interface ExperienceData {
   title: string
-  subtitle: string
-  business: Experience[]
+  description: string
+  items: {
+    company: string
+    period: string
+    description: string
+    technologies: string[]
+  }[]
 }
 
 export const experienceData: ExperienceData = {
   title: 'Experiência Profissional',
-  subtitle: 'Uma linha do tempo das principais conquistas técnicas relacionadas ao desenvolvimento de funcionalidades, realização de testes, redução de erros/avisos de SEO, melhorias de desempenho, acessibilidade (a11y) e modernização tecnológica, com foco em usabilidade e segurança das aplicações.',
-  business: [
+  description: 'Uma linha do tempo das principais conquistas técnicas relacionadas ao desenvolvimento de funcionalidades, realização de testes, redução de erros/avisos de SEO, melhorias de desempenho, acessibilidade (a11y) e modernização tecnológica, com foco em usabilidade e segurança das aplicações.',
+  items: [
     {
       company: 'Hublab',
       period: 'Out. 2019 – Fev. 2023',

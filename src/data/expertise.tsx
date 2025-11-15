@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
-export interface ExpertiseData {
+interface ExpertiseData {
   header: ReactNode
   title: string
   description: string
@@ -13,28 +13,29 @@ const SkeletonOne = () => {
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
   return (
-    <motion.div initial='initial' whileHover='animate' className='flex w-full h-full min-h-48 flex-col gap-2 p-2'> <motion.div variants={first} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4'>
-      <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-      <div className='w-full bg-secondary h-4 rounded-full' />
-    </motion.div>
-      <motion.div variants={second} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4 ml-auto'>
-        <div className='w-full bg-secondary h-4 rounded-full' />
-        <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
+    <motion.div initial='initial' whileHover='animate' className='flex flex-col w-full h-full min-h-48 gap-2 p-2'>
+      <motion.div variants={first} className='flex flex-row w-3/4 items-center gap-2 rounded-full border px-2 py-1'>
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='w-full h-4 rounded-full bg-secondary' />
       </motion.div>
-      <motion.div variants={first} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4'>
-        <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full bg-secondary h-4 rounded-full' />
+      <motion.div variants={second} className='flex flex-row w-3/4 ml-auto items-center gap-2 rounded-full border px-2 py-1'>
+        <div className='w-full h-4 rounded-full bg-secondary' />
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
       </motion.div>
-      <motion.div variants={second} className='flex flex-row rounded-full border px-2 py-1 items-center gap-2 w-3/4 ml-auto'>
-        <div className='w-full bg-secondary h-4 rounded-full' />
-        <div className='h-6 w-6 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
+      <motion.div variants={first} className='flex flex-row w-3/4 items-center gap-2 rounded-full border px-2 py-1'>
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='w-full h-4 rounded-full bg-secondary' />
+      </motion.div>
+      <motion.div variants={second} className='flex flex-row w-3/4 ml-auto items-center gap-2 rounded-full border px-2 py-1'>
+        <div className='w-full h-4 rounded-full bg-secondary' />
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
       </motion.div>
     </motion.div>
   )
 }
 
 const SkeletonTwo = () => {
-  const arr = new Array(6).fill(0)
+  const arr = new Array(7).fill(0)
   const variants = {
     initial: { width: 0 },
     animate: { width: '100%', transition: { duration: 0.2 } },
@@ -42,13 +43,13 @@ const SkeletonTwo = () => {
   }
 
   return (
-    <motion.div initial='initial' animate='animate' whileHover='hover' className='flex w-full h-full min-h-48 flex-col gap-2'>
+    <motion.div initial='initial' animate='animate' whileHover='hover' className='flex flex-col w-full h-full min-h-48 gap-2'>
       {arr.map((_, i) => (
         <motion.div
           key={'skelenton-two' + i}
           variants={variants}
           style={{ maxWidth: Math.random() * (100 - 40) + 40 + '%' }}
-          className='flex flex-row rounded-full border items-center gap-2 w-full h-5' />
+          className='flex flex-row w-full h-5 items-center gap-2 rounded-full border' />
       ))}
     </motion.div>
   )
@@ -63,9 +64,9 @@ const SkeletonThree = () => {
       animate='animate'
       variants={variants}
       transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
-      className='flex w-full h-full min-h-48 rounded-lg flex-col gap-2'
+      className='flex flex-col w-full h-full min-h-48 gap-2 rounded-lg'
       style={{ background: 'linear-gradient(-45deg, #8e51ff, #ad46ff, #ad46ff, #8e51ff)', backgroundSize: '400% 400%' }}>
-      <motion.div className='h-full w-full rounded-2xl' />
+      <motion.div className='w-full h-full rounded-2xl' />
     </motion.div>
   )
 }
@@ -75,21 +76,21 @@ const SkeletonFour = () => {
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
   return (
-    <motion.div initial='initial' whileHover='animate' className='flex w-full h-full min-h-48 flex-row gap-4'>
-      <motion.div variants={first} className='hidden h-full w-1/3 rounded-2xl bg-background p-2 border sm:flex flex-col items-center justify-center gap-4'>
-        <div className='h-10 w-10 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full bg-secondary h-4 rounded-full' />
-        <div className='mx-auto w-full max-w-16 bg-secondary h-5 rounded-full' />
+    <motion.div initial='initial' whileHover='animate' className='flex flex-row w-full h-full min-h-48 gap-4'>
+      <motion.div variants={first} className='hidden sm:flex flex-col w-1/3 h-full items-center justify-center gap-4 rounded-2xl border bg-background p-4'>
+        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='w-full h-4 rounded-full bg-secondary' />
+        <div className='w-full max-w-16 h-5 mx-auto rounded-full bg-secondary' />
       </motion.div>
-      <motion.div className='relative z-20 w-full h-full sm:w-1/3 rounded-2xl p-2 border bg-background flex flex-col items-center justify-center gap-4'>
-        <div className='h-10 w-10 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full bg-secondary h-4 rounded-full' />
-        <div className='mx-auto w-full max-w-16 bg-secondary h-5 rounded-full' />
+      <motion.div className='relative z-20 flex flex-col w-full sm:w-1/3 h-full items-center justify-center gap-4 rounded-2xl border bg-background p-4'>
+        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='w-full h-4 rounded-full bg-secondary' />
+        <div className='w-full max-w-16 h-5 mx-auto rounded-full bg-secondary' />
       </motion.div>
-      <motion.div variants={second} className='hidden h-full w-1/3 rounded-2xl border bg-background p-2 sm:flex flex-col items-center justify-center gap-4'>
-        <div className='h-10 w-10 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full bg-secondary h-4 rounded-full' />
-        <div className='mx-auto w-full max-w-16 bg-secondary h-5 rounded-full' />
+      <motion.div variants={second} className='hidden sm:flex flex-col w-1/3 h-full items-center justify-center gap-4 rounded-2xl border bg-background p-4'>
+        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='w-full h-4 rounded-full bg-secondary' />
+        <div className='w-full max-w-16 h-5 mx-auto rounded-full bg-secondary' />
       </motion.div>
     </motion.div>
   )
@@ -100,26 +101,26 @@ const SkeletonFive = () => {
   const second = { initial: { x: 0 }, animate: { x: -5, rotate: 2, transition: { duration: 0.2 } } }
 
   return (
-    <motion.div initial='initial' whileHover='animate' className='flex w-full h-full min-h-48 flex-col gap-2'>
-      <motion.div variants={first} className='flex rounded-xl border p-2 items-center gap-2 w-full'>
-        <div className='size-8 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full flex flex-col gap-1'>
-          <div className='w-full bg-secondary h-3 rounded-full' />
-          <div className='w-3/4 bg-secondary h-2 rounded-full' />
+    <motion.div initial='initial' whileHover='animate' className='flex flex-col w-full h-full min-h-48 gap-2'>
+      <motion.div variants={first} className='flex w-full items-center gap-2 rounded-xl border p-2'>
+        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='flex flex-col w-full gap-1'>
+          <div className='w-full h-3 rounded-full bg-secondary' />
+          <div className='w-3/4 h-2 rounded-full bg-secondary' />
         </div>
       </motion.div>
-      <motion.div variants={second} className='flex rounded-xl border p-2 items-center gap-2 w-full'>
-        <div className='size-8 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full flex flex-col gap-1'>
-          <div className='w-full bg-secondary h-3 rounded-full' />
-          <div className='w-3/4 bg-secondary h-2 rounded-full' />
+      <motion.div variants={second} className='flex w-full items-center gap-2 rounded-xl border p-2'>
+        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='flex flex-col w-full gap-1'>
+          <div className='w-full h-3 rounded-full bg-secondary' />
+          <div className='w-3/4 h-2 rounded-full bg-secondary' />
         </div>
       </motion.div>
-      <motion.div variants={first} className='flex rounded-xl border p-2 items-center gap-2 w-full'>
-        <div className='size-8 rounded-full bg-linear-to-r from-purple-500 to-violet-500 shrink-0' />
-        <div className='w-full flex flex-col gap-1'>
-          <div className='w-full bg-secondary h-3 rounded-full' />
-          <div className='w-3/4 bg-secondary h-2 rounded-full' />
+      <motion.div variants={first} className='flex w-full items-center gap-2 rounded-xl border p-2'>
+        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-purple-500 to-violet-500' />
+        <div className='flex flex-col w-full gap-1'>
+          <div className='w-full h-3 rounded-full bg-secondary' />
+          <div className='w-3/4 h-2 rounded-full bg-secondary' />
         </div>
       </motion.div>
     </motion.div>
@@ -143,18 +144,18 @@ export const expertiseData: ExpertiseData[] = [
     header: <SkeletonThree />,
     title: 'Infraestrutura Cloud & DevOps.',
     description: 'Gerenciamento de recursos em nuvem, pipelines de CI/CD e garantia de alta disponibilidade e tolerância a falhas.',
-    className: 'md:col-span-1',
+    className: 'order-2 md:col-span-1 xl:order-1',
   },
   {
     header: <SkeletonFour />,
     title: 'Arquitetura FullStack & Consultoria.',
     description: 'Fornecimento de liderança técnica abrangente, desde o conceito inicial até a implantação e estratégia de manutenção de longo prazo.',
-    className: 'order-2 md:col-span-2 lg:order-1',
+    className: 'order-1 md:col-span-2 xl:order-2',
   },
   {
     header: <SkeletonFive />,
     title: 'Gerenciamento de Dados & Bancos de Dados.',
     description: 'Otimização de consultas a bancos de dados e modelagem de estruturas de dados para aplicações de desempenho crítico.',
-    className: 'order-1 md:col-span-1 lg:order-2',
+    className: 'order-3 md:col-span-1',
   },
 ]

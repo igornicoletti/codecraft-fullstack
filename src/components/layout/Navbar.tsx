@@ -29,7 +29,7 @@ const NavbarRoot = ({ children }: NavbarProps) => {
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest > 40) {
+    if (latest > 20) {
       setVisible(true)
     } else {
       setVisible(false)
