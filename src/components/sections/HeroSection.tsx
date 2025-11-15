@@ -42,11 +42,11 @@ export const HeroSection = () => (
       </div>
 
       {/* 5. Icons */}
-      <div className='flex flex-wrap items-center justify-center gap-4 sm:gap-6'>
+      <div className='flex flex-wrap items-center justify-center gap-2 sm:gap-6'>
         {heroData.stacks.map(({ icon: Icon, label }) => (
           <Tooltip key={label}>
             <TooltipTrigger>
-              <Icon stroke={0.8} className='size-8 sm:size-10 text-muted-foreground hover:text-ring transition-colors' />
+              <Icon stroke={1} className='size-8 sm:size-10 text-muted-foreground hover:text-ring transition-colors' />
             </TooltipTrigger>
             <TooltipContent>{label}</TooltipContent>
           </Tooltip>
