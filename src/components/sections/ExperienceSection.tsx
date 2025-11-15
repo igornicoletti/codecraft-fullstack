@@ -33,7 +33,7 @@ export const ExperienceSection = () => (
                 {item.stacks.map(({ icon: Icon, label }) => (
                   <Tooltip key={label}>
                     <TooltipTrigger>
-                      <Icon size={24} stroke={0.5} />
+                      <Icon size={24} stroke={0.8} />
                     </TooltipTrigger>
                     <TooltipContent>{label}</TooltipContent>
                   </Tooltip>
