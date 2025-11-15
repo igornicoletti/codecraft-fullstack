@@ -1,4 +1,4 @@
-import { IconBrandFramerMotion, IconBrandRadixUi, IconBrandReact, IconBrandTailwind, IconBrandTypescript, IconBrandVite, type Icon, type IconProps } from '@tabler/icons-react'
+import { IconBrandFramerMotion, IconBrandNextjs, IconBrandRadixUi, IconBrandReact, IconBrandTailwind, IconBrandTypescript, IconBrandVite, type Icon, type IconProps } from '@tabler/icons-react'
 import type { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 export interface HeroData {
@@ -46,11 +46,12 @@ export const heroData: HeroData = {
     }
   },
   stacks: [
-    { icon: IconBrandVite, label: 'Vite' },
     { icon: IconBrandReact, label: 'React' },
+    { icon: IconBrandNextjs, label: 'Next.js' },
     { icon: IconBrandTypescript, label: 'TypeScript' },
+    { icon: IconBrandVite, label: 'Vite' },
     { icon: IconBrandTailwind, label: 'Tailwind CSS' },
-    { icon: IconBrandFramerMotion, label: 'Framer Motion' },
     { icon: IconBrandRadixUi, label: 'Radix UI' },
+    { icon: IconBrandFramerMotion, label: 'Motion' },
   ]
 }

@@ -24,7 +24,7 @@ export const AnimatedShinyText: FC<AnimatedShinyTextProps> = ({
         'relative mx-auto max-w-xl flex items-center justify-center gap-2',
 
         // Shine effect
-        'animate-shiny-text bg-size-[var(--shiny-width)_100%] bg-clip-text bg-position-[0_0] bg-no-repeat [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite]',
+        'animate-shiny-text bg-size-[var(--shiny-width)_100%] bg-clip-text bg-position-[0_0] bg-no-repeat [transition:background-position_3s_cubic-bezier(.6,.6,0,1)_infinite]',
 
         // Shine gradient
         'bg-linear-to-r from-transparent via-foreground via-50% to-transparent',

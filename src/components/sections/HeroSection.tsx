@@ -10,9 +10,9 @@ export const HeroSection = () => (
     <div className='container mx-auto px-6'>
 
       {/* 1. Badge */}
-      <AnimatedShinyText className='mb-4 md:text-lg text-muted-foreground font-medium'>
+      <AnimatedShinyText className='text-base md:text-lg mb-4 text-muted-foreground'>
         <span>{heroData.profile.name}</span>
-        <LightningIcon weight='bold' className='text-foreground' />
+        <LightningIcon weight='bold' className='text-ring' />
         <span>{heroData.profile.role}</span>
       </AnimatedShinyText>
 
@@ -28,12 +28,12 @@ export const HeroSection = () => (
       </p>
 
       {/* 4. Action Buttons */}
-      <div className='flex flex-col sm:flex-row justify-center gap-4 mb-12'>
-        <RainbowButton variant='default' size='lg' className='w-full sm:w-auto uppercase'>
+      <div className='flex flex-wrap justify-center gap-4 mb-12'>
+        <RainbowButton variant='default' size='lg' className='w-full sm:w-2xs uppercase'>
           {heroData.actions.primary.label}
           <CaretRightIcon />
         </RainbowButton>
-        <RainbowButton asChild variant='outline' size='lg' className='w-full sm:w-auto uppercase'>
+        <RainbowButton asChild variant='outline' size='lg' className='w-full sm:w-2xs uppercase'>
           <a href={heroData.actions.secondary.href} target='_blank' rel='noopener noreferrer'>
             {heroData.actions.secondary.label}
             <CaretRightIcon />
@@ -42,11 +42,11 @@ export const HeroSection = () => (
       </div>
 
       {/* 5. Icons */}
-      <div className='flex items-center justify-center gap-2 sm:gap-6'>
+      <div className='flex flex-wrap items-center justify-center gap-4 sm:gap-6'>
         {heroData.stacks.map(({ icon: Icon, label }) => (
           <Tooltip key={label}>
             <TooltipTrigger>
-              <Icon size={40} stroke={0.75} className='text-muted-foreground hover:text-ring transition-colors' />
+              <Icon stroke={0.75} className='size-8 sm:size-10 text-muted-foreground hover:text-ring transition-colors' />
             </TooltipTrigger>
             <TooltipContent>{label}</TooltipContent>
           </Tooltip>

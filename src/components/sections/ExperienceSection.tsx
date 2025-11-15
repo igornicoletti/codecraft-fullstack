@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/badge'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { experienceData } from '@/data/experience'
 import { CalendarBlankIcon } from '@phosphor-icons/react'
 
@@ -30,8 +30,13 @@ export const ExperienceSection = () => (
               </div>
               <p className='text-base md:text-lg text-muted-foreground'>{item.description}</p>
               <div className='mt-2 flex flex-wrap gap-2'>
-                {item.technologies.map((tech, idx2) => (
-                  <Badge key={idx2} variant='secondary'>{tech}</Badge>
+                {item.stacks.map(({ icon: Icon, label }) => (
+                  <Tooltip key={label}>
+                    <TooltipTrigger>
+                      <Icon size={24} stroke={0.5} />
+                    </TooltipTrigger>
+                    <TooltipContent>{label}</TooltipContent>
+                  </Tooltip>
                 ))}
               </div>
             </div>
