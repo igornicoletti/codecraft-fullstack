@@ -30,13 +30,14 @@ export const ExperienceSection = () => {
 
   return (
     <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
-      <div className='container mx-auto px-6'>
+      <div className='container mx-auto max-w-7xl px-6'>
+
         {/* 1. Title */}
-        <h2 className='text-4xl md:text-5xl mb-4 text-left leading-tight'>
+        <h2 className='text-4xl md:text-5xl mb-4 text-center leading-tight'>
           {experienceData.title}
         </h2>
         {/* 2. Description */}
-        <p className='text-lg md:text-xl mb-12 text-left max-w-4xl'>
+        <p className='text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto'>
           {experienceData.description}
         </p>
 
@@ -89,8 +90,8 @@ export const ExperienceSection = () => {
                 <div key={index} className="flex flex-1 items-center gap-4">
                   <div className="h-10 w-0.5 rounded-3xl bg-secondary shrink-0" />
                   <div className="flex flex-col">
-                    <span className="text-2xl font-semibold text-primary">{metric.value}</span>
-                    <span className='text-base text-muted-foreground'>{metric.label}</span>
+                    <span className="text-xl font-semibold">{metric.value}</span>
+                    <span className='text-base md:text-lg'>{metric.label}</span>
                   </div>
                 </div>
               ))}

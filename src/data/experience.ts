@@ -38,8 +38,7 @@ export const experienceData: ExperienceData = {
         { slug: 'react', label: 'React' },
       ],
       metrics: [
-        { value: '40%', label: 'redução no time-to-market' },
-        { value: 'Autonomia', label: 'para gestão de fluxos' },
+        { value: '-40%', label: 'no time-to-market' },
       ],
     },
     {
@@ -58,8 +57,8 @@ export const experienceData: ExperienceData = {
         { slug: 'react', label: 'React' },
       ],
       metrics: [
-        { value: '~30%', label: 'redução no tempo de carregamento' },
-        { value: '95+', label: 'pontuação do Lighthouse' },
+        { value: '-30%', label: 'no tempo de carregamento' },
+        { value: '95+', label: 'em pontuação do Lighthouse' },
       ],
     },
     {
@@ -75,8 +74,8 @@ export const experienceData: ExperienceData = {
         { slug: 'vtex', label: 'Vtex' },
       ],
       metrics: [
-        { value: '20%', label: 'redução de falhas em produção' },
-        { value: 'XSS/CSRF', label: 'segurança reforçada' },
+        { value: '-45%', label: 'no tempo de carregamento' },
+        { value: '-20%', label: 'de falhas em produção' },
       ],
     },
     {
@@ -93,8 +92,7 @@ export const experienceData: ExperienceData = {
         { slug: 'webpack', label: 'Webpack' },
       ],
       metrics: [
-        { value: '15%', label: 'aumento no engajamento de usuários' },
-        { value: 'Novas features', label: 'fluxos de login e perfil' },
+        { value: '+15%', label: 'no engajamento de usuários' },
       ],
     },
     {
@@ -112,8 +110,8 @@ export const experienceData: ExperienceData = {
         { slug: 'webpack', label: 'Webpack' },
       ],
       metrics: [
-        { value: '25%', label: 'redução no tempo de tarefas' },
-        { value: 'Visualização', label: 'dados contábeis complexos' },
+        { value: '-25%', label: 'no tempo de tarefas' },
+        { value: '+65%', label: 'no engajamento de usuários' },
       ],
     },
   ],
