@@ -35,7 +35,7 @@ export const heroData: HeroData = {
     prefix: 'Experiências web ',
     flipWords: ['modernas', 'eficientes', 'escaláveis']
   },
-  description: 'Engenheiro de software front-end com sólida atuação em arquitetura de interfaces e ecossistemas web, capaz de projetar e entregar soluções altamente complexas, com ênfase em performance, segurança e escalabilidade alinhada aos padrões mais avançados do setor.',
+  description: 'Engenheiro de software front-end com sólida atuação em arquitetura de interfaces e ecossistemas web, capaz de projetar e entregar soluções altamente complexas, com ênfase em performance, segurança e escalabilidade.',
   actions: {
     primary: {
       label: 'Explorar projetos'
