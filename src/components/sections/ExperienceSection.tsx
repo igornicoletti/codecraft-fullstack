@@ -30,14 +30,15 @@ export const ExperienceSection = () => {
 
   return (
     <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
-      <div className='container mx-auto max-w-7xl px-6'>
+      <div className='container mx-auto xl:max-w-7xl px-6'>
 
         {/* 1. Title */}
-        <h2 className='text-4xl md:text-5xl mb-4 text-center leading-tight'>
+        <h2 className='text-4xl md:text-5xl mb-4 text-left text-balance leading-tight'>
           {experienceData.title}
         </h2>
+
         {/* 2. Description */}
-        <p className='text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto'>
+        <p className='text-lg md:text-xl mb-12 text-left text-balance max-w-4xl'>
           {experienceData.description}
         </p>
 
