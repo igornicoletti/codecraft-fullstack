@@ -16,8 +16,8 @@ interface ExperienceData {
 }
 
 export const experienceData: ExperienceData = {
-  title: 'Experiência Profissional',
-  description: 'Uma linha do tempo das principais conquistas técnicas relacionadas ao desenvolvimento de funcionalidades, realização de testes, redução de erros/avisos de SEO, melhorias de desempenho, acessibilidade (a11y) e modernização tecnológica, com foco em usabilidade e segurança das aplicações.',
+  title: 'Experiências adquiridas com paixão, precisão e qualidade',
+  description: 'As melhores práticas e técnicas adquiridas ao longo de anos de experiência relacionadas ao desenvolvimento de funcionalidades, realização de testes, redução de erros/avisos de SEO, melhorias de desempenho, acessibilidade (a11y) e modernização tecnológica, com foco em usabilidade e segurança das aplicações.',
   items: [
     {
       company: 'Hublab',

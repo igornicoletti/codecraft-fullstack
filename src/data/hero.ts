@@ -29,7 +29,7 @@ export interface HeroData {
 export const heroData: HeroData = {
   profile: {
     name: 'Igor Nicoletti',
-    role: 'Engenheiro FullStack'
+    role: 'Desenvolvedor FrontEnd'
   },
   heading: {
     prefix: 'Experiências web ',
