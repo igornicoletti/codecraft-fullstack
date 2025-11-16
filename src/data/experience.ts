@@ -1,4 +1,3 @@
-// .ts
 interface ExperienceData {
   title: string
   description: string
@@ -10,7 +9,6 @@ interface ExperienceData {
       slug: string
       label: string
     }[]
-    // NOVO: Array para métricas dinâmicas
     metrics: {
       value: string
       label: string
@@ -19,100 +17,100 @@ interface ExperienceData {
 }
 
 export const experienceData: ExperienceData = {
-  title: 'Experiência em aplicações do mundo real',
-  description: 'Histórico de desenvolvimento de aplicações web de alta performance, com foco em otimização (Core Web Vitals, SEO), modernização de arquiteturas (React, Next.js) e criação de interfaces responsivas e acessíveis (a11y).',
+  title: 'Aplicações do mundo real',
+  description: 'Atuação focada no desenvolvimento de aplicações web escaláveis e de alta performance, otimização contínua (Core Web Vitals, SEO), modernização arquitetural (React, Next.js) e criação de interfaces consistentes, responsivas e acessíveis.',
   items: [
     {
       company: 'Hublab',
       period: 'Out. 2019 – Fev. 2023',
-      description: 'Desenvolvimento Front End do ecossistema de chatbot, incluindo interface de chat (Angular) e painel administrativo dinâmico (React/Vite). A solução permitiu à equipe de operações gerenciar fluxos de forma autônoma, reduzindo o time-to-market de novas campanhas em 40%.',
+      description: 'Liderança e arquitetura Front-end na concepção e implementação de um sistema de gerenciamento de mensagens em larga escala. Atuação centrada em segurança arquitetural, integrações com IA Generativa e modernização integral do stack para React/TypeScript, consolidando altos padrões de qualidade, desempenho e confiabilidade.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'git', label: 'Git' },
-        { slug: 'socketdotio', label: 'Socket.io' },
-        { slug: 'tailwindcss', label: 'Tailwind CSS' },
         { slug: 'vite', label: 'Vite' },
+        { slug: 'tailwindcss', label: 'tailwind CSS' },
+        { slug: 'socketdotio', label: 'Socket IO' },
         { slug: 'angular', label: 'Angular' },
-        { slug: 'typescript', label: 'Typescript' },
-        { slug: 'react', label: 'React' },
+        { slug: 'typescript', label: 'TypeScript' },
+        { slug: 'react', label: 'React' }
       ],
       metrics: [
-        { value: '-40%', label: 'no time-to-market' },
-      ],
+        { value: '25% de aumento', label: 'Cobertura de testes automatizados' },
+        { value: '17% de aumento', label: 'Produtividade da equipe' }
+      ]
     },
     {
       company: 'Olivas Digital',
       period: 'Mar. 2021 – Jan. 2022',
-      description: 'Desenvolvimento de interfaces responsivas de alta fidelidade e otimização de performance para múltiplos sites comerciais (SEO técnico, lazy loading). As melhorias elevaram a pontuação do Lighthouse para 95+ (Performance) e reduziram o tempo de carregamento em ~30%.',
+      description: 'Desenvolvimento de interfaces responsivas e de alta fidelidade para e-commerces e sistemas corporativos, com foco em performance, estabilidade e escalabilidade. Otimizações contínuas de LCP/FID e criação de componentes orientados à conversão (leads/CRMs). Contribuição direta para crescimento de tráfego orgânico e agilidade de entrega.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'git', label: 'Git' },
-        { slug: 'sass', label: 'Sass' },
-        { slug: 'javascript', label: 'Javascript' },
-        { slug: 'tailwindcss', label: 'Tailwind CSS' },
-        { slug: 'typescript', label: 'Typescript' },
-        { slug: 'nextdotjs', label: 'Next.js' },
+        { slug: 'cssmodules', label: 'CSS Modules' },
+        { slug: 'nodedotjs', label: 'Node.js' },
+        { slug: 'typescript', label: 'TypeScript' },
         { slug: 'react', label: 'React' },
+        { slug: 'nextdotjs', label: 'Next.js' }
       ],
       metrics: [
-        { value: '-30%', label: 'no tempo de carregamento' },
-        { value: '95+', label: 'em pontuação do Lighthouse' },
-      ],
+        { value: '25% de melhoria', label: 'LCP médio (Core Web Vitals)' },
+        { value: '3x de crescimento', label: 'Geração de leads (via CRM)' }
+      ]
     },
     {
       company: 'Trinto | Digital Partners',
       period: 'Nov. 2020 – Mar. 2021',
-      description: 'Otimização de performance e segurança Front End em plataformas de e-commerce (VTEX, Linx). Implementação de defesas contra vulnerabilidades XSS/CSRF e melhorias no cache, reduzindo o número de falhas em produção em 20% e reforçando a resiliência das aplicações.',
+      description: 'Responsável por suporte técnico crítico e otimização de e-commerces VTEX e Linx, assegurando estabilidade em ambientes de alto tráfego. Correções estruturais em acessibilidade dentro do padrão WCAG AA, ajustes de performance, melhorias de SEO e implementação de testes funcionais e A/B voltados à proteção de fluxos essenciais.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'javascript', label: 'Javascript' },
-        { slug: 'typescript', label: 'Typescript' },
+        { slug: 'javascript', label: 'JavaScript' },
+        { slug: 'typescript', label: 'TypeScript' },
         { slug: 'react', label: 'React' },
-        { slug: 'vtex', label: 'Vtex' },
+        { slug: 'vtex', label: 'VTEX' }
       ],
       metrics: [
-        { value: '-45%', label: 'no tempo de carregamento' },
-        { value: '-20%', label: 'de falhas em produção' },
-      ],
+        { value: '15% de aumento', label: 'Pontuação de acessibilidade' },
+        { value: '33% de redução', label: 'Erros e alertas de SEO' }
+      ]
     },
     {
-      company: '2morrow Sports',
+      company: '2Morrow Sports',
       period: 'Jan. 2020 – Out. 2020',
-      description: 'Desenvolvimento de funcionalidades Front End essenciais para a plataforma, incluindo fluxos de login/autenticação, gerenciamento de perfil e painel de histórico financeiro. As novas features aumentaram o engajamento de usuários em 15% e melhoraram a transparência das informações.',
+      description: 'Desenvolvimento front-end para plataforma de sócio-torcedor, com atuação em módulos financeiros sensíveis, tratamento de picos de tráfego e modernização gradual de código legado. Melhorias de UX, correções de responsividade e execução de testes funcionais integrados ao backend, garantindo confiabilidade operacional.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'git', label: 'Git' },
-        { slug: 'sass', label: 'Sass' },
-        { slug: 'bootstrap', label: 'Bootstrap' },
-        { slug: 'javascript', label: 'Javascript' },
+        { slug: 'gulp', label: 'Gulp' },
         { slug: 'webpack', label: 'Webpack' },
+        { slug: 'git', label: 'Git' },
+        { slug: 'jquery', label: 'jQuery' },
+        { slug: 'javascript', label: 'JavaScript' }
       ],
       metrics: [
-        { value: '+15%', label: 'no engajamento de usuários' },
-      ],
+        { value: '30% de redução', label: 'Falhas em produção (bugs)' },
+        { value: '12% de redução', label: 'Tickets de suporte' }
+      ]
     },
     {
-      company: 'Velani Contabilidade',
+      company: 'Velani Digital',
       period: 'Jun. 2019 – Set. 2019',
-      description: 'Criação de interfaces Front End para sistema financeiro, com foco na visualização de dados contábeis complexos (dashboards e relatórios). Responsável por integrações com APIs externas, resultando em uma redução de 25% no tempo de conclusão de tarefas pelos usuários.',
+      description: 'Atuação em plataforma financeira/contábil, com foco em estabilidade operacional e experiência do usuário. Redução significativa de travamentos em módulos com grande volume de dados, aprimoramento de dashboards analíticos e execução de testes funcionais para garantir integridade de operações críticas como emissão de notas e boletos.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'git', label: 'Git' },
-        { slug: 'sass', label: 'Sass' },
         { slug: 'bootstrap', label: 'Bootstrap' },
-        { slug: 'jquery', label: 'jQuery' },
-        { slug: 'javascript', label: 'Javascript' },
+        { slug: 'sass', label: 'Sass' },
+        { slug: 'chartdotjs', label: 'Chart.js' },
         { slug: 'webpack', label: 'Webpack' },
+        { slug: 'git', label: 'Git' },
+        { slug: 'jquery', label: 'jQuery' },
+        { slug: 'javascript', label: 'JavaScript' }
       ],
       metrics: [
-        { value: '-25%', label: 'no tempo de tarefas' },
-        { value: '+65%', label: 'no engajamento de usuários' },
-      ],
-    },
-  ],
+        { value: '40% de aumento', label: 'Eficiência de consulta de dados' },
+        { value: '19% de redução', label: 'Erros recorrentes' }
+      ]
+    }
+  ]
 }

@@ -31,18 +31,15 @@ export const ExperienceSection = () => {
   return (
     <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
-
         {/* 1. Title */}
-        <h2 className='text-3xl sm:text-4xl md:text-5xl mb-4 text-left leading-tight'>
+        <p className='mb-4 text-pretty font-medium md:-tracking-3 md:text-5xl -tracking-2 text-4xl'>
           {experienceData.title}
-        </h2>
-
-        {/* 2. Description */}
-        <p className='text-base sm:text-lg md:text-xl mb-12 text-left max-w-4xl'>
-          {experienceData.description}
         </p>
-
-        <div className='grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 lg:grid-cols-3 items-center'>
+        {/* 2. Description */}
+        <span className='text-muted-foreground mb-16 block text-base lg:text-lg lg:max-w-2xl'>
+          {experienceData.description}
+        </span>
+        <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-center'>
           {/* 3. Carousel */}
           <div className='md:col-span-2'>
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[plugin.current]}>
@@ -61,7 +58,7 @@ export const ExperienceSection = () => {
                       </CardHeader>
                       {/* Description: Sizing, Padding, Typography */}
                       <CardContent className='px-6'>
-                        <p className='text-sm sm:text-base md:text-lg'>{item.description}</p>
+                        <p className='text-base lg:text-lg'>{item.description}</p>
                       </CardContent>
                       {/* Stacks/Tags: Layout, Spacing, Positioning */}
                       <CardFooter className='mt-auto flex -space-x-4 rtl:space-x-reverse'>
@@ -88,12 +85,9 @@ export const ExperienceSection = () => {
           <div className='md:col-span-2 lg:col-span-1'>
             <div className="flex flex-col w-full gap-6 sm:flex-row lg:flex-col lg:sticky lg:top-8">
               {currentExperience?.metrics?.map((metric, index) => (
-                <div key={index} className="flex flex-1 items-center gap-4">
-                  <div className="h-10 w-0.5 rounded-3xl bg-secondary shrink-0" />
-                  <div className="flex flex-col">
-                    <span className="text-xl font-semibold">{metric.value}</span>
-                    <span className='text-base md:text-lg'>{metric.label}</span>
-                  </div>
+                <div key={index} className="flex flex-1 flex-col gap-1 border-l-2 pl-6">
+                  <span className="text-pretty text-lg font-semibold">{metric.value}</span>
+                  <span className='text-muted-foreground font-medium'>{metric.label}</span>
                 </div>
               ))}
             </div>

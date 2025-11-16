@@ -7,13 +7,11 @@ export const ExpertiseSection = () => (
     <div className='container mx-auto px-6'>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
         {expertiseData.map((item, idx) => (
-          <div key={idx} className={cn('relative flex flex-col gap-6 p-4 rounded-xl border', item.className)}>
+          <div key={idx} className={cn('relative flex flex-col p-4 rounded-xl border', item.className)}>
             <GlowingEffect blur={0} borderWidth={2} spread={80} glow={true} disabled={false} proximity={60} inactiveZone={0.01} />
             {item.header}
-            <div className='flex flex-col gap-1'>
-              <h3 className='text-lg md:text-xl font-medium'>{item.title}</h3>
-              <p className='text-base md:text-lg text-muted-foreground'>{item.description}</p>
-            </div>
+            <h3 className='mt-6 text-lg md:text-xl font-medium'>{item.title}</h3>
+            <p className='mt-2 text-base md:text-lg text-muted-foreground'>{item.description}</p>
           </div>
         ))}
       </div>
