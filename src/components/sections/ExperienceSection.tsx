@@ -33,7 +33,7 @@ export const ExperienceSection = () => {
       <div className='container mx-auto xl:max-w-7xl px-6'>
 
         {/* 1. Title */}
-        <h2 className='text-3xl sm:text-4xl md:text-5xl mb-4 text-left text-balance leading-tight'>
+        <h2 className='text-3xl sm:text-4xl md:text-5xl mb-4 text-left leading-tight'>
           {experienceData.title}
         </h2>
 
@@ -61,7 +61,7 @@ export const ExperienceSection = () => {
                       </CardHeader>
                       {/* Description: Sizing, Padding, Typography */}
                       <CardContent className='px-6'>
-                        <p className='text-base sm:text-lg'>{item.description}</p>
+                        <p className='text-sm sm:text-base md:text-lg'>{item.description}</p>
                       </CardContent>
                       {/* Stacks/Tags: Layout, Spacing, Positioning */}
                       <CardFooter className='mt-auto flex -space-x-4 rtl:space-x-reverse'>
