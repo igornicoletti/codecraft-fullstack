@@ -23,7 +23,7 @@ export const HeroSection = () => (
       </h1>
 
       {/* 3. Description */}
-      <p className='text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto'>
+      <p className='text-base sm:text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto'>
         {heroData.description}
       </p>
 
