@@ -65,7 +65,7 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => (
 )
 
 const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick} variant='link' className='p-0 hover:no-underline'>
+  <Button onClick={onClick} variant='ghost' className='p-0 hover:bg-transparent dark:hover:bg-transparent'>
     <Avatar>
       <AvatarImage src='https://github.com/igornicoletti.png' alt='@igornicoletti' />
       <AvatarFallback>IN</AvatarFallback>

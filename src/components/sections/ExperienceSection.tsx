@@ -13,7 +13,7 @@ export const ExperienceSection = () => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
-  const plugin = useRef(Autoplay({ delay: 11000 }))
+  const plugin = useRef(Autoplay({ delay: 10000 }))
 
   useEffect(() => {
     if (!api) return
@@ -36,9 +36,10 @@ export const ExperienceSection = () => {
           {experienceData.title}
         </p>
         {/* 2. Description */}
-        <span className='text-muted-foreground mb-16 block text-base lg:text-lg lg:max-w-2xl'>
+        <span className='text-muted-foreground mb-16 block text-base lg:text-xl lg:max-w-4xl'>
           {experienceData.description}
         </span>
+
         <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-center'>
           {/* 3. Carousel */}
           <div className='md:col-span-2'>
@@ -73,7 +74,8 @@ export const ExperienceSection = () => {
                           </Tooltip>
                         ))}
                       </CardFooter>
-                      <BorderBeam duration={11} size={220} className='from-violet-500 via-purple-500 to-transparent' />
+                      <BorderBeam size={400} duration={20} delay={10} className='from-transparent via-accent to-transparent' />
+                      <BorderBeam size={400} duration={20} className='from-transparent via-accent to-transparent' />
                     </Card>
                   </CarouselItem>
                 ))}

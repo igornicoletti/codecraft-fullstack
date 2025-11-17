@@ -9,31 +9,27 @@ export const HeroSection = () => (
   <section id='hero' className='relative overflow-hidden py-16 md:py-32'>
     <div className='container mx-auto px-6'>
 
-      {/* 1. Badge */}
-      <AnimatedShinyText className='text-base md:text-lg mb-4 text-muted-foreground'>
+      <AnimatedShinyText className='mb-8 md:text-lg text-base text-center text-muted-foreground'>
         <span>{heroData.profile.name}</span>
-        <LightningIcon weight='bold' className='text-ring' />
+        <LightningIcon className='text-accent-foreground' />
         <span>{heroData.profile.role}</span>
       </AnimatedShinyText>
 
-      {/* 2. Title */}
-      <h1 className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 text-center leading-tight'>
+      <h1 className='mb-8 xl:text-7xl lg:text-6xl md:text-5xl text-4xl text-center text-pretty'>
         {heroData.heading.prefix} <br className='sm:hidden' />
-        <FlipWords words={heroData.heading.flipWords} className='text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl' />
+        <FlipWords words={heroData.heading.flipWords} className='xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl text-5xl' />
       </h1>
-
-      {/* 3. Description */}
-      <p className='text-base sm:text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto'>
+      <h2 className='mb-12 mx-auto max-w-4xl lg:text-xl md:text-lg text-base text-center text-muted-foreground'>
         {heroData.description}
-      </p>
+      </h2>
 
-      {/* 4. Action Buttons */}
-      <div className='flex flex-wrap justify-center gap-4 mb-12'>
-        <RainbowButton variant='default' size='lg' className='w-full sm:w-2xs uppercase'>
+      <div className='mb-12 flex flex-wrap justify-center gap-6'>
+        <RainbowButton variant='default' size='lg' className='w-full sm:w-xs uppercase'>
           {heroData.actions.primary.label}
           <CaretRightIcon />
         </RainbowButton>
-        <RainbowButton asChild variant='outline' size='lg' className='w-full sm:w-2xs uppercase'>
+
+        <RainbowButton asChild variant='outline' size='lg' className='w-full sm:w-xs uppercase'>
           <a href={heroData.actions.secondary.href} target='_blank' rel='noopener noreferrer'>
             {heroData.actions.secondary.label}
             <CaretRightIcon />
@@ -41,12 +37,11 @@ export const HeroSection = () => (
         </RainbowButton>
       </div>
 
-      {/* 5. Icons */}
       <div className='flex flex-wrap items-center justify-center gap-2 sm:gap-6'>
         {heroData.stacks.map(({ icon: Icon, label }) => (
           <Tooltip key={label}>
             <TooltipTrigger>
-              <Icon stroke={1} className='size-8 sm:size-10 text-muted-foreground hover:text-ring transition-colors' />
+              <Icon stroke={0.8} className='size-8 sm:size-10 hover:text-ring transition-colors' />
             </TooltipTrigger>
             <TooltipContent>{label}</TooltipContent>
           </Tooltip>

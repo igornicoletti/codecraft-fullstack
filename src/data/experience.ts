@@ -23,7 +23,7 @@ export const experienceData: ExperienceData = {
     {
       company: 'Hublab',
       period: 'Out. 2019 – Fev. 2023',
-      description: 'Liderança e arquitetura Front-end na concepção e implementação de um sistema de gerenciamento de mensagens em larga escala. Atuação centrada em segurança arquitetural, integrações com IA Generativa e modernização integral do stack para React/TypeScript, consolidando altos padrões de qualidade, desempenho e confiabilidade.',
+      description: 'Liderança e arquitetura Front-end na concepção e implementação de um sistema de gerenciamento de mensagens em larga escala integradas com IA Generativa. Modernização integral do stack para React/TypeScript centrada em segurança arquitetural, consolidando altos padrões de qualidade, desempenho e confiabilidade.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
