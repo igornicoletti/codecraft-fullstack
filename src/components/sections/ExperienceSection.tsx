@@ -53,7 +53,7 @@ export const ExperienceSection = () => {
                         </CardDescription>
                       </CardHeader>
                       <CardContent className='px-6'>
-                        <p className='text-base md:text-lg'>{item.description}</p>
+                        <p className='text-sm md:text-lg'>{item.description}</p>
                       </CardContent>
                       <CardFooter className='mt-auto flex -space-x-4 rtl:space-x-reverse'>
                         {item.stacks.map(({ slug, label }) => (
