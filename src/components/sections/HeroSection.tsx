@@ -20,7 +20,7 @@ export const HeroSection = () => (
         <FlipWords words={heroData.heading.flipWords} className='font-medium text-5xl sm:text-4xl md:text-5xl lg:text-6xl' />
       </h1>
       {/* 3. Description */}
-      <h2 className='mb-12 mx-auto max-w-4xl text-center text-balance text-base md:text-lg lg:text-xl'>{heroData.description}</h2>
+      <h2 className='mb-12 mx-auto max-w-4xl text-center text-pretty text-base md:text-lg lg:text-xl'>{heroData.description}</h2>
       {/* 4. Actions */}
       <div className='mb-12 flex flex-wrap justify-center gap-6'>
         <RainbowButton variant='default' size='lg' className='w-full uppercase sm:w-2xs'>
