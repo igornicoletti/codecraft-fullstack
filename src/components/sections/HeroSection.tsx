@@ -9,7 +9,7 @@ export const HeroSection = () => (
   <section id='hero' className='relative overflow-hidden py-16 md:py-32'>
     <div className='container mx-auto px-6'>
       {/* 1. Badge */}
-      <AnimatedShinyText className='mb-6 text-center text-base text-muted-foreground md:text-lg'>
+      <AnimatedShinyText className='mb-6 text-center text-muted-foregroundmd text-sm md:text-base'>
         <span>{heroData.profile.name}</span>
         <LightningIcon className='text-indigo-500' />
         <span>{heroData.profile.role}</span>
