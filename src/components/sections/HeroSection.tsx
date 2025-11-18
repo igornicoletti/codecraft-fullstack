@@ -22,7 +22,7 @@ export const HeroSection = () => (
       {/* 3. Description */}
       <h2 className='mb-12 mx-auto max-w-3xl text-center text-base md:text-lg lg:text-xl'>{heroData.description}</h2>
       {/* 4. Actions */}
-      <div className='mb-12 flex flex-wrap justify-center gap-4 sm:gap-6'>
+      <div className='mb-12 flex flex-wrap justify-center gap-4'>
         <RainbowButton variant='default' size='lg' className='w-full uppercase sm:w-2xs'>
           {heroData.actions.primary.label}
           <CaretRightIcon />
