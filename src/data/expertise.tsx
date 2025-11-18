@@ -65,7 +65,7 @@ const SkeletonThree = () => {
       variants={variants}
       transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
       className='flex flex-col w-full h-full min-h-48 gap-2 rounded-lg'
-      style={{ background: 'linear-gradient(-45deg, #8e51ff, #ad46ff, #ad46ff, #8e51ff)', backgroundSize: '400% 400%' }}>
+      style={{ background: 'linear-gradient(-45deg, #DEDEDF, #4E4E4E, #4E4E4E, #DEDEDF)', backgroundSize: '400% 400%' }}>
       <motion.div className='w-full h-full rounded-2xl' />
     </motion.div>
   )

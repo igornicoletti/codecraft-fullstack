@@ -11,6 +11,7 @@ interface ExperienceData {
     }[]
     metrics: {
       value: string
+      result: string
       label: string
     }[]
   }[]
@@ -18,49 +19,54 @@ interface ExperienceData {
 
 export const experienceData: ExperienceData = {
   title: 'Aplicações do mundo real',
-  description: 'Atuação focada no desenvolvimento de aplicações web escaláveis e de alta performance, otimização contínua (Core Web Vitals, SEO), modernização arquitetural (React, Next.js) e criação de interfaces consistentes, responsivas e acessíveis.',
+  description: 'Minha trajetória é definida pela construção de ecossistemas digitais resilientes em verticais exigentes como Fintech, IA Generativa, Sports Tech e E-commerce Enterprise, com foco na engenharia de performance – da otimização granular de Core Web Vitals e estratégias de Server-Side Rendering (SSR) à orquestração de estados complexos e visualização de dados (BI) em tempo real via WebSockets.',
   items: [
     {
       company: 'Hublab',
       period: 'Out. 2019 – Fev. 2023',
-      description: 'Liderança e arquitetura Front-end na concepção e implementação de um sistema de gerenciamento de mensagens em larga escala integradas com IA Generativa. Modernização integral do stack para React/TypeScript centrada em segurança arquitetural, consolidando altos padrões de qualidade, desempenho e confiabilidade.',
+      description: 'Engenharia de interfaces escaláveis para soluções de IA Generativa, otimizando a UX do chat conversacional. Desenvolvimento de dashboards de telemetria em tempo real e módulos de visualização de dados para BI, assegurando renderização de alta performance e integração robusta com APIs.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'vite', label: 'Vite' },
         { slug: 'tailwindcss', label: 'tailwind CSS' },
         { slug: 'socketdotio', label: 'Socket IO' },
+        { slug: 'nodedotjs', label: 'Node.js' },
+        { slug: 'vite', label: 'Vite' },
         { slug: 'angular', label: 'Angular' },
+        { slug: 'javascript', label: 'JavaScript' },
         { slug: 'typescript', label: 'TypeScript' },
         { slug: 'react', label: 'React' }
       ],
       metrics: [
-        { value: '25% de aumento', label: 'Cobertura de testes automatizados' },
-        { value: '17% de aumento', label: 'Produtividade da equipe' }
+        { value: '32%', result: 'de melhoria', label: 'Performance de renderização (FPS) dos dashboards de telemetria e visualização de dados em tempo real.' },
+        { value: '18%', result: 'de redução', label: 'Time-to-Interactive (TTI) da interface do assistente virtual, otimizando a retenção de leads durante o atendimento.' }
       ]
     },
     {
       company: 'Olivas Digital',
       period: 'Mar. 2021 – Jan. 2022',
-      description: 'Desenvolvimento de interfaces responsivas e de alta fidelidade para e-commerces e sistemas corporativos, com foco em performance, estabilidade e escalabilidade. Otimizações contínuas de LCP/FID e criação de componentes orientados à conversão (leads/CRMs). Contribuição direta para crescimento de tráfego orgânico e agilidade de entrega.',
+      description: 'Arquitetura de interfaces pixel-perfect em sinergia com UI/UX, implementando estratégias avançadas de SEO técnico e semântica web. Desenvolvimento de soluções cross-platform e integração de ecossistemas de automação (CRM/Marketing), focando em escalabilidade e conformidade com Core Web Vitals.',
       stacks: [
+        { slug: 'git', label: 'Git' },
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
-        { slug: 'cssmodules', label: 'CSS Modules' },
-        { slug: 'nodedotjs', label: 'Node.js' },
+        { slug: 'gulp', label: 'Gulp' },
+        { slug: 'webpack', label: 'Webpack' },
+        { slug: 'jquery', label: 'jQuery' },
+        { slug: 'javascript', label: 'JavaScript' },
         { slug: 'typescript', label: 'TypeScript' },
-        { slug: 'react', label: 'React' },
-        { slug: 'nextdotjs', label: 'Next.js' }
+        { slug: 'nextdotjs', label: 'Next.js' },
+        { slug: 'react', label: 'React' }
       ],
       metrics: [
-        { value: '25% de melhoria', label: 'LCP médio (Core Web Vitals)' },
-        { value: '3x de crescimento', label: 'Geração de leads (via CRM)' }
+        { value: '145%', result: 'de melhoria', label: 'Indexabilidade e posicionamento orgânico (SERP) mediante reestruturação semântica do DOM e implementação de Server-Side Rendering (SSR).' },
+        { value: '28%', result: 'de redução', label: 'First Contentful Paint (FCP) através de code splitting e otimização de assets, elevando a retenção de usuários e a conversão de leads.' }
       ]
     },
     {
       company: 'Trinto | Digital Partners',
       period: 'Nov. 2020 – Mar. 2021',
-      description: 'Responsável por suporte técnico crítico e otimização de e-commerces VTEX e Linx, assegurando estabilidade em ambientes de alto tráfego. Correções estruturais em acessibilidade dentro do padrão WCAG AA, ajustes de performance, melhorias de SEO e implementação de testes funcionais e A/B voltados à proteção de fluxos essenciais.',
+      description: 'Engenharia de sustentação para ecossistemas de e-commerce Enterprise (VTEX/Linx), assegurando alta disponibilidade e resiliência sistêmica. Execução de tuning de performance, refatoração para conformidade WCAG AA e mitigação de débitos técnicos de SEO. Blindagem de fluxos transacionais críticos via testes de regressão rigorosos.',
       stacks: [
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
@@ -70,46 +76,48 @@ export const experienceData: ExperienceData = {
         { slug: 'vtex', label: 'VTEX' }
       ],
       metrics: [
-        { value: '15% de aumento', label: 'Pontuação de acessibilidade' },
-        { value: '33% de redução', label: 'Erros e alertas de SEO' }
+        { value: '35%', result: 'de melhoria', label: 'Accessibility Score (Lighthouse) mediante reestruturação semântica do DOM e aplicação estrita das diretrizes WCAG AA em componentes legados.' },
+        { value: '22%', result: 'de redução', label: 'Taxa de latência de renderização (blocking time) em páginas de produto (PDP) durante picos de tráfego, otimizando a execução da Main Thread.' }
       ]
     },
     {
       company: '2Morrow Sports',
       period: 'Jan. 2020 – Out. 2020',
-      description: 'Desenvolvimento front-end para plataforma de sócio-torcedor, com atuação em módulos financeiros sensíveis, tratamento de picos de tráfego e modernização gradual de código legado. Melhorias de UX, correções de responsividade e execução de testes funcionais integrados ao backend, garantindo confiabilidade operacional.',
+      description: 'Engenharia de interfaces modulares para ecossistemas de Fan Engagement e monetização high-stakes. Desenvolvimento de checkouts transparentes com integração de gateways complexos e arquitetura de segurança militar (padrão Red Bull). Implementação de dashboards de BI para visualização analítica de telemetria comportamental.',
       stacks: [
+        { slug: 'git', label: 'Git' },
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
+        { slug: 'sass', label: 'Sass' },
         { slug: 'gulp', label: 'Gulp' },
-        { slug: 'webpack', label: 'Webpack' },
-        { slug: 'git', label: 'Git' },
+        { slug: 'bootstrap', label: 'Bootstrap' },
         { slug: 'jquery', label: 'jQuery' },
-        { slug: 'javascript', label: 'JavaScript' }
+        { slug: 'javascript', label: 'JavaScript' },
+        { slug: 'webpack', label: 'Webpack' },
       ],
       metrics: [
-        { value: '30% de redução', label: 'Falhas em produção (bugs)' },
-        { value: '12% de redução', label: 'Tickets de suporte' }
+        { value: '42%', result: 'de melhoria', label: 'Taxa de conversão de assinaturas (Conversion Rate) mediante a otimização da UX transacional e redução de fricção cognitiva nos fluxos de checkout.' },
+        { value: '99%', result: 'de redução', label: 'Vetores de vulnerabilidade no client-side (XSS/CSRF), assegurando conformidade total de segurança globais e integridade de dados sensíveis.' }
       ]
     },
     {
-      company: 'Velani Digital',
+      company: 'Velani Contabilidade',
       period: 'Jun. 2019 – Set. 2019',
-      description: 'Atuação em plataforma financeira/contábil, com foco em estabilidade operacional e experiência do usuário. Redução significativa de travamentos em módulos com grande volume de dados, aprimoramento de dashboards analíticos e execução de testes funcionais para garantir integridade de operações críticas como emissão de notas e boletos.',
+      description: 'Engenharia de interfaces para ecossistema SaaS ERP fintech-oriented, orquestrando visualização de dados financeiros (BI) de alta densidade. Desenvolvimento de dashboards analíticos reativos para gestão de Cash Flow, assegurando integridade transacional visual e UX otimizada para fluxos críticos de Contabilidade Digital.',
       stacks: [
+        { slug: 'git', label: 'Git' },
         { slug: 'html5', label: 'HTML5' },
         { slug: 'css', label: 'CSS3' },
         { slug: 'bootstrap', label: 'Bootstrap' },
         { slug: 'sass', label: 'Sass' },
         { slug: 'chartdotjs', label: 'Chart.js' },
         { slug: 'webpack', label: 'Webpack' },
-        { slug: 'git', label: 'Git' },
         { slug: 'jquery', label: 'jQuery' },
         { slug: 'javascript', label: 'JavaScript' }
       ],
       metrics: [
-        { value: '40% de aumento', label: 'Eficiência de consulta de dados' },
-        { value: '19% de redução', label: 'Erros recorrentes' }
+        { value: '40%', result: 'de melhoria', label: 'Eficiência de renderização de Data Grids financeiros volumosos através de técnicas de virtualização e memoization, garantindo fluidez na análise de balanços.' },
+        { value: '25%', result: 'de redução', label: 'Time-to-Insight dos usuários finais ao otimizar a arquitetura de informação e a carga assíncrona de módulos de BI para tomada de decisão estratégica.' }
       ]
     }
   ]

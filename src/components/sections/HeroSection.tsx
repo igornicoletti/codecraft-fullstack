@@ -37,7 +37,7 @@ export const HeroSection = () => (
         </RainbowButton>
       </div>
 
-      <div className='flex flex-wrap items-center justify-center gap-2 sm:gap-6'>
+      <div className='flex flex-wrap items-center justify-center gap-2 sm:gap-4'>
         {heroData.stacks.map(({ icon: Icon, label }) => (
           <Tooltip key={label}>
             <TooltipTrigger>
