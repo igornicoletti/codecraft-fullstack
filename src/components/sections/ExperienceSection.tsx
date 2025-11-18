@@ -33,11 +33,11 @@ export const ExperienceSection = () => {
     <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
       <div className='container mx-auto px-6 xl:max-w-7xl'>
         {/* 1. Title */}
-        <h3 className='mb-6 font-medium text-pretty text-2xl md:text-4xl'>{experienceData.title}</h3>
+        <h3 className='mb-4 font-medium text-pretty text-2xl md:text-4xl'>{experienceData.title}</h3>
         {/* 2. Description */}
         <p className='mb-12 text-balance text-base md:text-lg'>{experienceData.description}</p>
         {/* 3. Carousel Navigation */}
-        <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
+        <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-3'>
           {/* Carousel */}
           <div className='col-span-1 lg:col-span-2'>
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[plugin.current]}>
@@ -76,7 +76,7 @@ export const ExperienceSection = () => {
           </div>
           {/* Metrics */}
           <div className='col-span-1'>
-            <div className='flex w-full flex-col gap-4 md:flex-row lg:flex-col'>
+            <div className='flex w-full flex-col gap-6 md:flex-row lg:flex-col'>
               {currentExperience?.metrics?.map((metric, idx) => (
                 <div key={idx} className='flex flex-1 flex-col gap-1 border-l pl-4'>
                   <div className='flex items-baseline gap-1'>
@@ -92,7 +92,7 @@ export const ExperienceSection = () => {
           </div>
           {/* Dots */}
           <div className='col-span-1 lg:col-span-2'>
-            <div className='mx-auto flex w-full max-w-sm gap-2'>
+            <div className='flex gap-2 sm:gap-4'>
               {Array.from({ length: count }).map((_, idx) => (
                 <Button key={idx} variant='ghost' onClick={() => api?.scrollTo(idx)} className='flex-1 h-0 px-0 hover:bg-transparent dark:hover:bg-transparent'>
                   <div className={cn('h-1 w-full rounded bg-secondary transition-colors duration-300', { 'bg-indigo-500': current === idx + 1 })} />

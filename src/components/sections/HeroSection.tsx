@@ -9,20 +9,20 @@ export const HeroSection = () => (
   <section id='hero' className='relative overflow-hidden py-16 md:py-32'>
     <div className='container mx-auto px-6'>
       {/* 1. Badge */}
-      <AnimatedShinyText className='mb-6 text-center text-muted-foregroundmd text-sm md:text-base'>
+      <AnimatedShinyText className='mb-4 text-center text-muted-foregroundmd text-base md:text-lg'>
         <span>{heroData.profile.name}</span>
         <LightningIcon className='text-indigo-500' />
         <span>{heroData.profile.role}</span>
       </AnimatedShinyText>
       {/* 2. Title */}
-      <h1 className='mb-6 font-medium text-center text-pretty text-4xl md:text-5xl lg:text-6xl'>
+      <h1 className='mb-4 font-medium text-center text-pretty text-4xl md:text-5xl lg:text-6xl'>
         {heroData.heading.prefix} <br className='sm:hidden' />
         <FlipWords words={heroData.heading.flipWords} className='font-medium text-5xl sm:text-4xl md:text-5xl lg:text-6xl' />
       </h1>
       {/* 3. Description */}
-      <h2 className='mb-12 mx-auto max-w-4xl text-center text-pretty text-base md:text-lg lg:text-xl'>{heroData.description}</h2>
+      <h2 className='mb-12 mx-auto max-w-3xl text-center text-base md:text-lg lg:text-xl'>{heroData.description}</h2>
       {/* 4. Actions */}
-      <div className='mb-12 flex flex-wrap justify-center gap-6'>
+      <div className='mb-12 flex flex-wrap justify-center gap-4 sm:gap-6'>
         <RainbowButton variant='default' size='lg' className='w-full uppercase sm:w-2xs'>
           {heroData.actions.primary.label}
           <CaretRightIcon />
