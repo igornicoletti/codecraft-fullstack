@@ -38,7 +38,7 @@ export const experienceData: ExperienceData = {
         { slug: 'react', label: 'React' }
       ],
       metrics: [
-        { value: '32%', result: 'de melhoria', label: 'Performance de renderização (FPS) dos dashboards de telemetria e visualização de dados em tempo real.' },
+        { value: '32%', result: 'de melhoria', label: 'Performance de renderização (FPS) dos dashboards de telemetria e visualização de dados em tempo real via WebSockets.' },
         { value: '18%', result: 'de redução', label: 'Time-to-Interactive (TTI) da interface do assistente virtual, otimizando a retenção de leads durante o atendimento.' }
       ]
     },
@@ -116,7 +116,7 @@ export const experienceData: ExperienceData = {
         { slug: 'javascript', label: 'JavaScript' }
       ],
       metrics: [
-        { value: '40%', result: 'de melhoria', label: 'Eficiência de renderização de Data Grids financeiros volumosos através de técnicas de virtualização e memoization, garantindo fluidez na análise de balanços.' },
+        { value: '40%', result: 'de melhoria', label: 'Eficiência de renderização de Data Grids financeiros volumosos através de técnicas de virtualização e memoization.' },
         { value: '25%', result: 'de redução', label: 'Time-to-Insight dos usuários finais ao otimizar a arquitetura de informação e a carga assíncrona de módulos de BI para tomada de decisão estratégica.' }
       ]
     }

@@ -35,7 +35,7 @@ export const ExperienceSection = () => {
         {/* 1. Title */}
         <h3 className='mb-4 text-2xl text-pretty font-medium md:text-4xl'>{experienceData.title}</h3>
         {/* 2. Description */}
-        <p className='mb-12 text-base text-balance text-muted-foreground md:text-lg'>{experienceData.description}</p>
+        <p className='mb-12 text-base text-balance font-light md:text-lg'>{experienceData.description}</p>
         {/* 3. Carousel Navigation */}
         <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
           {/* Carousel */}
@@ -53,7 +53,7 @@ export const ExperienceSection = () => {
                         </CardDescription>
                       </CardHeader>
                       <CardContent className='px-6'>
-                        <p className='text-sm md:text-lg'>{item.description}</p>
+                        <p className='text-base text-balance text-muted-foreground md:text-lg'>{item.description}</p>
                       </CardContent>
                       <CardFooter className='mt-auto flex -space-x-4 rtl:space-x-reverse'>
                         {item.stacks.map(({ slug, label }) => (
@@ -85,7 +85,7 @@ export const ExperienceSection = () => {
                     </BlurFade>
                     <span className='font-medium'>{metric.result}</span>
                   </div>
-                  <span className='text-sm text-muted-foreground md:text-base'>{metric.label}</span>
+                  <span className='text-sm text-balance text-muted-foreground md:text-base'>{metric.label}</span>
                 </div>
               ))}
             </div>
