@@ -11,7 +11,7 @@ export const HeroSection = () => (
       {/* 1. Badge */}
       <AnimatedShinyText className='mb-6 text-center text-base text-muted-foreground md:text-lg'>
         <span>{heroData.profile.name}</span>
-        <LightningIcon className='text-accent-foreground' />
+        <LightningIcon className='text-indigo-500' />
         <span>{heroData.profile.role}</span>
       </AnimatedShinyText>
       {/* 2. Title */}
@@ -23,11 +23,11 @@ export const HeroSection = () => (
       <h2 className='mb-12 mx-auto max-w-4xl text-center text-balance text-base md:text-lg lg:text-xl'>{heroData.description}</h2>
       {/* 4. Actions */}
       <div className='mb-12 flex flex-wrap justify-center gap-6'>
-        <RainbowButton variant='default' size='lg' className='w-full uppercase sm:w-xs'>
+        <RainbowButton variant='default' size='lg' className='w-full uppercase sm:w-2xs'>
           {heroData.actions.primary.label}
           <CaretRightIcon />
         </RainbowButton>
-        <RainbowButton asChild variant='outline' size='lg' className='w-full uppercase sm:w-xs'>
+        <RainbowButton asChild variant='outline' size='lg' className='w-full uppercase sm:w-2xs'>
           <a href={heroData.actions.secondary.href} target='_blank' rel='noopener noreferrer'>
             {heroData.actions.secondary.label}
             <CaretRightIcon />
@@ -39,7 +39,7 @@ export const HeroSection = () => (
         {heroData.stacks.map(({ icon: Icon, label }) => (
           <Tooltip key={label}>
             <TooltipTrigger>
-              <Icon stroke={0.5} className='size-8 transition-colors hover:text-indigo-500 sm:size-10' />
+              <Icon stroke={0.8} className='size-8 transition-colors hover:text-indigo-500 sm:size-10' />
             </TooltipTrigger>
             <TooltipContent>{label}</TooltipContent>
           </Tooltip>

@@ -32,8 +32,8 @@ export const heroData: HeroData = {
     role: 'Desenvolvedor Front-End'
   },
   heading: {
-    prefix: 'Experiências web ',
-    flipWords: ['modernas', 'eficientes', 'escaláveis']
+    prefix: 'Experiências Web ',
+    flipWords: ['Modernas', 'Eficientes', 'Escaláveis']
   },
   description: 'Engenheiro de software front-end com sólida atuação em arquitetura de interfaces e ecossistemas web, capaz de projetar e entregar soluções altamente complexas, com ênfase em performance, segurança e escalabilidade.',
   actions: {
