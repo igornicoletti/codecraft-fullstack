@@ -33,9 +33,9 @@ export const ExperienceSection = () => {
     <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
       <div className='container mx-auto px-6 xl:max-w-7xl'>
         {/* 1. Title */}
-        <h3 className='mb-4 text-2xl text-pretty font-medium md:text-4xl'>{experienceData.title}</h3>
+        <h3 className='mb-6 font-medium text-pretty text-2xl md:text-4xl'>{experienceData.title}</h3>
         {/* 2. Description */}
-        <p className='mb-12 text-base text-balance font-light md:text-lg'>{experienceData.description}</p>
+        <p className='mb-12 text-balance text-base md:text-lg'>{experienceData.description}</p>
         {/* 3. Carousel Navigation */}
         <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
           {/* Carousel */}
@@ -53,7 +53,7 @@ export const ExperienceSection = () => {
                         </CardDescription>
                       </CardHeader>
                       <CardContent className='px-6'>
-                        <p className='text-base text-balance text-muted-foreground md:text-lg'>{item.description}</p>
+                        <p className='text-muted-foreground text-balance text-base md:text-lg'>{item.description}</p>
                       </CardContent>
                       <CardFooter className='mt-auto flex -space-x-4 rtl:space-x-reverse'>
                         {item.stacks.map(({ slug, label }) => (
@@ -81,11 +81,11 @@ export const ExperienceSection = () => {
                 <div key={idx} className='flex flex-1 flex-col gap-1 border-l pl-4'>
                   <div className='flex items-baseline gap-1'>
                     <BlurFade key={metric.value} delay={0.25 * idx} blur='0px'>
-                      <span className='text-base font-medium md:text-lg'>{metric.value}</span>
+                      <span className='font-medium text-base md:text-lg'>{metric.value}</span>
                     </BlurFade>
                     <span className='font-medium'>{metric.result}</span>
                   </div>
-                  <span className='text-sm text-balance text-muted-foreground md:text-base'>{metric.label}</span>
+                  <span className='text-muted-foreground text-balance text-sm md:text-base'>{metric.label}</span>
                 </div>
               ))}
             </div>
