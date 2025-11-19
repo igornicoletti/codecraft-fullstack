@@ -111,9 +111,9 @@ export const experienceData: ExperienceData = {
         { slug: 'bootstrap', label: 'Bootstrap' },
         { slug: 'sass', label: 'Sass' },
         { slug: 'chartdotjs', label: 'Chart.js' },
-        { slug: 'webpack', label: 'Webpack' },
         { slug: 'jquery', label: 'jQuery' },
-        { slug: 'javascript', label: 'JavaScript' }
+        { slug: 'javascript', label: 'JavaScript' },
+        { slug: 'webpack', label: 'Webpack' },
       ],
       metrics: [
         { value: '40%', result: 'de melhoria', label: 'Eficiência de renderização de Data Grids financeiros volumosos através de técnicas de virtualização e memoization.' },
