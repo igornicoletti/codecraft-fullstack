@@ -76,7 +76,7 @@ export const ExperienceSection = () => {
           </div>
           {/* Metrics */}
           <div className='col-span-1'>
-            <div className='flex w-full flex-col gap-6 md:flex-row lg:flex-col'>
+            <div className='flex w-full flex-col gap-6 sm:flex-row lg:flex-col'>
               {currentExperience?.metrics?.map((metric, idx) => (
                 <div key={idx} className='flex flex-1 flex-col gap-1 border-l pl-4'>
                   <div className='flex items-baseline gap-1'>
