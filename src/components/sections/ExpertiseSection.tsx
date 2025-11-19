@@ -8,7 +8,7 @@ export const ExpertiseSection = () => (
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
         {expertiseData.map((item, idx) => (
           <div key={idx} className={cn('relative flex flex-col p-4 rounded-xl border', item.className)}>
-            <GlowingEffect spread={80} glow={true} disabled={false} proximity={60} inactiveZone={0.01} />
+            <GlowingEffect variant='default' spread={80} glow={true} disabled={false} proximity={60} inactiveZone={0.01} />
             {item.header}
             <h3 className='mt-6 text-lg md:text-xl font-medium'>{item.title}</h3>
             <p className='mt-2 text-base md:text-lg text-muted-foreground'>{item.description}</p>

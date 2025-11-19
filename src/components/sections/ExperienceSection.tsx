@@ -32,11 +32,17 @@ export const ExperienceSection = () => {
 
   return (
     <section id='experience' className='relative overflow-hidden py-16 md:py-32'>
-      <div className='container mx-auto px-6 xl:max-w-7xl'>
-        {/* 1. Title */}
-        <h2 className='mb-6 font-medium text-pretty text-4xl md:text-5xl'>{experienceData.title}</h2>
-        {/* 2. Description */}
-        <p className='mb-12 text-muted-foreground text-base md:text-lg lg:max-w-4xl'>{experienceData.description}</p>
+      <div className='mx-auto container grid gap-12 px-6 xl:max-w-7xl'>
+
+        <div className="flex flex-col gap-6 text-left">
+          <h1 className='font-light text-5xl sm:text-4xl md:text-5xl'>
+            {experienceData.title}
+          </h1>
+          <p className='max-w-4xl text-muted-foreground text-base md:text-lg lg:text-xl'>
+            {experienceData.description}
+          </p>
+        </div>
+
         {/* 3. Carousel Navigation */}
         <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
           {/* Carousel */}
@@ -60,7 +66,7 @@ export const ExperienceSection = () => {
                         {item.stacks.map(({ slug, label }) => (
                           <Tooltip key={label}>
                             <TooltipTrigger>
-                              <Avatar className='p-2 ring-2 ring-card bg-border'>
+                              <Avatar className='p-2 ring-2 ring-card bg-secondary'>
                                 <AvatarImage src={`https://cdn.simpleicons.org/${slug}?viewbox=auto&size=16`} alt={`${label} icon`} />
                                 <AvatarFallback>{label?.[0]}</AvatarFallback>
                               </Avatar>
@@ -69,7 +75,7 @@ export const ExperienceSection = () => {
                           </Tooltip>
                         ))}
                       </CardFooter>
-                      <BorderBeam duration={15} size={300} className='from-accent via-accent-foreground to-accent' />
+                      <BorderBeam borderWidth={2} duration={10} size={250} className='from-accent via-primary to-accent' />
                     </Card>
                   </CarouselItem>
                 ))}
@@ -97,12 +103,13 @@ export const ExperienceSection = () => {
             <div className='mx-auto flex w-full max-w-sm gap-2'>
               {Array.from({ length: count }).map((_, idx) => (
                 <Button key={idx} variant='ghost' onClick={() => api?.scrollTo(idx)} className='flex-1 h-0 px-0 hover:bg-transparent dark:hover:bg-transparent'>
-                  <div className={cn('h-1 w-full rounded bg-border transition-colors duration-300', { 'bg-secondary': current === idx + 1 })} />
+                  <div className={cn('h-1 w-full rounded bg-border transition-colors duration-300', { 'bg-primary': current === idx + 1 })} />
                 </Button>
               ))}
             </div>
           </div>
         </div>
+
       </div>
     </section>
   )
