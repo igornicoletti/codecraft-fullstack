@@ -168,12 +168,8 @@
 
   --animate-shiny-text: shiny-text 8s infinite;
   @keyframes shiny-text {
-    0%, 90%, 100% {
-      background-position: calc(-100% - var(--shiny-width)) 0;
-    }
-    30%, 60% {
-      background-position: calc(100% + var(--shiny-width)) 0;
-    }
+    0%, 90%, 100% { background-position: calc(-100% - var(--shiny-width)) 0; }
+    30%, 60% { background-position: calc(100% + var(--shiny-width)) 0;}
   }
 
   --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
@@ -186,31 +182,6 @@
   @keyframes line-shadow {
     0% { background-position: 0 0; }
     100% { background-position: 100% -100%; }
-  }
-  @keyframes rainbow {
-  0% {
-    background-position: 0%;
-    }
-  100% {
-    background-position: 200%;
-    }
-  }
-  @keyframes rainbow {
-  0% {
-    background-position: 0%;
-    }
-  100% {
-    background-position: 200%;
-    }
-  }
-}
-
-@theme inline {
-  --animate-meteor-effect: meteor 5s linear infinite;
-  @keyframes meteor {
-    0%   { transform: rotate(215deg) translateX(0); opacity: 1; }
-    70%  { opacity: 1; }
-    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
   }
 }
 
@@ -231,7 +202,6 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Satoshi-Variable', sans-serif;
-    letter-spacing: var(--tracking-normal);
   }
 }
 

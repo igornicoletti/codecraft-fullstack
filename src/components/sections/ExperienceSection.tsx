@@ -16,7 +16,6 @@ export const ExperienceSection = () => {
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
-  // Plugin refatorado para evitar recriação desnecessária
   const plugin = useRef(Autoplay({ delay: 12000, stopOnInteraction: true }))
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export const ExperienceSection = () => {
     api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
   }, [api])
 
-  // Garante acesso seguro ao item atual (fallback para o primeiro item)
   const activeExperience = experienceData.items[current - 1] || experienceData.items[0]
 
   return (
@@ -37,16 +35,19 @@ export const ExperienceSection = () => {
 
         {/* Section Header */}
         <div className="flex flex-col gap-6 text-left">
-          <h2 className="text-5xl font-light sm:text-4xl md:text-5xl">
-            {experienceData.title}
+          <h2 className="tracking-tight font-medium text-3xl md:text-5xl md:leading-tight">
+            {/*  <h2 className="text-4xl leading-tight md:text-5xl"> */}
+            {experienceData.heading.prefix}
+            {experienceData.heading.flipWords}
           </h2>
-          <p className="max-w-4xl text-lg text-muted-foreground md:text-xl">
+          <p className="max-w-3xl text-base font-normal">
+            {/* <p className="max-w-4xl text-base md:text-lg"> */}
             {experienceData.description}
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
 
           {/* Carousel Column */}
           <div className="lg:col-span-2">
@@ -90,9 +91,26 @@ export const ExperienceSection = () => {
                 ))}
               </CarouselContent>
             </Carousel>
+          </div>
 
-            {/* Navigation Dots */}
-            <div className="mt-6 flex w-full max-w-sm gap-2 mx-auto">
+          {/* Metrics Column */}
+          <div className="flex flex-col gap-6 sm:flex-row lg:flex-col lg:gap-8">
+            {activeExperience?.metrics?.map((metric, idx) => (
+              <div key={`${activeExperience.company}-${idx}`} className="flex flex-1 flex-col gap-2 border-l-2 border-muted pl-4 transition-all hover:border-primary">
+                <div className="flex items-baseline gap-2">
+                  <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
+                    <span className="text-xl font-medium">{metric.value}</span>
+                  </BlurFade>
+                  <span className="text-xl font-medium">{metric.result}</span>
+                </div>
+                <span className="text-muted-foreground text-balance">{metric.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="lg:col-span-2">
+            <div className="flex w-full max-w-sm gap-2 mx-auto">
               {Array.from({ length: count }).map((_, idx) => (
                 <button
                   key={idx}
@@ -106,21 +124,6 @@ export const ExperienceSection = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* Metrics Column */}
-          <div className="flex flex-col gap-6 sm:flex-row lg:flex-col lg:gap-8">
-            {activeExperience?.metrics?.map((metric, idx) => (
-              <div key={`${activeExperience.company}-${idx}`} className="flex flex-1 flex-col gap-2 border-l-2 border-muted pl-4 transition-all hover:border-primary">
-                <div className="flex items-baseline gap-2">
-                  <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
-                    <span className="text-xl font-medium text-foreground">{metric.value}</span>
-                  </BlurFade>
-                  <span className="text-xl font-medium text-foreground">{metric.result}</span>
-                </div>
-                <span className="text-muted-foreground text-balance">{metric.label}</span>
-              </div>
-            ))}
           </div>
 
         </div>

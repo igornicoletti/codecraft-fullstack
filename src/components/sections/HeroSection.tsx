@@ -10,33 +10,31 @@ export const HeroSection = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden py-12 md:pt-36">
-      <div className="container mx-auto flex flex-col gap-12 px-6 text-center">
+      <div className="container mx-auto flex flex-col gap-12 px-6">
 
         {/* Header & Profile */}
-        <div className="flex flex-col gap-8">
-          <AnimatedShinyText className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground md:text-lg lg:text-xl">
+        <div className="flex flex-col gap-6 text-center">
+          <AnimatedShinyText className="text-sm text-muted-foreground md:text-lg">
             <span>{profile.name}</span>
             <LightningIcon weight="fill" className="text-primary" />
             <span>{profile.role}</span>
           </AnimatedShinyText>
-
-          <h1 className="text-4xl font-light leading-tight md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-4xl leading-tight md:text-5xl lg:text-6xl xl:text-7xl">
             {heading.prefix} <br className="sm:hidden" />
-            <FlipWords words={heading.flipWords} className="text-5xl font-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
+            <FlipWords words={heading.flipWords} className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
           </h1>
-
-          <p className="mx-auto max-w-5xl text-lg text-muted-foreground md:text-xl">
+          <p className="mx-auto max-w-4xl text-base md:text-lg">
             {description}
           </p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
-          <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs md:h-11'>
+          <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
             {actions.primary.label}
             <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
           </Button>
-          <Button asChild size='lg' variant='secondary' className='group w-full uppercase sm:max-w-3xs md:h-11'>
+          <Button asChild size='lg' variant='secondary' className='group w-full uppercase sm:max-w-3xs'>
             <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
               {actions.secondary.label}
               <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
@@ -49,7 +47,7 @@ export const HeroSection = () => {
           {stacks.map(({ icon: Icon, label }) => (
             <Tooltip key={label}>
               <TooltipTrigger asChild>
-                <Icon stroke={0.9} className="size-8 transition-colors hover:text-primary sm:size-10" />
+                <Icon stroke={1} className="size-8 transition-colors hover:text-primary" />
               </TooltipTrigger>
               <TooltipContent>{label}</TooltipContent>
             </Tooltip>
