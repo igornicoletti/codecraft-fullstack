@@ -32,11 +32,11 @@ export const HeroSection = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
-          <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-xs md:h-11'>
+          <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-2xs md:h-11'>
             {actions.primary.label}
             <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
           </Button>
-          <Button asChild size='lg' variant='secondary' className='group w-full uppercase sm:max-w-xs md:h-11'>
+          <Button asChild size='lg' variant='secondary' className='group w-full uppercase sm:max-w-2xs md:h-11'>
             <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
               {actions.secondary.label}
               <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
