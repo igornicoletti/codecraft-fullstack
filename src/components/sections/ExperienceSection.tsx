@@ -40,7 +40,7 @@ export const ExperienceSection = () => {
           <h2 className="text-5xl font-light sm:text-4xl md:text-5xl">
             {experienceData.title}
           </h2>
-          <p className="max-w-4xl text-base text-muted-foreground md:text-lg">
+          <p className="max-w-4xl text-lg text-muted-foreground md:text-xl">
             {experienceData.description}
           </p>
         </div>
