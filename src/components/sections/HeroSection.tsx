@@ -49,7 +49,7 @@ export const HeroSection = () => {
           {stacks.map(({ icon: Icon, label }) => (
             <Tooltip key={label}>
               <TooltipTrigger asChild>
-                <Icon stroke={0.9} className="size-9 transition-colors hover:text-primary sm:size-10" />
+                <Icon stroke={0.9} className="size-8 transition-colors hover:text-primary sm:size-10" />
               </TooltipTrigger>
               <TooltipContent>{label}</TooltipContent>
             </Tooltip>
