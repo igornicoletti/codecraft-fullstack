@@ -25,7 +25,7 @@ export const HeroSection = () => {
             <FlipWords words={heading.flipWords} className="text-5xl font-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
           </h1>
 
-          <p className="mx-auto max-w-5xl text-lg text-muted-foreground md:text-lg lg:text-xl">
+          <p className="mx-auto max-w-5xl text-lg text-muted-foreground lg:text-xl">
             {description}
           </p>
         </div>
