@@ -20,7 +20,7 @@ export const HeroSection = () => {
             <span>{profile.role}</span>
           </AnimatedShinyText>
 
-          <h1 className="text-5xl font-light leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-4xl font-light leading-tight md:text-5xl lg:text-6xl xl:text-7xl">
             {heading.prefix} <br className="sm:hidden" />
             <FlipWords words={heading.flipWords} className="text-5xl font-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
           </h1>
@@ -32,11 +32,11 @@ export const HeroSection = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
-          <Button size='xl' variant='default' className='group w-full uppercase sm:max-w-xs'>
+          <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-xs md:h-11'>
             {actions.primary.label}
             <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
           </Button>
-          <Button asChild size='xl' variant='secondary' className='group w-full uppercase sm:max-w-xs'>
+          <Button asChild size='lg' variant='secondary' className='group w-full uppercase sm:max-w-xs md:h-11'>
             <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
               {actions.secondary.label}
               <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
