@@ -20,7 +20,7 @@ export const HeroSection = () => {
             <span>{profile.role}</span>
           </AnimatedShinyText>
 
-          <h1 className="text-4xl font-light leading-tight md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-5xl font-light leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
             {heading.prefix} <br className="sm:hidden" />
             <FlipWords words={heading.flipWords} className="text-5xl font-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
           </h1>
