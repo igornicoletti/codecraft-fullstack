@@ -209,7 +209,7 @@ export const Navbar = () => {
     <NavbarRoot>
       <NavbarContent>
         <NavbarBrand onClick={brandClickHandler} />
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-2 sm:gap-4'>
           <NavbarMenuDesktop
             navigations={NAV_ITEMS}
             onLinkClick={handleLinkClick} />
