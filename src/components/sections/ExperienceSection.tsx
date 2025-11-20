@@ -84,7 +84,7 @@ export const ExperienceSection = () => {
                         ))}
                       </CardFooter>
 
-                      <BorderBeam borderWidth={1} duration={10} size={300} className="from-transparent via-primary/50 to-transparent" />
+                      <BorderBeam borderWidth={1} duration={10} size={250} className="from-border via-primary/50 to-border" />
                     </Card>
                   </CarouselItem>
                 ))}
@@ -92,7 +92,7 @@ export const ExperienceSection = () => {
             </Carousel>
 
             {/* Navigation Dots */}
-            <div className="mt-6 flex w-full max-w-sm gap-2 lg:mx-0 lg:max-w-xs">
+            <div className="mt-6 flex w-full max-w-sm gap-2 mx-auto">
               {Array.from({ length: count }).map((_, idx) => (
                 <button
                   key={idx}
@@ -113,7 +113,7 @@ export const ExperienceSection = () => {
             {activeExperience?.metrics?.map((metric, idx) => (
               <div key={`${activeExperience.company}-${idx}`} className="flex flex-1 flex-col gap-2 border-l-2 border-muted pl-4 transition-all hover:border-primary">
                 <div className="flex items-baseline gap-2">
-                  <BlurFade key={metric.value} delay={0.1 * idx} blur="4px" duration={0.5}>
+                  <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
                     <span className="text-xl font-medium text-foreground">{metric.value}</span>
                   </BlurFade>
                   <span className="text-xl font-medium text-foreground">{metric.result}</span>
