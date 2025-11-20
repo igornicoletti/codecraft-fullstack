@@ -27,36 +27,29 @@ export const ExperienceSection = () => {
     api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
   }, [api])
 
-  const activeExperience = experienceData.items[current - 1] || experienceData.items[0]
+  const { heading, description, business } = experienceData
+
+  const activeExperience = business[current - 1] || business[0]
 
   return (
     <section id="experience" className="relative overflow-hidden py-12 md:pt-36">
       <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
-
-        {/* Section Header */}
-        <div className="flex flex-col gap-6 text-left">
-          <h2 className="tracking-tight font-medium text-3xl md:text-5xl md:leading-tight">
-            {/*  <h2 className="text-4xl leading-tight md:text-5xl"> */}
-            {experienceData.heading.prefix}
-            {experienceData.heading.flipWords}
+        <div className="flex flex-col text-left gap-4 md:gap-6">   {/* Section Header */}
+          <h2 className="text-3xl font-medium md:text-4xl">
+            {heading.prefix} <br className="sm:hidden" />
+            {heading.flipWords}
           </h2>
-          <p className="max-w-3xl text-base font-normal">
-            {/* <p className="max-w-4xl text-base md:text-lg"> */}
-            {experienceData.description}
+          <p className="max-w-4xl leading-relaxed md:text-lg">
+            {description}
           </p>
         </div>
-
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
-
-          {/* Carousel Column */}
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-2">   {/* Carousel Column */}
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[plugin.current]}>
               <CarouselContent>
-                {experienceData.items.map((item, idx) => (
+                {business.map((item, idx) => (
                   <CarouselItem key={idx}>
                     <Card className="relative flex h-full flex-col overflow-hidden">
-
                       <CardHeader>
                         <CardTitle className="text-xl md:text-2xl">{item.company}</CardTitle>
                         <CardDescription className="flex items-center gap-2 text-sm">
@@ -64,13 +57,11 @@ export const ExperienceSection = () => {
                           <span>{item.period}</span>
                         </CardDescription>
                       </CardHeader>
-
                       <CardContent className='flex-1'>
-                        <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                        <p className="leading-relaxed text-muted-foreground md:text-balance md:text-lg">
                           {item.description}
                         </p>
                       </CardContent>
-
                       <CardFooter className="mt-auto flex -space-x-3 rtl:space-x-reverse">
                         {item.stacks.map(({ slug, label }) => (
                           <Tooltip key={label}>
@@ -84,32 +75,27 @@ export const ExperienceSection = () => {
                           </Tooltip>
                         ))}
                       </CardFooter>
-
-                      <BorderBeam borderWidth={1} duration={10} size={250} className="from-border via-primary/50 to-border" />
+                      <BorderBeam duration={10} size={250} className="from-transparent via-primary to-transparent" />
                     </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
             </Carousel>
           </div>
-
-          {/* Metrics Column */}
-          <div className="flex flex-col gap-6 sm:flex-row lg:flex-col lg:gap-8">
+          <div className="flex flex-col gap-6 sm:flex-row lg:flex-col lg:gap-8">    {/* Metrics Column */}
             {activeExperience?.metrics?.map((metric, idx) => (
               <div key={`${activeExperience.company}-${idx}`} className="flex flex-1 flex-col gap-2 border-l-2 border-muted pl-4 transition-all hover:border-primary">
                 <div className="flex items-baseline gap-2">
                   <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
-                    <span className="text-xl font-medium">{metric.value}</span>
+                    <span className="text-lg font-medium">{metric.value}</span>
                   </BlurFade>
-                  <span className="text-xl font-medium">{metric.result}</span>
+                  <span className="text-lg font-medium">{metric.result}</span>
                 </div>
-                <span className="text-muted-foreground text-balance">{metric.label}</span>
+                <span className="leading-relaxed text-muted-foreground md:text-balance">{metric.label}</span>
               </div>
             ))}
           </div>
-
-          {/* Navigation Dots */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2">   {/* Navigation Dots */}
             <div className="flex w-full max-w-sm gap-2 mx-auto">
               {Array.from({ length: count }).map((_, idx) => (
                 <button
@@ -125,7 +111,6 @@ export const ExperienceSection = () => {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

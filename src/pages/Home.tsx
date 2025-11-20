@@ -8,8 +8,8 @@ export const Home = () => (
   <div id='app'>
     <Navbar />
     <HeroSection />
-    <ExpertiseSection />
     <ExperienceSection />
+    <ExpertiseSection />
     <Footer />
   </div>
 )

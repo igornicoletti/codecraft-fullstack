@@ -10,26 +10,22 @@ export const HeroSection = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden py-12 md:pt-36">
-      <div className="container mx-auto flex flex-col gap-12 px-6">
-
-        {/* Header & Profile */}
-        <div className="flex flex-col gap-6 text-center">
+      <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
+        <div className="flex flex-col text-center gap-6 md:gap-8">   {/* Header & Profile */}
           <AnimatedShinyText className="text-sm text-muted-foreground md:text-lg">
             <span>{profile.name}</span>
             <LightningIcon weight="fill" className="text-primary" />
             <span>{profile.role}</span>
           </AnimatedShinyText>
-          <h1 className="text-4xl leading-tight md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-4xl font-medium md:text-5xl lg:text-6xl xl:text-7xl">
             {heading.prefix} <br className="sm:hidden" />
             <FlipWords words={heading.flipWords} className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
           </h1>
-          <p className="mx-auto max-w-4xl text-base md:text-lg">
+          <p className="mx-auto max-w-4xl leading-relaxed md:text-lg">
             {description}
           </p>
         </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">   {/* Action Buttons */}
           <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
             {actions.primary.label}
             <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
@@ -41,9 +37,7 @@ export const HeroSection = () => {
             </a>
           </Button>
         </div>
-
-        {/* Tech Stack Icons */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4">    {/* Tech Stack Icons */}
           {stacks.map(({ icon: Icon, label }) => (
             <Tooltip key={label}>
               <TooltipTrigger asChild>
@@ -53,7 +47,6 @@ export const HeroSection = () => {
             </Tooltip>
           ))}
         </div>
-
       </div>
     </section>
   )
