@@ -1,7 +1,21 @@
-export const Footer = () => (
-  <footer className='border-t px-6 py-8'>
-    <p className='text-xs sm:text-sm text-center font-light'>
-      &copy; {new Date().getFullYear()} CodeCraft. Todos os direitos reservados.
-    </p>
-  </footer>
-)
+import { TextHoverEffect } from '@/components/ui/text-hover-effect'
+
+export const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <footer className="relative overflow-hidden py-12 md:pt-36">
+      {/* Background effect */}
+      <div className="absolute bottom-2 w-full translate-y-0 sm:translate-y-1/2">
+        <TextHoverEffect text="CodeCraft" />
+      </div>
+
+      {/* Copyright content */}
+      <div className="relative container mx-auto px-6 text-center">
+        <p className="text-xs text-muted-foreground md:text-sm">
+          &copy; {currentYear} CodeCraft. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+  )
+}

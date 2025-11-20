@@ -72,7 +72,7 @@ export const AnimatedThemeToggler = ({
 
   return (
     <Button
-      size='icon'
+      size='icon-lg'
       variant='ghost'
       ref={buttonRef}
       onClick={toggleTheme}

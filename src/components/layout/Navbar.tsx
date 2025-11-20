@@ -65,7 +65,7 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => (
 )
 
 const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick} variant='ghost' className='p-0 hover:bg-transparent dark:hover:bg-transparent'>
+  <Button onClick={onClick} size='lg' variant='ghost' className='p-0 hover:bg-transparent dark:hover:bg-transparent'>
     <Avatar>
       <AvatarImage src='https://github.com/igornicoletti.png' alt='@igornicoletti' />
       <AvatarFallback>IN</AvatarFallback>
@@ -75,16 +75,16 @@ const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
 )
 
 const NavbarSocialMobile = () => (
-  <div className='flex items-center justify-center gap-4'>
+  <div className='flex items-center justify-center gap-6'>
     <DrawerClose asChild>
-      <Button asChild size='icon' variant='ghost'>
+      <Button asChild size='icon-lg' variant='ghost'>
         <a href='https://linkedin.com/in/igornicoletti' target='_blank' rel='noopener noreferrer'>
           <LinkedinLogoIcon className='relative' />
         </a>
       </Button>
     </DrawerClose>
     <DrawerClose asChild>
-      <Button asChild size='icon' variant='ghost'>
+      <Button asChild size='icon-lg' variant='ghost'>
         <a href='https://github.com/igornicoletti' target='_blank' rel='noopener noreferrer'>
           <GithubLogoIcon className='relative' />
         </a>
@@ -98,23 +98,28 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
 
   return (
     <motion.div onMouseLeave={() => setHovered(null)} className='relative inset-0 hidden lg:flex items-center gap-4'>
-      {navigations.map((item) => (
-        <Button
-          key={item.title}
-          variant='ghost'
-          onClick={() => onLinkClick(item.id)}
-          onMouseEnter={() => setHovered(item.title)}
-          className='relative rounded-full'>
-          {hovered === item.title && (
-            <motion.div layoutId='hovered' className='absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50' />
-          )}
-          <span className='relative z-20'>{item.title}</span>
-        </Button>
-      ))}
-      <Separator orientation='vertical' className='data-[orientation=vertical]:h-4' />
+      <div className="flex items-center gap-0">
+
+        {navigations.map((item) => (
+          <Button
+            key={item.title}
+            size='lg'
+            variant='ghost'
+            onClick={() => onLinkClick(item.id)}
+            onMouseEnter={() => setHovered(item.title)}
+            className='relative rounded-full'>
+            {hovered === item.title && (
+              <motion.div layoutId='hovered' className='absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50' />
+            )}
+            <span className='relative z-20'>{item.title}</span>
+          </Button>
+        ))}
+      </div>
+
+      <Separator orientation='vertical' className='data-[orientation=vertical]:h-5' />
       <Button
         asChild
-        size='icon'
+        size='icon-lg'
         variant='ghost'
         className='rounded-full relative'
         onMouseEnter={() => setHovered('linkedin')}>
@@ -127,7 +132,7 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
       </Button>
       <Button
         asChild
-        size='icon'
+        size='icon-lg'
         variant='ghost'
         className='rounded-full relative'
         onMouseEnter={() => setHovered('github')}>
@@ -138,7 +143,7 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
           <GithubLogoIcon className='relative' />
         </a>
       </Button>
-      <Separator orientation='vertical' className='data-[orientation=vertical]:h-4' />
+      <Separator orientation='vertical' className='data-[orientation=vertical]:h-5' />
     </motion.div>
   )
 }
@@ -164,7 +169,7 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
     <div className='lg:hidden'>
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
-          <Button size='icon' variant='ghost' className='rounded-full'>
+          <Button size='icon-lg' variant='ghost' className='rounded-full'>
             <ListIcon />
           </Button>
         </DrawerTrigger>
@@ -176,7 +181,7 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
             <DrawerDescription />
           </DrawerHeader>
           {navigations.map((item, idx) => (
-            <Button key={`mobile-${idx}`} variant='ghost' onClick={() => handleDrawerLinkClick(item.id)}>
+            <Button key={`mobile-${idx}`} size='lg' variant='ghost' onClick={() => handleDrawerLinkClick(item.id)}>
               {item.title}
             </Button>
           ))}

@@ -15,20 +15,20 @@ const SkeletonOne = () => {
   return (
     <motion.div initial='initial' whileHover='animate' className='flex flex-col w-full h-full min-h-48 gap-2 p-2'>
       <motion.div variants={first} className='flex flex-row w-3/4 items-center gap-2 rounded-full border px-2 py-1'>
-        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='w-full h-4 rounded-full bg-secondary' />
       </motion.div>
       <motion.div variants={second} className='flex flex-row w-3/4 ml-auto items-center gap-2 rounded-full border px-2 py-1'>
         <div className='w-full h-4 rounded-full bg-secondary' />
-        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
       </motion.div>
       <motion.div variants={first} className='flex flex-row w-3/4 items-center gap-2 rounded-full border px-2 py-1'>
-        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='w-full h-4 rounded-full bg-secondary' />
       </motion.div>
       <motion.div variants={second} className='flex flex-row w-3/4 ml-auto items-center gap-2 rounded-full border px-2 py-1'>
         <div className='w-full h-4 rounded-full bg-secondary' />
-        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-6 w-6 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
       </motion.div>
     </motion.div>
   )
@@ -65,7 +65,7 @@ const SkeletonThree = () => {
       variants={variants}
       transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
       className='flex flex-col w-full h-full min-h-48 gap-2 rounded-lg'
-      style={{ background: 'linear-gradient(-45deg, #DEDEDF, #4E4E4E, #4E4E4E, #DEDEDF)', backgroundSize: '400% 400%' }}>
+      style={{ background: 'linear-gradient(-45deg, #79c0ff, #8c5cff, #79c0ff, #8c5cff)', backgroundSize: '400% 400%' }}>
       <motion.div className='w-full h-full rounded-2xl' />
     </motion.div>
   )
@@ -78,17 +78,17 @@ const SkeletonFour = () => {
   return (
     <motion.div initial='initial' whileHover='animate' className='flex flex-row w-full h-full min-h-48 gap-4'>
       <motion.div variants={first} className='hidden sm:flex flex-col w-1/3 h-full items-center justify-center gap-4 rounded-2xl border bg-background p-4'>
-        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='w-full h-4 rounded-full bg-secondary' />
         <div className='w-full max-w-16 h-5 mx-auto rounded-full bg-secondary' />
       </motion.div>
       <motion.div className='relative z-20 flex flex-col w-full sm:w-1/3 h-full items-center justify-center gap-4 rounded-2xl border bg-background p-4'>
-        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='w-full h-4 rounded-full bg-secondary' />
         <div className='w-full max-w-16 h-5 mx-auto rounded-full bg-secondary' />
       </motion.div>
       <motion.div variants={second} className='hidden sm:flex flex-col w-1/3 h-full items-center justify-center gap-4 rounded-2xl border bg-background p-4'>
-        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='h-10 w-10 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='w-full h-4 rounded-full bg-secondary' />
         <div className='w-full max-w-16 h-5 mx-auto rounded-full bg-secondary' />
       </motion.div>
@@ -103,21 +103,21 @@ const SkeletonFive = () => {
   return (
     <motion.div initial='initial' whileHover='animate' className='flex flex-col w-full h-full min-h-48 gap-2'>
       <motion.div variants={first} className='flex w-full items-center gap-2 rounded-xl border p-2'>
-        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='flex flex-col w-full gap-1'>
           <div className='w-full h-3 rounded-full bg-secondary' />
           <div className='w-3/4 h-2 rounded-full bg-secondary' />
         </div>
       </motion.div>
       <motion.div variants={second} className='flex w-full items-center gap-2 rounded-xl border p-2'>
-        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='flex flex-col w-full gap-1'>
           <div className='w-full h-3 rounded-full bg-secondary' />
           <div className='w-3/4 h-2 rounded-full bg-secondary' />
         </div>
       </motion.div>
       <motion.div variants={first} className='flex w-full items-center gap-2 rounded-xl border p-2'>
-        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-accent to-accent-foreground' />
+        <div className='size-8 shrink-0 rounded-full bg-linear-to-r from-primary to-accent-foreground' />
         <div className='flex flex-col w-full gap-1'>
           <div className='w-full h-3 rounded-full bg-secondary' />
           <div className='w-3/4 h-2 rounded-full bg-secondary' />

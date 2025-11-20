@@ -5,49 +5,58 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { heroData } from '@/data/hero'
 import { CaretRightIcon, LightningIcon } from '@phosphor-icons/react'
 
-export const HeroSection = () => (
-  <section id='hero' className='relative overflow-hidden py-16 md:py-32'>
-    <div className='mx-auto container grid gap-12 px-6'>
+export const HeroSection = () => {
+  const { profile, heading, description, actions, stacks } = heroData
 
-      <div className="flex flex-col gap-6 text-center">
-        <AnimatedShinyText className='text-muted-foreground text-sm md:text-lg lg:text-xl'>
-          <span>{heroData.profile.name}</span>
-          <LightningIcon weight='fill' className='text-primary' />
-          <span>{heroData.profile.role}</span>
-        </AnimatedShinyText>
-        <h1 className='font-light text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
-          {heroData.heading.prefix} <br className='sm:hidden' />
-          <FlipWords words={heroData.heading.flipWords} className='font-light text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl' />
-        </h1>
-        <p className='mx-auto max-w-4xl text-muted-foreground text-base md:text-lg lg:text-xl'>
-          {heroData.description}
-        </p>
+  return (
+    <section id="hero" className="relative overflow-hidden py-12 md:pt-36">
+      <div className="container mx-auto flex flex-col gap-12 px-6 text-center">
+
+        {/* Header & Profile */}
+        <div className="flex flex-col gap-8">
+          <AnimatedShinyText className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground md:text-lg lg:text-xl">
+            <span>{profile.name}</span>
+            <LightningIcon weight="fill" className="text-primary" />
+            <span>{profile.role}</span>
+          </AnimatedShinyText>
+
+          <h1 className="text-4xl font-light leading-tight md:text-5xl lg:text-6xl xl:text-7xl">
+            {heading.prefix} <br className="sm:hidden" />
+            <FlipWords words={heading.flipWords} className="text-5xl font-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" />
+          </h1>
+
+          <p className="mx-auto max-w-5xl text-base text-muted-foreground md:text-lg lg:text-xl">
+            {description}
+          </p>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button size='xl' variant='default' className='group w-full uppercase sm:max-w-xs'>
+            {actions.primary.label}
+            <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
+          </Button>
+          <Button asChild size='xl' variant='secondary' className='group w-full uppercase sm:max-w-xs'>
+            <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
+              {actions.secondary.label}
+              <CaretRightIcon className='transition-transform group-hover:translate-x-1' />
+            </a>
+          </Button>
+        </div>
+
+        {/* Tech Stack Icons */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
+          {stacks.map(({ icon: Icon, label }) => (
+            <Tooltip key={label}>
+              <TooltipTrigger asChild>
+                <Icon stroke={0.9} className="size-9 transition-colors hover:text-primary sm:size-10" />
+              </TooltipTrigger>
+              <TooltipContent>{label}</TooltipContent>
+            </Tooltip>
+          ))}
+        </div>
+
       </div>
-
-      <div className='flex flex-wrap justify-center gap-4'>
-        <Button size='lg' variant='default' className='group w-full sm:max-w-2xs uppercase'>
-          {heroData.actions.primary.label}
-          <CaretRightIcon className='group-hover:translate-x-1 transition-all' />
-        </Button>
-        <Button asChild size='lg' variant='outline' className='group w-full sm:max-w-2xs uppercase'>
-          <a href={heroData.actions.secondary.href} target='_blank' rel='noopener noreferrer'>
-            {heroData.actions.secondary.label}
-            <CaretRightIcon className='group-hover:translate-x-1 transition-all' />
-          </a>
-        </Button>
-      </div>
-
-      <div className='flex flex-wrap justify-center gap-2 sm:gap-4'>
-        {heroData.stacks.map(({ icon: Icon, label }) => (
-          <Tooltip key={label}>
-            <TooltipTrigger>
-              <Icon stroke={1.25} className='size-9 sm:size-12 transition-colors text-secondary hover:text-secondary-foreground' />
-            </TooltipTrigger>
-            <TooltipContent>{label}</TooltipContent>
-          </Tooltip>
-        ))}
-      </div>
-
-    </div>
-  </section>
-)
+    </section>
+  )
+}
