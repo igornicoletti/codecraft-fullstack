@@ -33,13 +33,13 @@ export const ExperienceSection = () => {
 
   return (
     <section id="experience" className="relative overflow-hidden py-12 md:pt-36">
-      <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
-        <div className="flex flex-col text-left gap-4 md:gap-6">   {/* Section Header */}
-          <h2 className="text-3xl font-medium md:text-4xl">
+      <div className="container mx-auto grid gap-16 px-6 xl:max-w-7xl">
+        <div className="flex flex-col text-left gap-4">   {/* Section Header */}
+          <h2 className="text-3xl font-medium leading-relaxed md:text-4xl">
             {heading.prefix} <br className="sm:hidden" />
             {heading.flipWords}
           </h2>
-          <p className="max-w-4xl leading-relaxed md:text-lg">
+          <p className="max-w-5xl font-light leading-relaxed md:text-lg">
             {description}
           </p>
         </div>
