@@ -29,13 +29,13 @@ export interface HeroData {
 export const heroData: HeroData = {
   profile: {
     name: 'Igor Nicoletti',
-    role: 'Desenvolvedor Front-End'
+    role: 'Olá, eu sou Igor – Desenvolvedor web front-end'
   },
   heading: {
     prefix: 'Experiências web',
     flipWords: ['modernas', 'eficientes', 'escaláveis']
   },
-  description: 'Engenheiro de software focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modulares com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
+  description: 'Engenheiro de software front-end focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
   actions: {
     primary: {
       label: 'Explorar projetos'

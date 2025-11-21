@@ -27,21 +27,16 @@ export const ExperienceSection = () => {
     api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
   }, [api])
 
-  const { heading, description, business } = experienceData
+  const { title, description, business } = experienceData
 
   const activeExperience = business[current - 1] || business[0]
 
   return (
     <section id="experience" className="relative overflow-hidden py-12 md:pt-36">
-      <div className="container mx-auto grid gap-16 px-6 xl:max-w-7xl">
+      <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
         <div className="flex flex-col text-left gap-6">   {/* Section Header */}
-          <h2 className="text-4xl leading-tight">
-            {heading.prefix} <br className="sm:hidden" />
-            {heading.flipWords}
-          </h2>
-          <p className="font-light leading-relaxed md:text-lg lg:text-xl">
-            {description}
-          </p>
+          <h2 className="text-4xl tracking-normal lg:text-5xl">{title}</h2>
+          <p className="max-w-4xl font-light md:text-lg">{description}</p>
         </div>
         <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">   {/* Carousel Column */}
@@ -51,8 +46,8 @@ export const ExperienceSection = () => {
                   <CarouselItem key={idx}>
                     <Card className="relative flex h-full flex-col overflow-hidden">
                       <CardHeader>
-                        <CardTitle className="text-xl md:text-2xl">{item.company}</CardTitle>
-                        <CardDescription className="flex items-center gap-2 text-sm">
+                        <CardTitle className="text-xl">{item.company}</CardTitle>
+                        <CardDescription className="flex items-center gap-2">
                           <CalendarBlankIcon />
                           <span>{item.period}</span>
                         </CardDescription>

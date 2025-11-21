@@ -1,8 +1,5 @@
 interface ExperienceData {
-  heading: {
-    prefix: string
-    flipWords: string
-  }
+  title: string
   description: string
   business: {
     company: string
@@ -21,10 +18,7 @@ interface ExperienceData {
 }
 
 export const experienceData: ExperienceData = {
-  heading: {
-    prefix: 'Aplicações ',
-    flipWords: 'do mundo real'
-  },
+  title: 'Aplicações do mundo real ',
   description: 'Trajetória definida pela construção de ecossistemas digitais resilientes em verticais exigentes como Fintech, IA Generativa, Sports Tech e E-commerce Enterprise, com foco na engenharia de performance – da otimização granular de Core Web Vitals e estratégias de Server-Side Rendering (SSR) à orquestração de estados complexos e visualização de dados (BI) em tempo real via WebSockets.',
   business: [
     {
