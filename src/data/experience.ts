@@ -1,4 +1,5 @@
 interface ExperienceData {
+  head: string
   title: string
   description: string
   business: {
@@ -18,7 +19,8 @@ interface ExperienceData {
 }
 
 export const experienceData: ExperienceData = {
-  title: 'Aplicações do mundo real ',
+  head: 'Experiência Profissional',
+  title: 'Aplicações do mundo real',
   description: 'Trajetória definida pela construção de ecossistemas digitais resilientes em verticais exigentes como Fintech, IA Generativa, Sports Tech e E-commerce Enterprise, com foco na engenharia de performance – da otimização granular de Core Web Vitals e estratégias de Server-Side Rendering (SSR) à orquestração de estados complexos e visualização de dados (BI) em tempo real via WebSockets.',
   business: [
     {

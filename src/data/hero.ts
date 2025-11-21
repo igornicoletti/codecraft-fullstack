@@ -2,11 +2,8 @@ import { IconBrandFramerMotion, IconBrandNextjs, IconBrandRadixUi, IconBrandReac
 import type { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 export interface HeroData {
-  profile: {
-    name: string
-    role: string
-  }
-  heading: {
+  head: string
+  title: {
     prefix: string
     flipWords: string[]
   }
@@ -27,11 +24,8 @@ export interface HeroData {
 }
 
 export const heroData: HeroData = {
-  profile: {
-    name: 'Igor Nicoletti',
-    role: 'Olá, eu sou Igor – Desenvolvedor Front-End Pleno'
-  },
-  heading: {
+  head: 'Igor Nicoletti – Desenvolvedor Front-End',
+  title: {
     prefix: 'Experiências web',
     flipWords: ['modernas', 'eficientes', 'escaláveis']
   },
