@@ -36,7 +36,7 @@ export const ExperienceSection = () => {
       <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
         <div className="flex flex-col text-left gap-6">   {/* Section Header */}
           <h2 className="text-4xl tracking-normal lg:text-5xl">{title}</h2>
-          <p className="max-w-4xl font-light md:text-lg">{description}</p>
+          <p className="max-w-4xl text-muted-foreground md:text-lg">{description}</p>
         </div>
         <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">   {/* Carousel Column */}
@@ -53,7 +53,7 @@ export const ExperienceSection = () => {
                         </CardDescription>
                       </CardHeader>
                       <CardContent className='flex-1'>
-                        <p className="leading-relaxed text-muted-foreground md:text-balance md:text-lg">
+                        <p className="md:text-lg">
                           {item.description}
                         </p>
                       </CardContent>

@@ -15,8 +15,8 @@ export const HeroSection = () => {
           <AnimatedShinyText className='text-primary md:text-xl'>
             {profile.role}
           </AnimatedShinyText>
-          <h1 className="text-5xl tracking-normal lg:text-6xl">{heading.prefix} <FlipWords words={heading.flipWords} /></h1>
-          <h2 className="mx-auto max-w-4xl font-light md:text-xl">{description}</h2>
+          <h1 className="text-5xl tracking-normal lg:text-6xl xl:text-7xl">{heading.prefix} <FlipWords words={heading.flipWords} /></h1>
+          <h2 className="mx-auto max-w-4xl text-muted-foreground md:text-xl">{description}</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-4">   {/* Action Buttons */}
           <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
@@ -30,7 +30,7 @@ export const HeroSection = () => {
             </a>
           </Button>
         </div>
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4">    {/* Tech Stack Icons */}
+        <div className="flex flex-wrap justify-center gap-4">    {/* Tech Stack Icons */}
           {stacks.map(({ icon: Icon, label }) => (
             <Tooltip key={label}>
               <TooltipTrigger asChild>

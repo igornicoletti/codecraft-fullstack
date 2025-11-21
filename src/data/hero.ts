@@ -1,4 +1,4 @@
-import { IconBrandFramerMotion, IconBrandNextjs, IconBrandRadixUi, IconBrandReact, IconBrandTailwind, IconBrandTypescript, IconBrandVite, type Icon, type IconProps } from '@tabler/icons-react'
+import { IconBrandFramerMotion, IconBrandNextjs, IconBrandRadixUi, IconBrandReact, IconBrandTailwind, IconBrandTypescript, type Icon, type IconProps } from '@tabler/icons-react'
 import type { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 export interface HeroData {
@@ -29,7 +29,7 @@ export interface HeroData {
 export const heroData: HeroData = {
   profile: {
     name: 'Igor Nicoletti',
-    role: 'Olá, eu sou Igor – Desenvolvedor web front-end'
+    role: 'Olá, eu sou Igor – Desenvolvedor Front-End Pleno'
   },
   heading: {
     prefix: 'Experiências web',
@@ -46,7 +46,6 @@ export const heroData: HeroData = {
     }
   },
   stacks: [
-    { icon: IconBrandVite, label: 'Vite' },
     { icon: IconBrandNextjs, label: 'Next.js' },
     { icon: IconBrandReact, label: 'React' },
     { icon: IconBrandTypescript, label: 'TypeScript' },
