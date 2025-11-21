@@ -101,7 +101,7 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <motion.div onMouseLeave={() => setHovered(null)} className='relative inset-0 hidden lg:flex items-center gap-6'>
+    <motion.div onMouseLeave={() => setHovered(null)} className='relative inset-0 hidden lg:flex items-center gap-4'>
       {navigations.map((item) => (
         <Button
           key={item.title}
