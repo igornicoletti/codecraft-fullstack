@@ -14,7 +14,7 @@ export const HeroSection = () => {
       <div className="grid gap-12 py-16 md:pt-40">
         {/* Section Header */}
         <div className="flex flex-col text-left sm:text-center gap-6">
-          <AnimatedShinyText className='text-primary text-sm md:text-lg'>{head}</AnimatedShinyText>
+          <AnimatedShinyText className='text-primary tracking-tight text-sm sm:text-base md:text-lg'>{head}</AnimatedShinyText>
           <h1 className="text-5xl tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl">{title.prefix} <FlipWords words={title.flipWords} /></h1>
           <h2 className="mx-auto max-w-4xl text-muted-foreground md:text-lg lg:text-xl">{description}</h2>
         </div>
