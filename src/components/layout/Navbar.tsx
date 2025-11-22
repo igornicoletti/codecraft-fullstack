@@ -58,7 +58,7 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => {
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
       className={cn(
         'relative w-full bg-transparent transition-colors duration-300',
-        visible && 'bg-background/50 border-b border-secondary/30'
+        visible && 'bg-background/50 border-b border-secondary/50'
       )}>
       <motion.div
         animate={{

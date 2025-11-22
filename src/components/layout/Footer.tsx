@@ -10,11 +10,9 @@ export const Footer = () => {
         <TextHoverEffect text="CodeCraft" />
       </div>
       {/* Copyright content */}
-      <div className="relative container mx-auto px-6 text-center">
-        <p className="text-xs text-secondary md:text-base">
-          &copy; {currentYear} CodeCraft. Todos os direitos reservados.
-        </p>
-      </div>
+      <p className="text-xs text-center text-secondary md:text-base">
+        &copy; {currentYear} CodeCraft. Todos os direitos reservados.
+      </p>
     </footer>
   )
 }
