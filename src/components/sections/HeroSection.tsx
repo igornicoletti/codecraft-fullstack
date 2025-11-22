@@ -1,20 +1,21 @@
+import { CaretRightIcon } from '@phosphor-icons/react'
+
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { heroData } from '@/data/hero'
-import { CaretRightIcon } from '@phosphor-icons/react'
 
 export const HeroSection = () => {
   const { head, title, description, actions, stacks } = heroData
 
   return (
-    <section id="hero" className="relative overflow-hidden py-12 md:pt-36">
-      <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
+    <section id="hero" className="relative overflow-hidden">
+      <div className="container mx-auto grid gap-12 px-6 py-16 md:pt-40 xl:max-w-7xl">
         {/* Section Header */}
-        <div className="flex flex-col text-left sm:text-center gap-4">
-          <AnimatedShinyText className='text-primary md:text-lg'>{head}</AnimatedShinyText>
-          <h1 className="text-5xl tracking-tight text-balance md:text-5xl lg:text-6xl">{title.prefix} <FlipWords words={title.flipWords} /></h1>
+        <div className="flex flex-col text-left sm:text-center gap-6">
+          <AnimatedShinyText className='text-primary text-sm md:text-lg'>{head}</AnimatedShinyText>
+          <h1 className="text-5xl tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl">{title.prefix} <FlipWords words={title.flipWords} /></h1>
           <h2 className="mx-auto max-w-4xl text-muted-foreground md:text-lg lg:text-xl">{description}</h2>
         </div>
         {/* Action Buttons */}

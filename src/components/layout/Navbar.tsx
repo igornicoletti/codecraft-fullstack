@@ -58,7 +58,7 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => {
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
       className={cn(
         'relative w-full bg-transparent transition-colors duration-300',
-        visible && 'bg-background/80 border-b border-border/40'
+        visible && 'bg-background/50 border-b border-secondary/30'
       )}>
       <motion.div
         animate={{
@@ -177,7 +177,7 @@ export const Navbar = () => {
 
   const NAV_ITEMS: NavbarMenuItemsProps[] = [
     { title: 'Expertise', id: '#expertise' },
-    { title: 'Experiências', id: '#experience' },
+    { title: 'Experiência', id: '#experience' },
     { title: 'Projetos', id: '#projects' },
   ]
 

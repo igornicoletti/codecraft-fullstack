@@ -33,10 +33,10 @@ export const ExperienceSection = () => {
   const activeExperience = business[current - 1] || business[0]
 
   return (
-    <section id="experience" className="relative overflow-hidden py-12 md:pt-36">
-      <div className="container mx-auto grid gap-12 px-6 xl:max-w-7xl">
+    <section id="experience" className="relative overflow-hidden">
+      <div className="container mx-auto grid gap-12 px-6 py-24 md:pt-40 xl:max-w-7xl">
         {/* Section Header */}
-        <div className="flex flex-col text-left gap-4">
+        <div className="flex flex-col text-left gap-6">
           <AnimatedShinyText className='text-primary md:text-lg'>{head}</AnimatedShinyText>
           <h2 className="text-2xl tracking-tight text-balance md:text-4xl lg:text-5xl">{title}</h2>
           <p className="max-w-4xl text-muted-foreground md:text-lg">{description}</p>
@@ -82,7 +82,7 @@ export const ExperienceSection = () => {
           {/* Metrics Column */}
           <div className="flex flex-col gap-6 sm:flex-row lg:flex-col">
             {activeExperience?.metrics?.map((metric, idx) => (
-              <div key={`${activeExperience.company}-${idx}`} className="flex flex-col gap-2 ml-2 pl-4 border-l border-secondary transition-all hover:border-primary">
+              <div key={`${activeExperience.company}-${idx}`} className="flex flex-col gap-2 ml-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary">
                 <div className="flex items-baseline gap-2">
                   <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
                     <span className="font-medium md:text-lg">{metric.value}</span>
@@ -93,7 +93,8 @@ export const ExperienceSection = () => {
               </div>
             ))}
           </div>
-          <div className="lg:col-span-2">   {/* Navigation Dots */}
+          {/* Navigation Dots */}
+          <div className="lg:col-span-2">
             <div className="flex w-full max-w-sm gap-2 mx-auto">
               {Array.from({ length: count }).map((_, idx) => (
                 <button
@@ -102,7 +103,7 @@ export const ExperienceSection = () => {
                   className="group py-2 flex-1 cursor-pointer"
                   aria-label={`Go to slide ${idx + 1}`}>
                   <div className={cn("h-1 w-full rounded-full transition-all",
-                    current === idx + 1 ? "bg-primary" : "bg-secondary group-hover:bg-secondary/80")} />
+                    current === idx + 1 ? "bg-primary" : "bg-secondary/50 group-hover:bg-secondary/30")} />
                 </button>
               ))}
             </div>
