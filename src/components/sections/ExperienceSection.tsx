@@ -32,7 +32,7 @@ export const ExperienceSection = () => {
     <section id="experience" className="relative overflow-hidden">
       <div className="grid gap-12 py-24 md:pt-36">
         {/* Section Header */}
-        <div className="flex flex-col text-left gap-2 md:gap-4">
+        <div className="flex flex-col gap-2 md:gap-4">
           <AnimatedShinyText className="font-medium tracking-tight text-primary text-sm md:text-lg">
             {label}
           </AnimatedShinyText>
@@ -92,9 +92,9 @@ export const ExperienceSection = () => {
           <div className="flex flex-col gap-6 sm:flex-row lg:flex-col">
             {activeExperience?.impactMetrics?.map((metric, idx) => (
               <div key={`${activeExperience.organizationName}-${idx}`}
-                className="flex flex-col gap-2 ml-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary">
+                className="flex flex-col gap-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary">
                 <div className="flex items-baseline gap-2">
-                  <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
+                  <BlurFade key={metric.value} delay={0.1 * idx}>
                     <span className="font-medium md:text-lg">{metric.value}</span>
                   </BlurFade>
                   <span className="font-medium md:text-lg">{metric.context}</span>

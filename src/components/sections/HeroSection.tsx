@@ -1,4 +1,4 @@
-import { CaretRightIcon, RocketLaunchIcon } from '@phosphor-icons/react'
+import { EnvelopeSimpleIcon, RocketLaunchIcon } from '@phosphor-icons/react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ export const HeroSection = () => {
     <section id="hero" className="relative overflow-hidden">
       <div className="grid gap-12 py-12 md:pt-36">
         {/* Section Header */}
-        <div className="flex flex-col gap-4 text-left sm:items-center sm:text-center md:gap-6">
+        <div className="flex flex-col gap-4 sm:items-center sm:text-center md:gap-6">
           <AnimatedShinyText className="font-medium tracking-tight text-primary text-sm md:text-lg">
             {label}
           </AnimatedShinyText>
@@ -23,7 +23,7 @@ export const HeroSection = () => {
             <FlipWords words={headline.dynamicWords} />
           </h1>
 
-          <h2 className="mx-auto max-w-4xl text-muted-foreground md:text-lg lg:text-xl">
+          <h2 className="max-w-4xl text-muted-foreground md:text-lg lg:text-xl">
             {description}
           </h2>
         </div>
@@ -37,8 +37,8 @@ export const HeroSection = () => {
 
           <Button asChild size="lg" variant="outline" className="group w-full uppercase sm:max-w-3xs">
             <a href={actions.secondary.href} target="_blank" rel="noopener noreferrer">
+              <EnvelopeSimpleIcon className="transition-transform group-hover:scale-110" />
               {actions.secondary.label}
-              <CaretRightIcon className="transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
         </div>
