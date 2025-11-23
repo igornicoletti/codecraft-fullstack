@@ -31,8 +31,8 @@ export const ExperienceSection = () => {
     api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
   }, [api])
 
-  const { sectionHeading, sectionTitle, sectionOverview, experienceList } = experienceData
-  const activeExperience = experienceList[current - 1] || experienceList[0]
+  const { label, headline, description, positions } = experienceData
+  const activeExperience = positions[current - 1] || positions[0]
 
   return (
     <section id="experience" className="relative overflow-hidden">
@@ -40,14 +40,14 @@ export const ExperienceSection = () => {
         {/* Section Header */}
         <div className="flex flex-col text-left gap-2 md:gap-4">
           <AnimatedShinyText className="font-medium tracking-tight text-primary md:text-lg">
-            {sectionHeading}
+            {label}
           </AnimatedShinyText>
 
           <h2 className="tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl">
-            {sectionTitle}
+            {headline}
           </h2>
 
-          <p className="max-w-4xl text-muted-foreground md:text-lg">{sectionOverview}</p>
+          <p className="max-w-4xl text-muted-foreground md:text-lg">{description}</p>
         </div>
 
         <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -55,7 +55,7 @@ export const ExperienceSection = () => {
           <div className="lg:col-span-2">
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[plugin.current]}>
               <CarouselContent>
-                {experienceList.map((item, idx) => (
+                {positions.map((item, idx) => (
                   <CarouselItem key={idx}>
                     <Card className="relative flex h-full flex-col overflow-hidden">
                       <CardHeader>
@@ -71,7 +71,7 @@ export const ExperienceSection = () => {
                       </CardContent>
 
                       <CardFooter className="mt-auto flex -space-x-3 rtl:space-x-reverse">
-                        {item.technologies.map(({ slug, label }) => (
+                        {item.techStack.map(({ slug, label }) => (
                           <Tooltip key={label}>
                             <TooltipTrigger>
                               <Avatar className="p-2 bg-secondary ring-2 ring-card transition-transform hover:z-10 hover:scale-110">
@@ -96,16 +96,16 @@ export const ExperienceSection = () => {
 
           {/* Metrics Column */}
           <div className="flex flex-col gap-6 sm:flex-row lg:flex-col">
-            {activeExperience?.performanceIndicators?.map((metric, idx) => (
+            {activeExperience?.impactMetrics?.map((metric, idx) => (
               <div key={`${activeExperience.organizationName}-${idx}`}
                 className="flex flex-col gap-2 ml-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary">
                 <div className="flex items-baseline gap-2">
                   <BlurFade key={metric.value} delay={0.1 * idx} duration={0.5}>
                     <span className="font-medium md:text-lg">{metric.value}</span>
                   </BlurFade>
-                  <span className="font-medium md:text-lg">{metric.result}</span>
+                  <span className="font-medium md:text-lg">{metric.context}</span>
                 </div>
-                <span className="text-muted-foreground">{metric.label}</span>
+                <span className="text-muted-foreground">{metric.description}</span>
               </div>
             ))}
           </div>
@@ -119,10 +119,9 @@ export const ExperienceSection = () => {
                   onClick={() => api?.scrollTo(idx)}
                   className="group py-2 flex-1 cursor-pointer"
                   aria-label={`Go to slide ${idx + 1}`}>
-                  <div className={cn('h-1 w-full rounded-full transition-all',
-                    current === idx + 1
-                      ? 'bg-primary'
-                      : 'bg-secondary/50 group-hover:bg-secondary/30')} />
+                  <div className={cn('h-1 w-full rounded-full transition-all', current === idx + 1
+                    ? 'bg-primary'
+                    : 'bg-secondary/50 group-hover:bg-secondary/30')} />
                 </button>
               ))}
             </div>

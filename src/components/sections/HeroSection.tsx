@@ -7,7 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { heroData } from '@/data/hero'
 
 export const HeroSection = () => {
-  const { sectionHeading, title, sectionOverview, actions, technologies } = heroData
+  const { label, headline, description, actions, techStack } = heroData
 
   return (
     <section id="hero" className="relative overflow-hidden">
@@ -15,16 +15,16 @@ export const HeroSection = () => {
         {/* Section Header */}
         <div className="flex flex-col text-left sm:text-center gap-4 md:gap-6">
           <AnimatedShinyText className="font-medium tracking-tight text-primary md:text-lg">
-            {sectionHeading}
+            {label}
           </AnimatedShinyText>
 
           <h1 className="tracking-tight text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl">
-            {title.prefix}{' '}
-            <FlipWords words={title.flipWords} />
+            {headline.prefix}{' '}
+            <FlipWords words={headline.dynamicWords} />
           </h1>
 
           <h2 className="mx-auto max-w-4xl text-muted-foreground md:text-lg lg:text-xl">
-            {sectionOverview}
+            {description}
           </h2>
         </div>
 
@@ -45,10 +45,10 @@ export const HeroSection = () => {
 
         {/* Technologies Icons */}
         <div className="flex flex-wrap justify-center gap-4">
-          {technologies.map(({ icon: Icon, label }) => (
+          {techStack.map(({ icon: Icon, label }) => (
             <Tooltip key={label}>
               <TooltipTrigger asChild>
-                <Icon stroke={1} className="size-8 sm:size-10 transition-colors hover:text-primary" />
+                <Icon stroke={1} className="size-9 text-muted-foreground transition-colors hover:text-primary" />
               </TooltipTrigger>
               <TooltipContent>{label}</TooltipContent>
             </Tooltip>
