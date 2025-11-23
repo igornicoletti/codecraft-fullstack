@@ -1,4 +1,4 @@
-import { EnvelopeSimpleIcon, RocketLaunchIcon } from '@phosphor-icons/react'
+import { ArrowLineUpRightIcon, RocketLaunchIcon } from '@phosphor-icons/react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
@@ -31,14 +31,14 @@ export const HeroSection = () => {
         {/* Action Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" variant="default" className="group w-full uppercase sm:max-w-3xs">
-            <RocketLaunchIcon className="transition-transform group-hover:scale-110" />
             {actions.primary.label}
+            <RocketLaunchIcon className="size-5 transition-transform group-hover:scale-125" />
           </Button>
 
           <Button asChild size="lg" variant="outline" className="group w-full uppercase sm:max-w-3xs">
             <a href={actions.secondary.href} target="_blank" rel="noopener noreferrer">
-              <EnvelopeSimpleIcon className="transition-transform group-hover:scale-110" />
               {actions.secondary.label}
+              <ArrowLineUpRightIcon className="size-5 transition-transform group-hover:scale-110" />
             </a>
           </Button>
         </div>

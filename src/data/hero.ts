@@ -35,10 +35,10 @@ export const heroData: HeroSectionData = {
   description: 'Engenheiro de software front-end focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
   actions: {
     primary: {
-      label: 'Explorar mais'
+      label: 'Explorar projeto'
     },
     secondary: {
-      label: 'Iniciar contato',
+      label: 'Iniciar conversa',
       href: 'mailto:igor93nicoletti@gmail.com'
     }
   },
