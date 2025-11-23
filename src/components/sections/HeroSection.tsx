@@ -14,7 +14,7 @@ export const HeroSection = () => {
       <div className="grid gap-12 py-12 md:pt-36">
         {/* Section Header */}
         <div className="flex flex-col gap-4 text-left sm:items-center sm:text-center md:gap-6">
-          <AnimatedShinyText className="font-medium text-primary text-sm md:text-lg">
+          <AnimatedShinyText className="font-medium tracking-tight text-primary text-sm md:text-lg">
             {label}
           </AnimatedShinyText>
 
