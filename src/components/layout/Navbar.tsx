@@ -1,3 +1,7 @@
+import { GithubLogoIcon, LinkedinLogoIcon, ListIcon } from '@phosphor-icons/react'
+import { motion, useMotionValueEvent, useScroll } from 'motion/react'
+import { Children, cloneElement, isValidElement, useState, type ReactElement, type ReactNode } from 'react'
+
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -6,9 +10,6 @@ import { Separator } from '@/components/ui/separator'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import { cn } from '@/lib/utils'
-import { GithubLogoIcon, LinkedinLogoIcon, ListIcon } from '@phosphor-icons/react'
-import { motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { Children, cloneElement, isValidElement, useState, type ReactElement, type ReactNode } from 'react'
 
 interface NavbarProps {
   children: ReactNode
@@ -84,7 +85,7 @@ const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
   </Button>
 )
 
-const NavbarMenuIcons = () => (
+const NavbarIcons = () => (
   <div className='flex items-center gap-2 sm:gap-4'>
     <Button asChild size='icon' variant='ghost' className='rounded-full' aria-label="LinkedIn">
       <a href='https://linkedin.com/in/igornicoletti' target='_blank' rel='noopener noreferrer'>
@@ -100,7 +101,10 @@ const NavbarMenuIcons = () => (
   </div>
 )
 
-const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMenuItemsProps[], onLinkClick: (id: string) => void }) => {
+const NavbarMenuDesktop = ({ navigations, onLinkClick }: {
+  navigations: NavbarMenuItemsProps[],
+  onLinkClick: (id: string) => void
+}) => {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
@@ -111,11 +115,11 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: { navigations: NavbarMe
           variant='ghost'
           onClick={() => onLinkClick(item.id)}
           onMouseEnter={() => setHovered(item.title)}
-          className='relative rounded-full hover:bg-transparent'>
+          className='relative rounded-full hover:bg-transparent!'>
           {hovered === item.title && (
             <motion.div
               layoutId='hovered'
-              className='absolute inset-0 h-full w-full rounded-full bg-accent dark:bg-accent/50'
+              className='absolute inset-0 h-full w-full rounded-full bg-accent/50!'
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
             />
           )}
@@ -189,7 +193,7 @@ export const Navbar = () => {
           <NavbarMenuDesktop
             navigations={NAV_ITEMS}
             onLinkClick={handleLinkClick} />
-          <NavbarMenuIcons />
+          <NavbarIcons />
           <NavbarMenuMobile
             navigations={NAV_ITEMS}
             onBrandClick={() => handleLinkClick('#app')}

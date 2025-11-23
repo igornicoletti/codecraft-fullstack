@@ -5,17 +5,13 @@ import { HeroSection } from '@/components/sections/HeroSection'
 
 export const Home = () => (
   <div id='app'>
-
     <Navbar />
-
     <main className="flex flex-1 flex-col">
       <div className="container mx-auto xl:max-w-7xl px-6">
-
         <HeroSection />
         <ExperienceSection />
       </div>
-      <Footer />
     </main>
-
+    <Footer />
   </div>
 )

@@ -13,12 +13,12 @@ export const HeroSection = () => {
     <section id="hero" className="relative overflow-hidden">
       <div className="grid gap-12 py-12 md:pt-36">
         {/* Section Header */}
-        <div className="flex flex-col text-left sm:text-center gap-4 md:gap-6">
+        <div className="flex flex-col items-center text-left sm:text-center gap-4 md:gap-6">
           <AnimatedShinyText className="font-medium tracking-tight text-primary md:text-lg">
             {label}
           </AnimatedShinyText>
 
-          <h1 className="tracking-tight text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="font-medium tracking-tight text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl">
             {headline.prefix}{' '}
             <FlipWords words={headline.dynamicWords} />
           </h1>

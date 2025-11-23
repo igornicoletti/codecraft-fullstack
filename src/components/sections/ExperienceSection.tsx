@@ -43,7 +43,7 @@ export const ExperienceSection = () => {
             {label}
           </AnimatedShinyText>
 
-          <h2 className="tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl">
+          <h2 className="font-medium tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl">
             {headline}
           </h2>
 
