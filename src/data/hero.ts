@@ -35,7 +35,7 @@ export const heroData: HeroSectionData = {
   description: 'Engenheiro de software front-end focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
   actions: {
     primary: {
-      label: 'Explorar projetos'
+      label: 'Explorar mais'
     },
     secondary: {
       label: 'Iniciar contato',

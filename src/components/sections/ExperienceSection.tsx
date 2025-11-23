@@ -16,13 +16,7 @@ export const ExperienceSection = () => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
-
-  const plugin = useRef(
-    Autoplay({
-      delay: 12000,
-      stopOnInteraction: true
-    })
-  )
+  const plugin = useRef(Autoplay({ delay: 12000 }))
 
   useEffect(() => {
     if (!api) return
@@ -86,7 +80,7 @@ export const ExperienceSection = () => {
                         ))}
                       </CardFooter>
 
-                      <BorderBeam duration={10} size={250} className="from-transparent via-primary to-transparent" />
+                      <BorderBeam duration={10} size={250} className="from-secondary via-primary to-secondary" />
                     </Card>
                   </CarouselItem>
                 ))}

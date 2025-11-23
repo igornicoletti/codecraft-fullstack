@@ -1,4 +1,4 @@
-import { CaretRightIcon } from '@phosphor-icons/react'
+import { CaretRightIcon, RocketLaunchIcon } from '@phosphor-icons/react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
@@ -31,8 +31,8 @@ export const HeroSection = () => {
         {/* Action Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" variant="default" className="group w-full uppercase sm:max-w-3xs">
+            <RocketLaunchIcon className="transition-transform group-hover:scale-110" />
             {actions.primary.label}
-            <CaretRightIcon className="transition-transform group-hover:translate-x-1" />
           </Button>
 
           <Button asChild size="lg" variant="outline" className="group w-full uppercase sm:max-w-3xs">
