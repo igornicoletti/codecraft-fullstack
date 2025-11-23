@@ -11,7 +11,7 @@ export const HeroSection = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden">
-      <div className="grid gap-12 py-16 md:pt-40">
+      <div className="grid gap-12 py-12 md:pt-36">
         {/* Section Header */}
         <div className="flex flex-col text-left sm:text-center gap-4 md:gap-6">
           <AnimatedShinyText className="font-medium tracking-tight text-primary md:text-lg">

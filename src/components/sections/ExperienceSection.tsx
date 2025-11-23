@@ -36,7 +36,7 @@ export const ExperienceSection = () => {
 
   return (
     <section id="experience" className="relative overflow-hidden">
-      <div className="grid gap-12 py-24 md:pt-40">
+      <div className="grid gap-12 py-24 md:pt-36">
         {/* Section Header */}
         <div className="flex flex-col text-left gap-2 md:gap-4">
           <AnimatedShinyText className="font-medium tracking-tight text-primary md:text-lg">
