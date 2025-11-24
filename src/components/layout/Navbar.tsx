@@ -81,7 +81,7 @@ const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
       <AvatarImage src='https://github.com/igornicoletti.png' alt='@igornicoletti' />
       <AvatarFallback>IN</AvatarFallback>
     </Avatar>
-    <span>CodeCraft</span>
+    <span className='font-medium tracking-tight uppercase'>CodeCraft</span>
   </Button>
 )
 

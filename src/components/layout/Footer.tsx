@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer className="relative overflow-hidden">
       {/* Copyright */}
-      <div className="container mx-auto text-center px-4 py-12 md:pt-36">
+      <div className="container mx-auto text-center px-4 py-12 md:pt-40">
         <AnimatedShinyText className="font-medium tracking-tight text-xs md:text-sm">
           &copy; {currentYear} CodeCraft. Todos os direitos reservados.
         </AnimatedShinyText>
