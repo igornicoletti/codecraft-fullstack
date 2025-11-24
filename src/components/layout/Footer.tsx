@@ -8,7 +8,7 @@ export const Footer = () => {
     <footer className="relative overflow-hidden">
       {/* Copyright */}
       <div className="container mx-auto text-center px-4 py-12 md:pt-40">
-        <AnimatedShinyText className="font-medium tracking-tight text-xs md:text-sm">
+        <AnimatedShinyText className="font-medium tracking-tight text-xs sm:text-sm">
           &copy; {currentYear} CodeCraft. Todos os direitos reservados.
         </AnimatedShinyText>
       </div>
