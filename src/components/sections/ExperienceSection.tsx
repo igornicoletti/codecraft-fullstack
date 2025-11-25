@@ -33,7 +33,7 @@ export const ExperienceSection = () => {
       <div className="grid gap-12 py-24 md:pt-40">
         {/* Section Header */}
         <div className="flex flex-col gap-2 md:gap-4">
-          <AnimatedShinyText className="font-medium tracking-tight text-primary text-sm sm:text-base">
+          <AnimatedShinyText className="font-medium tracking-tight text-primary text-sm">
             {label}
           </AnimatedShinyText>
           <h2 className="font-medium tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl">
@@ -51,7 +51,7 @@ export const ExperienceSection = () => {
                   <CarouselItem key={idx}>
                     <Card className="relative flex h-full flex-col overflow-hidden">
                       <CardHeader>
-                        <CardTitle className="text-lg md:text-xl">{item.organizationName}</CardTitle>
+                        <CardTitle className="md:text-lg">{item.organizationName}</CardTitle>
                         <CardDescription className="flex items-center gap-2">
                           <CalendarBlankIcon />
                           <span>{item.employmentPeriod}</span>

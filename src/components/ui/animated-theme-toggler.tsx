@@ -3,7 +3,7 @@ import { flushSync } from 'react-dom'
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { MoonIcon, SunIcon } from '@phosphor-icons/react'
+import { MoonStarsIcon, SunIcon } from '@phosphor-icons/react'
 
 interface AnimatedThemeTogglerProps
   extends React.ComponentPropsWithoutRef<'button'> {
@@ -78,7 +78,7 @@ export const AnimatedThemeToggler = ({
       onClick={toggleTheme}
       className={cn('cursor-pointer rounded-full', className)}
       {...props}>
-      {isDark ? <SunIcon /> : <MoonIcon />}
+      {isDark ? <SunIcon /> : <MoonStarsIcon />}
       <span className='sr-only'>Toggle theme</span>
     </Button>
   )

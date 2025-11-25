@@ -1,4 +1,4 @@
-import { ArrowLineUpRightIcon, RocketLaunchIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon, RocketLaunchIcon } from '@phosphor-icons/react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
@@ -34,7 +34,7 @@ export const HeroSection = () => {
           <Button asChild size="lg" variant="outline" className="group w-full uppercase sm:max-w-3xs">
             <a href={actions.secondary.href} target="_blank" rel="noopener noreferrer">
               {actions.secondary.label}
-              <ArrowLineUpRightIcon className="size-5 transition-transform group-hover:scale-110" />
+              <ArrowUpRightIcon className="size-5 transition-transform group-hover:scale-110" />
             </a>
           </Button>
         </div>
