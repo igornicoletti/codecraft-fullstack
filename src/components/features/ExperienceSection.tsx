@@ -1,4 +1,4 @@
-import { CalendarBlankIcon } from '@phosphor-icons/react'
+import { ArrowSquareOutIcon, CalendarBlankIcon } from '@phosphor-icons/react'
 import Autoplay from 'embla-carousel-autoplay'
 import { useEffect, useRef, useState } from 'react'
 
@@ -51,7 +51,12 @@ export const ExperienceSection = () => {
                   <CarouselItem key={idx}>
                     <Card className='relative flex h-full flex-col overflow-hidden'>
                       <CardHeader>
-                        <CardTitle className='md:text-lg'>{item.organizationName}</CardTitle>
+                        <CardTitle>
+                          <a href={item.organizationSite} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-md md:text-lg">
+                            {item.organizationName}
+                            <ArrowSquareOutIcon className='text-muted-foreground' />
+                          </a>
+                        </CardTitle>
                         <CardDescription className='flex items-center gap-2'>
                           <CalendarBlankIcon />
                           <span>{item.employmentPeriod}</span>

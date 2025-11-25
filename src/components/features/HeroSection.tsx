@@ -28,7 +28,7 @@ export const HeroSection = () => {
         <div className='flex flex-wrap justify-center gap-4'>
           <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
             {actions.primary.label}
-            <RocketLaunchIcon className='size-5 transition-transform group-hover:scale-125' />
+            <RocketLaunchIcon className='size-5 transition-transform group-hover:scale-110' />
           </Button>
 
           <Button asChild size='lg' variant='outline' className='group w-full uppercase sm:max-w-3xs'>
