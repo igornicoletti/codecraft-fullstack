@@ -87,12 +87,12 @@ const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
 
 const NavbarIcons = () => (
   <div className='flex items-center gap-2 sm:gap-4'>
-    <Button asChild size='icon' variant='ghost' className='rounded-full' aria-label="LinkedIn">
+    <Button asChild size='icon' variant='ghost' className='rounded-full' aria-label='LinkedIn'>
       <a href='https://linkedin.com/in/igornicoletti' target='_blank' rel='noopener noreferrer'>
         <LinkedinLogoIcon />
       </a>
     </Button>
-    <Button asChild size='icon' variant='ghost' className='rounded-full' aria-label="GitHub">
+    <Button asChild size='icon' variant='ghost' className='rounded-full' aria-label='GitHub'>
       <a href='https://github.com/igornicoletti' target='_blank' rel='noopener noreferrer'>
         <GithubLogoIcon />
       </a>
@@ -120,7 +120,7 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: {
             <motion.div
               layoutId='hovered'
               className='absolute inset-0 h-full w-full rounded-full bg-accent/50!'
-              transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
             />
           )}
           <span className='relative z-20'>{item.title}</span>
@@ -152,7 +152,7 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
     <div className='lg:hidden'>
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
-          <Button size='icon' variant='ghost' className='rounded-full' aria-label="Toggle menu">
+          <Button size='icon' variant='ghost' className='rounded-full' aria-label='Toggle menu'>
             <ListIcon />
           </Button>
         </DrawerTrigger>
@@ -161,9 +161,9 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
             <DrawerTitle>
               <NavbarBrand onClick={handleBrandClick} />
             </DrawerTitle>
-            <DrawerDescription className="sr-only">Mobile navigation menu</DrawerDescription>
+            <DrawerDescription className='sr-only'>Mobile navigation menu</DrawerDescription>
           </DrawerHeader>
-          <div className="flex flex-col gap-2 p-4 pt-0">
+          <div className='flex flex-col gap-2 p-4 pt-0'>
             {navigations.map((item, idx) => (
               <Button key={`mobile-${idx}`} variant='ghost' onClick={() => handleDrawerLinkClick(item.id)}>
                 {item.title}

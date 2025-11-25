@@ -29,44 +29,44 @@ export const ExperienceSection = () => {
   const activeExperience = positions[current - 1] || positions[0]
 
   return (
-    <section id="experience" className="relative overflow-hidden">
-      <div className="grid gap-12 py-24 md:pt-40">
+    <section id='experience' className='relative overflow-hidden'>
+      <div className='grid gap-12 py-24 md:pt-40'>
         {/* Section Header */}
-        <div className="flex flex-col gap-2 md:gap-4">
-          <AnimatedShinyText className="font-medium tracking-tight text-primary text-sm">
+        <div className='flex flex-col gap-2 md:gap-4'>
+          <AnimatedShinyText className='font-medium tracking-tight text-primary text-sm sm:text-base'>
             {label}
           </AnimatedShinyText>
-          <h2 className="font-medium tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl">
+          <h2 className='font-medium tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl'>
             {headline}
           </h2>
-          <p className="max-w-4xl text-muted-foreground md:text-lg">{description}</p>
+          <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
+        <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
           {/* Carousel Column */}
-          <div className="lg:col-span-2">
+          <div className='lg:col-span-2'>
             <Carousel setApi={setApi} opts={{ loop: true }} plugins={[plugin.current]}>
               <CarouselContent>
                 {positions.map((item, idx) => (
                   <CarouselItem key={idx}>
-                    <Card className="relative flex h-full flex-col overflow-hidden">
+                    <Card className='relative flex h-full flex-col overflow-hidden'>
                       <CardHeader>
-                        <CardTitle className="md:text-lg">{item.organizationName}</CardTitle>
-                        <CardDescription className="flex items-center gap-2">
+                        <CardTitle className='md:text-lg'>{item.organizationName}</CardTitle>
+                        <CardDescription className='flex items-center gap-2'>
                           <CalendarBlankIcon />
                           <span>{item.employmentPeriod}</span>
                         </CardDescription>
                       </CardHeader>
 
-                      <CardContent className="flex-1">
-                        <p className="md:text-lg">{item.projectDescription}</p>
+                      <CardContent className='flex-1'>
+                        <p className='md:text-lg'>{item.projectDescription}</p>
                       </CardContent>
 
-                      <CardFooter className="mt-auto flex -space-x-3 rtl:space-x-reverse">
+                      <CardFooter className='mt-auto flex -space-x-3 rtl:space-x-reverse'>
                         {item.techStack.map(({ slug, label }) => (
                           <Tooltip key={label}>
                             <TooltipTrigger>
-                              <Avatar className="p-2 bg-secondary ring-2 ring-card transition-transform hover:z-10 hover:scale-110">
+                              <Avatar className='p-2 bg-secondary ring-2 ring-card transition-transform hover:z-10 hover:scale-110'>
                                 <AvatarImage
                                   src={`https://cdn.simpleicons.org/${slug}?viewbox=auto&size=32`}
                                   alt={label} />
@@ -78,7 +78,7 @@ export const ExperienceSection = () => {
                         ))}
                       </CardFooter>
 
-                      <BorderBeam duration={10} size={250} className="from-secondary via-primary to-secondary" />
+                      <BorderBeam duration={10} size={250} className='from-secondary via-primary to-secondary' />
                     </Card>
                   </CarouselItem>
                 ))}
@@ -87,29 +87,29 @@ export const ExperienceSection = () => {
           </div>
 
           {/* Metrics Column */}
-          <div className="flex flex-col gap-6 sm:flex-row lg:flex-col">
+          <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
             {activeExperience?.impactMetrics?.map((metric, idx) => (
               <div key={`${activeExperience.organizationName}-${idx}`}
-                className="flex flex-col gap-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary">
-                <div className="flex items-baseline gap-2">
+                className='flex flex-col gap-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary'>
+                <div className='flex items-baseline gap-2'>
                   <BlurFade key={metric.value} delay={0.1 * idx}>
-                    <span className="font-medium md:text-lg">{metric.value}</span>
+                    <span className='font-medium md:text-lg'>{metric.value}</span>
                   </BlurFade>
-                  <span className="font-medium md:text-lg">{metric.context}</span>
+                  <span className='font-medium md:text-lg'>{metric.context}</span>
                 </div>
-                <span className="text-muted-foreground">{metric.description}</span>
+                <span className='text-muted-foreground'>{metric.description}</span>
               </div>
             ))}
           </div>
 
           {/* Navigation Dots */}
-          <div className="lg:col-span-2">
-            <div className="flex w-full max-w-sm gap-2 mx-auto">
+          <div className='lg:col-span-2'>
+            <div className='flex w-full max-w-sm gap-2 mx-auto'>
               {Array.from({ length: count }).map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => api?.scrollTo(idx)}
-                  className="group py-2 flex-1 cursor-pointer"
+                  className='group py-2 flex-1 cursor-pointer'
                   aria-label={`Go to slide ${idx + 1}`}>
                   <div className={cn('h-1 w-full rounded-full transition-all', current === idx + 1
                     ? 'bg-primary'
