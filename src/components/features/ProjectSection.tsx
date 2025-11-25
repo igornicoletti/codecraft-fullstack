@@ -1,5 +1,5 @@
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
-import { projectData } from '@/data/project'
+import { projectData } from '@/constants/project'
 
 export const ProjectSection = () => {
   const { label, headline, description } = projectData

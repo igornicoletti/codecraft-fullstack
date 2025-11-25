@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { MoonStarsIcon, SunIcon } from '@phosphor-icons/react'
+import { useCallback, useRef } from 'react'
 import { flushSync } from 'react-dom'
 
 import { Button } from '@/components/ui/button'
+import { useTheme } from '@/contexts/ThemeProvider'
 import { cn } from '@/lib/utils'
-import { MoonStarsIcon, SunIcon } from '@phosphor-icons/react'
 
 interface AnimatedThemeTogglerProps
   extends React.ComponentPropsWithoutRef<'button'> {
@@ -15,39 +16,23 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }: AnimatedThemeTogglerProps) => {
-  const [isDark, setIsDark] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const isDark = theme === 'dark'
   const buttonRef = useRef<HTMLButtonElement>(null)
-
-  useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains('dark'))
-    }
-
-    updateTheme()
-
-    const observer = new MutationObserver(updateTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    })
-
-    return () => observer.disconnect()
-  }, [])
 
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return
 
     await document.startViewTransition(() => {
       flushSync(() => {
-        const newTheme = !isDark
-        setIsDark(newTheme)
-        document.documentElement.classList.toggle('dark')
-        localStorage.setItem('theme', newTheme ? 'dark' : 'light')
+        const next = isDark ? 'light' : 'dark'
+        setTheme(next)
       })
     }).ready
 
     const { top, left, width, height } =
       buttonRef.current.getBoundingClientRect()
+
     const x = left + width / 2
     const y = top + height / 2
     const maxRadius = Math.hypot(
@@ -59,16 +44,16 @@ export const AnimatedThemeToggler = ({
       {
         clipPath: [
           `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRadius}px at ${x}px ${y}px)`,
-        ],
+          `circle(${maxRadius}px at ${x}px ${y}px)`
+        ]
       },
       {
         duration,
         easing: 'ease-in-out',
-        pseudoElement: '::view-transition-new(root)',
+        pseudoElement: '::view-transition-new(root)'
       }
     )
-  }, [isDark, duration])
+  }, [isDark, duration, setTheme])
 
   return (
     <Button
@@ -77,7 +62,8 @@ export const AnimatedThemeToggler = ({
       ref={buttonRef}
       onClick={toggleTheme}
       className={cn('cursor-pointer rounded-full', className)}
-      {...props}>
+      {...props}
+    >
       {isDark ? <SunIcon /> : <MoonStarsIcon />}
       <span className='sr-only'>Toggle theme</span>
     </Button>

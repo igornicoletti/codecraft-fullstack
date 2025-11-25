@@ -4,7 +4,7 @@ import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { heroData } from '@/data/hero'
+import { heroData } from '@/constants/hero'
 
 export const HeroSection = () => {
   const { label, headline, description, actions, techStack } = heroData

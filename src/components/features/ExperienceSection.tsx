@@ -9,7 +9,7 @@ import { BorderBeam } from '@/components/ui/border-beam'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { experienceData } from '@/data/experience'
+import { experienceData } from '@/constants/experience'
 import { cn } from '@/lib/utils'
 
 export const ExperienceSection = () => {
