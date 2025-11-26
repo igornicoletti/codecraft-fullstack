@@ -32,13 +32,13 @@ export const heroData: HeroSectionData = {
     prefix: 'Experiências web',
     dynamicWords: ['modernas', 'eficientes', 'escaláveis']
   },
-  description: 'Engenheiro de software front-end focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
+  description: 'Engenheiro de software focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
   actions: {
     primary: {
-      label: 'Explorar projeto'
+      label: 'Explorar Projetos'
     },
     secondary: {
-      label: 'Iniciar conversa',
+      label: 'Iniciar Contato',
       href: 'mailto:igor93nicoletti@gmail.com'
     }
   },

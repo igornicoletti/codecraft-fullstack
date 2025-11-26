@@ -11,7 +11,7 @@ export interface ImpactMetric {
 
 export interface WorkPosition {
   organizationName: string
-  organizationSite: string
+  websiteLink: string
   employmentPeriod: string
   projectDescription: string
   techStack: TechStackItem[]
@@ -20,19 +20,25 @@ export interface WorkPosition {
 
 export interface WorkExperienceData {
   label: string
-  headline: string
+  headline: {
+    prefix: string
+    dynamicWords: string
+  }
   description: string
   positions: WorkPosition[]
 }
 
 export const experienceData: WorkExperienceData = {
-  label: 'Experiência Profissional',
-  headline: 'Aplicações do mundo real',
+  label: 'Experiência profissional',
+  headline: {
+    prefix: 'Aplicações',
+    dynamicWords: 'do mundo real'
+  },
   description: 'Trajetória definida pela construção de ecossistemas digitais resilientes em verticais exigentes como Fintech, IA Generativa, Sports Tech e E-commerce Enterprise, com foco na engenharia de performance – da otimização granular de Core Web Vitals e estratégias de Server-Side Rendering (SSR) à orquestração de estados complexos e visualização de dados (BI) em tempo real via WebSockets.',
   positions: [
     {
       organizationName: 'Hublab',
-      organizationSite: 'https://www.hubchat.com.br/',
+      websiteLink: 'https://www.hubchat.com.br/',
       employmentPeriod: 'Out. 2019 – Fev. 2023',
       projectDescription: 'Engenharia de interfaces escaláveis para soluções de IA Generativa, otimizando a UX do chat conversacional. Desenvolvimento de dashboards de telemetria em tempo real e módulos de visualização de dados para BI, assegurando renderização de alta performance e integração robusta com APIs.',
       techStack: [
@@ -62,7 +68,7 @@ export const experienceData: WorkExperienceData = {
     },
     {
       organizationName: 'Olivas Digital',
-      organizationSite: 'https://www.olivas.digital/',
+      websiteLink: 'https://www.olivas.digital/',
       employmentPeriod: 'Mar. 2021 – Jan. 2022',
       projectDescription: 'Arquitetura de interfaces pixel-perfect em sinergia com UI/UX, implementando estratégias avançadas de SEO técnico e semântica web. Desenvolvimento de soluções cross-platform e integração de ecossistemas de automação (CRM/Marketing), focando em escalabilidade e conformidade com Core Web Vitals.',
       techStack: [
@@ -92,7 +98,7 @@ export const experienceData: WorkExperienceData = {
     },
     {
       organizationName: 'Trinto | Digital Partners',
-      organizationSite: 'https://www.trinto.com.br/',
+      websiteLink: 'https://www.trinto.com.br/',
       employmentPeriod: 'Nov. 2020 – Mar. 2021',
       projectDescription: 'Engenharia de sustentação para ecossistemas de e-commerce Enterprise (VTEX/Linx), assegurando alta disponibilidade e resiliência sistêmica. Execução de tuning de performance, refatoração para conformidade WCAG AA e mitigação de débitos técnicos de SEO. Blindagem de fluxos transacionais críticos via testes de regressão rigorosos.',
       techStack: [
@@ -118,7 +124,7 @@ export const experienceData: WorkExperienceData = {
     },
     {
       organizationName: '2Morrow Sports',
-      organizationSite: 'https://2morrowsports.com.br/',
+      websiteLink: 'https://2morrowsports.com.br/',
       employmentPeriod: 'Jan. 2020 – Out. 2020',
       projectDescription: 'Engenharia de interfaces modulares para ecossistemas de Fan Engagement e monetização high-stakes. Desenvolvimento de checkouts transparentes com integração de gateways complexos e arquitetura de segurança militar (padrão Red Bull). Implementação de dashboards de BI para visualização analítica de telemetria comportamental.',
       techStack: [
@@ -147,7 +153,7 @@ export const experienceData: WorkExperienceData = {
     },
     {
       organizationName: 'Velani Digital',
-      organizationSite: 'https://velani.com.br/',
+      websiteLink: 'https://velani.com.br/',
       employmentPeriod: 'Jun. 2019 – Set. 2019',
       projectDescription: 'Engenharia de interfaces para ecossistema SaaS ERP fintech-oriented, orquestrando visualização de dados financeiros (BI) de alta densidade. Desenvolvimento de dashboards analíticos reativos para gestão de Cash Flow, assegurando integridade transacional visual e UX otimizada para fluxos críticos de Contabilidade Digital.',
       techStack: [

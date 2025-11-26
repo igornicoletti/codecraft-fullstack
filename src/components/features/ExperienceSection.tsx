@@ -1,4 +1,4 @@
-import { ArrowSquareOutIcon, CalendarBlankIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon, CalendarBlankIcon } from '@phosphor-icons/react'
 import Autoplay from 'embla-carousel-autoplay'
 import { useEffect, useRef, useState } from 'react'
 
@@ -8,6 +8,7 @@ import { BlurFade } from '@/components/ui/blur-fade'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
+import { LinkPreview } from '@/components/ui/link-preview'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { experienceData } from '@/constants/experience'
 import { cn } from '@/lib/utils'
@@ -36,10 +37,12 @@ export const ExperienceSection = () => {
           <AnimatedShinyText className='font-medium tracking-tight text-primary text-sm sm:text-base'>
             {label}
           </AnimatedShinyText>
-          <h2 className='font-medium tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl'>
-            {headline}
+          <h2 className='tracking-tight text-balance text-4xl sm:text-3xl md:text-4xl'>
+            {headline.prefix}{' '}
+            <br className='sm:hidden' />
+            {headline.dynamicWords}
           </h2>
-          <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
+          <p className='max-w-6xl text-muted-foreground md:text-lg'>{description}</p>
         </div>
 
         <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
@@ -52,10 +55,10 @@ export const ExperienceSection = () => {
                     <Card className='relative flex h-full flex-col overflow-hidden'>
                       <CardHeader>
                         <CardTitle>
-                          <a href={item.organizationSite} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-md md:text-lg">
+                          <LinkPreview url={item.websiteLink} className='inline-flex items-center gap-2 text-lg md:text-xl'>
                             {item.organizationName}
-                            <ArrowSquareOutIcon className='text-muted-foreground' />
-                          </a>
+                            <ArrowUpRightIcon className='text-muted-foreground' />
+                          </LinkPreview>
                         </CardTitle>
                         <CardDescription className='flex items-center gap-2'>
                           <CalendarBlankIcon />
@@ -94,13 +97,12 @@ export const ExperienceSection = () => {
           {/* Metrics Column */}
           <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
             {activeExperience?.impactMetrics?.map((metric, idx) => (
-              <div key={`${activeExperience.organizationName}-${idx}`}
-                className='flex flex-col gap-2 pl-4 border-l-2 border-secondary/50 transition-all hover:border-primary'>
+              <div key={`${activeExperience.organizationName}-${idx}`} className='flex flex-col gap-2 pl-4 border-l border-primary'>
                 <div className='flex items-baseline gap-2'>
                   <BlurFade key={metric.value} delay={0.1 * idx}>
-                    <span className='font-medium md:text-lg'>{metric.value}</span>
+                    <span className='text-xl md:text-2xl'>{metric.value}</span>
                   </BlurFade>
-                  <span className='font-medium md:text-lg'>{metric.context}</span>
+                  <span className='text-xl md:text-2xl'>{metric.context}</span>
                 </div>
                 <span className='text-muted-foreground'>{metric.description}</span>
               </div>
@@ -116,7 +118,7 @@ export const ExperienceSection = () => {
                   onClick={() => api?.scrollTo(idx)}
                   className='group py-2 flex-1 cursor-pointer'
                   aria-label={`Go to slide ${idx + 1}`}>
-                  <div className={cn('h-1 w-full rounded-full transition-all', current === idx + 1
+                  <div className={cn('h-0.5 w-full rounded-full transition-all', current === idx + 1
                     ? 'bg-primary'
                     : 'bg-secondary/50 group-hover:bg-secondary/30')} />
                 </button>
