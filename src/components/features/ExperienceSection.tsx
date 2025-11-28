@@ -35,15 +35,15 @@ export const ExperienceSection = () => {
         <div className='grid gap-12 py-24 md:pt-40'>
           {/* Section Header */}
           <div className='flex flex-col gap-2 md:gap-4'>
-            <AnimatedShinyText className='font-medium tracking-tight text-primary md:text-lg'>
+            <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
-            <h2 className='tracking-tight text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-secondary-foreground'>
+            <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
               {headline.prefix}{' '}
               <br className='sm:hidden' />
               {headline.dynamicWords}
             </h2>
-            <p className='max-w-5xl text-balance text-muted-foreground md:text-lg'>{description}</p>
+            <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
           </div>
 
           {/* Work Position */}

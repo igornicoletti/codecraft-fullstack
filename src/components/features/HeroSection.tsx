@@ -15,14 +15,14 @@ export const HeroSection = () => {
         <div className='grid gap-12 py-8 md:py-24 md:pt-40'>
           {/* Section Header */}
           <div className='flex flex-col gap-4 sm:items-center sm:text-center md:gap-6'>
-            <AnimatedShinyText className='font-medium tracking-tight text-primary md:text-lg'>
+            <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
-            <h1 className='tracking-tight text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
+            <h1 className='text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl'>
               {headline.prefix}{' '}
               <FlipWords words={headline.dynamicWords} />
             </h1>
-            <h2 className='max-w-5xl text-balance text-muted-foreground md:text-lg lg:text-xl'>{description}</h2>
+            <h2 className='max-w-4xl text-muted-foreground md:text-lg lg:text-xl'>{description}</h2>
           </div>
           {/* Action Buttons */}
           <div className='flex flex-wrap justify-center gap-4'>
