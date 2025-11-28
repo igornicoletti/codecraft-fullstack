@@ -3,11 +3,11 @@ import { HeroSection } from '@/components/features/HeroSection'
 import { ProjectSection } from '@/components/features/ProjectSection'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
-import { AnimatedWavePath } from '@/components/ui/animated-wave-path'
+import { WaveBackground } from '@/components/ui/wave-background'
 
 export const Home = () => (
   <div id='app'>
-    <AnimatedWavePath />
+    <WaveBackground className='' />
     <Navbar />
     <HeroSection />
     <ExperienceSection />

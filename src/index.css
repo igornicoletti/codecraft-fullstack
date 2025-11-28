@@ -113,10 +113,22 @@
     0% { background-position: 0 0; }
     100% { background-position: 100% -100%; }
   }
---animate-pulse-wave: pulse-wave var(--duration, 9s) ease-in-out calc(var(--i, 0) * 0.3s) infinite alternate;
-  @keyframes pulse-wave {
-    0% { transform: scale(0.98); opacity: 0.9; transform-origin: center center; }
-    100% { transform: scale(1); opacity: 1; transform-origin: center center; }
+  --animate-wave-float: wave-float var(--duration, 10s) ease-in-out calc(var(--i, 0) * 0.5s) infinite alternate;
+  @keyframes wave-float {
+    0% {
+      transform-origin: center center;
+      transform: translateY(0) rotate(1deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-10px) rotate(-1deg);
+      opacity: 1;
+    }
+    100% {
+      transform-origin: center center;
+      transform: translateY(0) rotate(1deg);
+      opacity: 0.8;
+    }
   }
 }
 
