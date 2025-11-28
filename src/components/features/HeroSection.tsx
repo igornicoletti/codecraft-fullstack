@@ -74,7 +74,7 @@ const wavePaths = [
 ]
 
 const BackgroundSvg = () => (
-  <div className="absolute -z-10 inset-0 flex min-h-svh items-center justify-center">
+  <div className="absolute -z-10 inset-0 flex h-full w-full items-center justify-center">
     <svg
       width="649"
       height="634"
