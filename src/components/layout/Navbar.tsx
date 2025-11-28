@@ -36,12 +36,12 @@ const NavbarRoot = ({ children }: NavbarProps) => {
   })
 
   return (
-    <motion.div className='sticky inset-x-0 top-0 z-50 w-full'>
+    <motion.header className='sticky inset-x-0 top-0 z-50 w-full'>
       {Children.map(children, (child) => isValidElement(child)
         ? cloneElement(child as ReactElement<{ visible?: boolean }>, { visible })
         : child
       )}
-    </motion.div>
+    </motion.header>
   )
 }
 
@@ -76,12 +76,12 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => {
 }
 
 const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick} variant='ghost' className='p-0 hover:bg-transparent dark:hover:bg-transparent group'>
+  <Button onClick={onClick} variant='link' className='p-0'>
     <Avatar>
-      <AvatarImage src='https://github.com/igornicoletti.png' alt='@igornicoletti' />
+      <AvatarImage src='images/igornicoletti.png' alt='@igornicoletti' />
       <AvatarFallback>IN</AvatarFallback>
     </Avatar>
-    <span className='font-medium tracking-tight uppercase'>CodeCraft</span>
+    <span className='font-semibold tracking-tight uppercase'>CodeCraft</span>
   </Button>
 )
 

@@ -1,4 +1,4 @@
-import { MoonStarsIcon, SunIcon } from '@phosphor-icons/react'
+import { MoonIcon, SunIcon } from '@phosphor-icons/react'
 import { useCallback, useRef } from 'react'
 import { flushSync } from 'react-dom'
 
@@ -64,7 +64,7 @@ export const AnimatedThemeToggler = ({
       className={cn('cursor-pointer rounded-full', className)}
       {...props}
     >
-      {isDark ? <SunIcon /> : <MoonStarsIcon />}
+      {isDark ? <SunIcon /> : <MoonIcon />}
       <span className='sr-only'>Toggle theme</span>
     </Button>
   )
