@@ -10,7 +10,7 @@ export const ProjectSection = () => {
         <div className='grid gap-12 py-24 md:pt-40'>
           {/* Section Header */}
           <div className='flex flex-col items-center text-center gap-2 md:gap-4'>
-            <AnimatedShinyText className='font-medium tracking-tight text-primary text-sm sm:text-base'>
+            <AnimatedShinyText className='font-medium tracking-tight text-primary md:text-lg'>
               {label}
             </AnimatedShinyText>
             <h2 className='font-medium tracking-tight text-balance text-2xl sm:text-3xl md:text-4xl'>

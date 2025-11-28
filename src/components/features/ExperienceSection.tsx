@@ -35,7 +35,7 @@ export const ExperienceSection = () => {
         <div className='grid gap-12 py-24 md:pt-40'>
           {/* Section Header */}
           <div className='flex flex-col gap-2 md:gap-4'>
-            <AnimatedShinyText className='font-medium tracking-tight text-primary text-sm sm:text-base md:text-lg'>
+            <AnimatedShinyText className='font-medium tracking-tight text-primary md:text-lg'>
               {label}
             </AnimatedShinyText>
             <h2 className='tracking-tight text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-secondary-foreground'>
