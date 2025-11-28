@@ -39,11 +39,11 @@ export const HeroSection = () => {
             </Button>
           </div>
           {/* Technologies Icons */}
-          <div className='flex flex-wrap justify-center gap-2 md:gap-4'>
+          <div className='flex justify-center gap-4'>
             {techStack.map(({ icon: Icon, label }) => (
               <Tooltip key={label}>
                 <TooltipTrigger asChild>
-                  <Icon stroke={1} className='size-9 md:size-10 text-muted-foreground transition-colors hover:text-primary' />
+                  <Icon stroke={1} className='size-10 text-muted-foreground hover:text-primary' />
                 </TooltipTrigger>
                 <TooltipContent>{label}</TooltipContent>
               </Tooltip>
