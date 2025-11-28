@@ -3,17 +3,13 @@ import { HeroSection } from '@/components/features/HeroSection'
 import { ProjectSection } from '@/components/features/ProjectSection'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
-import { BackgroundBeams } from '@/components/ui/background-beams'
 
 export const Home = () => (
   <div id='app'>
     <Navbar />
-    <main className='flex flex-1 flex-col'>
-      <HeroSection />
-      <ExperienceSection />
-      <ProjectSection />
-      <BackgroundBeams />
-    </main>
+    <HeroSection />
+    <ExperienceSection />
+    <ProjectSection />
     <Footer />
   </div>
 )
