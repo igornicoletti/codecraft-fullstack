@@ -74,14 +74,14 @@ const wavePaths = [
 ]
 
 const BackgroundSvg = () => (
-  <div className="absolute -z-10 inset-0 flex min-h-full items-center justify-center">
+  <div className="absolute -z-10 inset-0 flex min-h-svh items-center justify-center">
     <svg
       width="649"
       height="634"
       viewBox="0 0 649 634"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className='absolute h-full w-full pointer-events-none'>
+      className='absolute h-full pointer-events-none'>
       {wavePaths.map((path, index) => (
         <path
           key={index}
