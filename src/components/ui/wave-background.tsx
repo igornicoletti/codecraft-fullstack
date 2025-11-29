@@ -27,7 +27,7 @@ export const WaveBackground = ({ className }: { className?: string }) => (
         <path
           key={index}
           d={path.d}
-          strokeWidth='3'
+          strokeWidth='2'
           stroke='var(--secondary)'
           strokeOpacity={path.opacity}
           vectorEffect="non-scaling-stroke"
