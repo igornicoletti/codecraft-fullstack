@@ -17,7 +17,7 @@ export const Footer = () => {
         </div>
       </div>
       {/* Text Effect */}
-      <div className='absolute w-full bottom-0 translate-y-2/5'>
+      <div className='absolute w-full bottom-1/5 translate-y-1/2'>
         <TextHoverEffect text='CODECRAFT' />
       </div>
     </footer>
