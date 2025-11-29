@@ -7,7 +7,7 @@ import { WaveBackground } from '@/components/ui/wave-background'
 
 export const Home = () => (
   <div id='app'>
-    <WaveBackground className='' />
+    <WaveBackground />
     <Navbar />
     <HeroSection />
     <ExperienceSection />
