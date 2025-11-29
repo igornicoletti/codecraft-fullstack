@@ -10,7 +10,7 @@ export const Footer = () => {
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-8 md:pt-40'>
           {/* Copyright */}
-          <AnimatedShinyText className='z-50 mx-auto font-medium text-xs sm:text-sm'>
+          <AnimatedShinyText className='z-50 mx-auto font-medium text-sm'>
             &copy; {currentYear}. O código fonte está disponível em{' '}
             <LinkPreview url='https://github.com/igornicoletti/codecraft-fullstack'>GitHub</LinkPreview>.
           </AnimatedShinyText>

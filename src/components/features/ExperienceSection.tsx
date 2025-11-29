@@ -17,6 +17,7 @@ export const ExperienceSection = () => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
+
   const plugin = useRef(Autoplay({ delay: 12000 }))
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export const ExperienceSection = () => {
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-24 md:pt-40'>
           {/* Section Header */}
-          <div className='flex flex-col gap-2 md:gap-4'>
+          <div className='flex flex-col gap-4 md:gap-6'>
             <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
@@ -45,7 +46,6 @@ export const ExperienceSection = () => {
             </h2>
             <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
           </div>
-
           {/* Work Position */}
           <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
             {/* Carousel Column */}
@@ -54,7 +54,7 @@ export const ExperienceSection = () => {
                 <CarouselContent>
                   {positions.map((item, idx) => (
                     <CarouselItem key={idx}>
-                      <Card className='relative flex h-full flex-col overflow-hidden'>
+                      <Card className='relative flex h-full flex-col overflow-hidden border-0'>
                         <CardHeader>
                           <CardTitle>
                             <LinkPreview url={item.websiteLink} className='inline-flex items-center gap-2 text-lg md:text-xl'>
@@ -127,7 +127,6 @@ export const ExperienceSection = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

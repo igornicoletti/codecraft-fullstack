@@ -1,4 +1,4 @@
-import { ArrowDownIcon, ArrowUpRightIcon } from '@phosphor-icons/react'
+import { ArrowDownRightIcon, ArrowUpRightIcon } from '@phosphor-icons/react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
@@ -11,15 +11,14 @@ export const HeroSection = () => {
 
   return (
     <section id='hero' className='relative overflow-hidden'>
-
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-8 md:py-24 md:pt-40'>
           {/* Section Header */}
-          <div className='flex flex-col gap-4 sm:items-center sm:text-center md:gap-6'>
+          <div className='flex flex-col gap-6 sm:items-center sm:text-center md:gap-8'>
             <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
-            <h1 className='text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl'>
+            <h1 className='text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
               {headline.prefix}{' '}
               <FlipWords words={headline.dynamicWords} />
             </h1>
@@ -29,7 +28,7 @@ export const HeroSection = () => {
           <div className='flex flex-wrap justify-center gap-4'>
             <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
               {actions.primary.label}
-              <ArrowDownIcon className='scale-125 group-hover:scale-110' />
+              <ArrowDownRightIcon className='scale-125 group-hover:scale-110' />
             </Button>
 
             <Button asChild size='lg' variant='outline' className='group w-full uppercase sm:max-w-3xs'>
@@ -52,7 +51,6 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-
     </section>
   )
 }
