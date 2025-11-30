@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, CalendarBlankIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon, CalendarBlankIcon, DownloadSimpleIcon } from '@phosphor-icons/react'
 import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
 import { useEffect, useRef, useState } from 'react'
@@ -10,6 +10,7 @@ import { BorderBeam } from '@/components/ui/border-beam'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
+import { SpinningText } from '@/components/ui/spinning-text'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { experienceData } from '@/constants/experience'
 import { cn } from '@/lib/utils'
@@ -36,16 +37,30 @@ export const ExperienceSection = () => {
     <section id='experience' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-24 md:pt-40'>
-          {/* Section Header */}
+          {/* Section Header Wrapper */}
           <div className='flex flex-col gap-4 md:gap-6'>
-            <AnimatedShinyText className='text-primary font-medium'>
-              {label}
-            </AnimatedShinyText>
-            <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
-              {headline.prefix}{' '}
-              <br className='sm:hidden' />
-              {headline.dynamicWords}
-            </h2>
+            <div className='flex items-baseline justify-between md:items-end'>
+              <div className='flex flex-col gap-4 md:gap-6'>
+                <AnimatedShinyText className='text-primary font-medium'>
+                  {label}
+                </AnimatedShinyText>
+                <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
+                  {headline.prefix}{' '}
+                  <br className='sm:hidden' />
+                  {headline.dynamicWords}
+                </h2>
+              </div>
+              <div className='shrink-0 relative z-10'>
+                <a href='/images/igornicoletti.pdf' download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/30 backdrop-blur-xs transition-all duration-500 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
+                  <SpinningText radius={6} duration={12} className='font-medium text-sm md:text-base uppercase tracking-widest text-secondary transition-colors duration-300 group-hover:text-primary'>
+                    baixar currículo • baixar currículo •
+                  </SpinningText>
+                  <div className='absolute inset-0 flex items-center justify-center'>
+                    <DownloadSimpleIcon weight='bold' className='size-8 text-secondary transition-all duration-300 group-hover:text-primary group-hover:scale-105' />
+                  </div>
+                </a>
+              </div>
+            </div>
             <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
           </div>
           {/* Work Position */}
@@ -76,7 +91,7 @@ export const ExperienceSection = () => {
                           {item.techStack.map(({ slug, label }) => (
                             <Tooltip key={label}>
                               <TooltipTrigger>
-                                <Avatar className='p-2 bg-muted ring-2 ring-card transition-transform hover:z-10 hover:scale-110'>
+                                <Avatar className='p-2 bg-muted ring-2 ring-card transition-transform hover:z-10 hover:scale-105'>
                                   <AvatarImage
                                     src={`https://cdn.simpleicons.org/${slug}?viewbox=auto&size=32`}
                                     alt={label} />

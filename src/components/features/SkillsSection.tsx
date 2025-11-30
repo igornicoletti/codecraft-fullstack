@@ -16,7 +16,7 @@ const ReviewCard = ({ slug, label }: LogoCardProps) => {
         <TooltipTrigger asChild>
           <div className={cn(
             "flex flex-col items-center justify-center p-4 rounded-xl border transition-all duration-300",
-            "border-secondary/30 bg-secondary/10 hover:bg-secondary/30",
+            "border-secondary/50 bg-secondary/30 hover:bg-secondary/50",
             "size-16")}>
             <Avatar className='size-full bg-transparent'>
               <AvatarImage
