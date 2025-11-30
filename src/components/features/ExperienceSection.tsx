@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon, CalendarBlankIcon } from '@phosphor-icons/react'
 import Autoplay from 'embla-carousel-autoplay'
+import Fade from 'embla-carousel-fade'
 import { useEffect, useRef, useState } from 'react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
@@ -18,7 +19,8 @@ export const ExperienceSection = () => {
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
-  const plugin = useRef(Autoplay({ delay: 12000 }))
+  const autoplayPlugin = useRef(Autoplay({ delay: 12000 }))
+  const fadePlugin = useRef(Fade())
 
   useEffect(() => {
     if (!api) return
@@ -50,11 +52,11 @@ export const ExperienceSection = () => {
           <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
             {/* Carousel Column */}
             <div className='lg:col-span-2'>
-              <Carousel setApi={setApi} opts={{ loop: true }} plugins={[plugin.current]}>
+              <Carousel setApi={setApi} opts={{ loop: true, containScroll: false, duration: 30 }} plugins={[autoplayPlugin.current, fadePlugin.current]}>
                 <CarouselContent>
                   {positions.map((item, idx) => (
                     <CarouselItem key={idx}>
-                      <Card className='relative flex h-full flex-col overflow-hidden border-0'>
+                      <Card className='relative flex h-full flex-col overflow-hidden'>
                         <CardHeader>
                           <CardTitle>
                             <LinkPreview url={item.websiteLink} className='inline-flex items-center gap-2 text-lg md:text-xl'>
@@ -67,16 +69,14 @@ export const ExperienceSection = () => {
                             <span>{item.employmentPeriod}</span>
                           </CardDescription>
                         </CardHeader>
-
                         <CardContent className='flex-1'>
                           <p className='md:text-lg'>{item.projectDescription}</p>
                         </CardContent>
-
                         <CardFooter className='mt-auto flex -space-x-3 rtl:space-x-reverse'>
                           {item.techStack.map(({ slug, label }) => (
                             <Tooltip key={label}>
                               <TooltipTrigger>
-                                <Avatar className='p-2 bg-secondary ring-2 ring-card transition-transform hover:z-10 hover:scale-110'>
+                                <Avatar className='p-2 bg-muted ring-2 ring-card transition-transform hover:z-10 hover:scale-110'>
                                   <AvatarImage
                                     src={`https://cdn.simpleicons.org/${slug}?viewbox=auto&size=32`}
                                     alt={label} />
@@ -87,8 +87,7 @@ export const ExperienceSection = () => {
                             </Tooltip>
                           ))}
                         </CardFooter>
-
-                        <BorderBeam duration={10} size={250} className='from-secondary via-primary to-secondary' />
+                        <BorderBeam duration={20} size={200} className='from-secondary via-primary to-secondary' />
                       </Card>
                     </CarouselItem>
                   ))}

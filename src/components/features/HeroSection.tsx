@@ -1,4 +1,3 @@
-import { ArrowDownRightIcon, ArrowUpRightIcon } from '@phosphor-icons/react'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
@@ -28,18 +27,15 @@ export const HeroSection = () => {
           <div className='flex flex-wrap justify-center gap-4'>
             <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
               {actions.primary.label}
-              <ArrowDownRightIcon className='scale-125 group-hover:scale-110' />
             </Button>
-
             <Button asChild size='lg' variant='outline' className='group w-full uppercase sm:max-w-3xs'>
               <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
                 {actions.secondary.label}
-                <ArrowUpRightIcon className='scale-125 group-hover:scale-110' />
               </a>
             </Button>
           </div>
           {/* Technologies Icons */}
-          <div className='flex justify-center gap-4'>
+          <div className='flex flex-wrap justify-center gap-4'>
             {techStack.map(({ icon: Icon, label }) => (
               <Tooltip key={label}>
                 <TooltipTrigger asChild>
