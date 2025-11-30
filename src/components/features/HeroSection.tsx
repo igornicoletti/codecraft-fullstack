@@ -28,7 +28,7 @@ export const HeroSection = () => {
             <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
               {actions.primary.label}
             </Button>
-            <Button asChild size='lg' variant='secondary' className='group w-full uppercase sm:max-w-3xs'>
+            <Button asChild size='lg' variant='outline' className='group w-full uppercase sm:max-w-3xs'>
               <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
                 {actions.secondary.label}
               </a>
