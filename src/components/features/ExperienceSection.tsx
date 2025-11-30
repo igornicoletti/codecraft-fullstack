@@ -67,7 +67,7 @@ export const ExperienceSection = () => {
           <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
             {/* Carousel Column */}
             <div className='lg:col-span-2'>
-              <Carousel setApi={setApi} opts={{ loop: true, containScroll: false, duration: 30 }} plugins={[autoplayPlugin.current, fadePlugin.current]}>
+              <Carousel setApi={setApi} opts={{ loop: true, containScroll: false }} plugins={[autoplayPlugin.current, fadePlugin.current]}>
                 <CarouselContent>
                   {positions.map((item, idx) => (
                     <CarouselItem key={idx}>
