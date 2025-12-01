@@ -1,4 +1,3 @@
-
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
@@ -11,7 +10,7 @@ export const HeroSection = () => {
   return (
     <section id='hero' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
-        <div className='grid gap-12 py-8 md:py-24 md:pt-40'>
+        <div className='grid gap-12 py-12 md:py-24 md:pt-40'>
           {/* Section Header */}
           <div className='flex flex-col gap-6 sm:items-center sm:text-center md:gap-8'>
             <AnimatedShinyText className='text-primary font-medium'>
@@ -39,7 +38,7 @@ export const HeroSection = () => {
             {techStack.map(({ icon: Icon, label }) => (
               <Tooltip key={label}>
                 <TooltipTrigger asChild>
-                  <Icon stroke={1} className='size-10 text-muted-foreground hover:text-primary' />
+                  <Icon stroke={0.5} className='size-10 hover:text-primary' />
                 </TooltipTrigger>
                 <TooltipContent>{label}</TooltipContent>
               </Tooltip>

@@ -24,6 +24,10 @@ export interface WorkExperienceData {
     prefix: string
     dynamicWords: string
   }
+  spinning: {
+    path: string
+    animationText: string
+  }
   description: string
   positions: WorkPosition[]
 }
@@ -33,6 +37,10 @@ export const experienceData: WorkExperienceData = {
   headline: {
     prefix: 'Aplicações',
     dynamicWords: 'do mundo real'
+  },
+  spinning: {
+    path: '/images/igornicoletti.pdf',
+    animationText: 'baixar currículo • baixar currículo •'
   },
   description: 'Trajetória definida pela construção de ecossistemas digitais resilientes em verticais exigentes como Fintech, IA Generativa, Sports Tech e E-commerce Enterprise, com foco na engenharia de performance – da otimização granular de Core Web Vitals e estratégias de Server-Side Rendering (SSR) à orquestração de estados complexos e visualização de dados (BI) em tempo real via WebSockets.',
   positions: [

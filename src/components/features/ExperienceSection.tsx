@@ -30,7 +30,7 @@ export const ExperienceSection = () => {
     api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
   }, [api])
 
-  const { label, headline, description, positions } = experienceData
+  const { label, headline, spinning, description, positions } = experienceData
   const activeExperience = positions[current - 1] || positions[0]
 
   return (
@@ -51,9 +51,9 @@ export const ExperienceSection = () => {
                 </h2>
               </div>
               <div className='shrink-0 relative z-10'>
-                <a href='/images/igornicoletti.pdf' download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/30 backdrop-blur-xs transition-all duration-500 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
+                <a href={spinning.path} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/30 backdrop-blur-xs transition-all duration-400 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
                   <SpinningText radius={6} duration={12} className='font-medium text-sm md:text-base uppercase tracking-widest text-secondary transition-colors duration-300 group-hover:text-primary'>
-                    baixar currículo • baixar currículo •
+                    {spinning.animationText}
                   </SpinningText>
                   <div className='absolute inset-0 flex items-center justify-center'>
                     <DownloadSimpleIcon weight='bold' className='size-8 text-secondary transition-all duration-300 group-hover:text-primary group-hover:scale-105' />
@@ -92,9 +92,7 @@ export const ExperienceSection = () => {
                             <Tooltip key={label}>
                               <TooltipTrigger>
                                 <Avatar className='p-2 bg-muted ring-2 ring-card transition-transform hover:z-10 hover:scale-105'>
-                                  <AvatarImage
-                                    src={`https://cdn.simpleicons.org/${slug}?viewbox=auto&size=32`}
-                                    alt={label} />
+                                  <AvatarImage src={`https://cdn.simpleicons.org/${slug}`} alt={label} />
                                   <AvatarFallback>{label?.[0]}</AvatarFallback>
                                 </Avatar>
                               </TooltipTrigger>

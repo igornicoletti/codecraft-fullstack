@@ -1,57 +1,41 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Marquee } from '@/components/ui/marquee'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip" // Assumindo que você tem Tooltip
-import { marqueeRows } from '@/constants/skills'
-import { cn } from "@/lib/utils"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { skillsData, type SkillsItem } from '@/constants/skills'
 
-interface LogoCardProps {
-  slug: string
-  label: string
-}
-
-const ReviewCard = ({ slug, label }: LogoCardProps) => {
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <div className={cn(
-            "flex flex-col items-center justify-center p-4 rounded-xl border transition-all duration-300",
-            "border-secondary/50 bg-secondary/30 hover:bg-secondary/50",
-            "size-16")}>
-            <Avatar className='size-full bg-transparent'>
-              <AvatarImage
-                src={`https://cdn.simpleicons.org/${slug}?viewbox=auto&size=32`}
-                alt={label}
-              />
-              <AvatarFallback>{label.slice(0, 2)}</AvatarFallback>
-            </Avatar>
-          </div>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{label}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  )
-}
+const ReviewCard = ({ item }: { item: SkillsItem }) => (
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Avatar className="mx-4 size-8 bg-transparent rounded-none">
+          <AvatarImage src={`https://cdn.simpleicons.org/${item.slug}/${item.color}`} alt={item.label} />
+          <AvatarFallback>{item.label.slice(0, 2)}</AvatarFallback>
+        </Avatar>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{item.label}</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+)
 
 export const SkillsSection = () => {
-  const { firstRow, secondRow } = marqueeRows
+  const mid = Math.ceil(skillsData.length / 2)
+  const firstRow = skillsData.slice(0, mid)
+  const secondRow = skillsData.slice(mid)
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <Marquee pauseOnHover>
-        {firstRow.map((review) => (
-          <ReviewCard key={review.slug} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover>
-        {secondRow.map((review) => (
-          <ReviewCard key={review.label} {...review} />
-        ))}
-      </Marquee>
-      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-linear-to-r"></div>
-      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-linear-to-l"></div>
-    </div>
+    <section id="skills" className="relative overflow-hidden">
+      <div className='grid gap-6 py-12 md:py-24'>
+        <Marquee pauseOnHover>
+          {firstRow.map((skill, idx) => <ReviewCard key={idx} item={skill} />)}
+        </Marquee>
+        <Marquee reverse pauseOnHover>
+          {secondRow.map((skill, idx) => <ReviewCard key={idx} item={skill} />)}
+        </Marquee>
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-background to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-background to-transparent z-10" />
+    </section>
   )
 }

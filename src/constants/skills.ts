@@ -1,29 +1,47 @@
-export const allSkills = [
-  // Frontend/UI
-  { slug: 'react', label: 'React', duration: '50s' },
-  { slug: 'nextdotjs', label: 'Next.js', duration: '50s' },
-  { slug: 'typescript', label: 'TypeScript', duration: '50s' },
-  { slug: 'tailwindcss', label: 'Tailwind CSS', duration: '50s' },
-  { slug: 'radixui', label: 'Radix UI', duration: '50s' },
-  { slug: 'framer', label: 'Framer Motion', duration: '50s' },
-  { slug: 'vite', label: 'Vite', duration: '50s' },
+export interface SkillsItem {
+  slug: string
+  label: string
+  color?: string
+}
 
-  // Backend/DB
-  { slug: 'nodedotjs', label: 'Node.js', duration: '40s' },
-  { slug: 'express', label: 'Express', duration: '40s' },
-  { slug: 'postgresql', label: 'PostgreSQL', duration: '40s' },
-  { slug: 'mongodb', label: 'MongoDB', duration: '40s' },
-  { slug: 'prisma', label: 'Prisma', duration: '40s' },
+export const skillsData: SkillsItem[] = [
+  // Linguagens e Core
+  { slug: 'javascript', label: 'JavaScript' },
+  { slug: 'typescript', label: 'TypeScript' },
+  { slug: 'html5', label: 'HTML5' },
+  { slug: 'css', label: 'CSS3' },
+  { slug: 'sass', label: 'Sass' },
 
-  // Tools/DevOps
-  { slug: 'git', label: 'Git', duration: '60s' },
-  { slug: 'githubactions', label: 'GitHub Actions', duration: '60s' },
-  { slug: 'docker', label: 'Docker', duration: '60s' },
-  { slug: 'testinglibrary', label: 'Testing Library', duration: '60s' },
-  { slug: 'vitest', label: 'Vitest', duration: '60s' },
+  // Frameworks e Bibliotecas Frontend
+  { slug: 'angular', label: 'Angular', color: 'EE0000' },
+  { slug: 'react', label: 'React' },
+  { slug: 'nextdotjs', label: 'Next.js', color: '282d3d' },
+  { slug: 'jquery', label: 'jQuery' },
+
+  // Estilização e UI/UX
+  { slug: 'bootstrap', label: 'Bootstrap' },
+  { slug: 'framer', label: 'Framer Motion' },
+  { slug: 'radixui', label: 'Radix UI', color: '282d3d' },
+  { slug: 'shadcnui', label: 'Shadcn UI', color: '282d3d' },
+  { slug: 'tailwindcss', label: 'Tailwind CSS' },
+
+  // Backend e Ferramentas de Servidor
+  { slug: 'nodedotjs', label: 'Node.js' },
+  { slug: 'express', label: 'Express', color: '282d3d' },
+  { slug: 'vtex', label: 'VTEX' },
+
+  // Build Tools, Bundlers e Task Runners
+  { slug: 'grunt', label: 'Grunt' },
+  { slug: 'gulp', label: 'Gulp' },
+  { slug: 'vite', label: 'Vite' },
+  { slug: 'webpack', label: 'Webpack' },
+
+  // Testes e Qualidade
+  { slug: 'testinglibrary', label: 'Testing Library' },
+  { slug: 'vitest', label: 'Vitest' },
+
+  // Controle de Versão
+  { slug: 'git', label: 'Git' },
+  { slug: 'github', label: 'GitHub', color: '282d3d' },
+  { slug: 'gitlab', label: 'GitLab' },
 ]
-
-const firstRow = allSkills.slice(0, Math.ceil(allSkills.length / 2))
-const secondRow = allSkills.slice(Math.ceil(allSkills.length / 2))
-
-export const marqueeRows = { firstRow, secondRow }
