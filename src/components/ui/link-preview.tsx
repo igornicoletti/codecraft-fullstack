@@ -1,16 +1,16 @@
-"use client"
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card"
+'use client'
+import * as HoverCardPrimitive from '@radix-ui/react-hover-card'
 
 import {
   AnimatePresence,
   motion,
   useMotionValue,
   useSpring,
-} from "motion/react"
-import { encode } from "qss"
-import React from "react"
+} from 'motion/react'
+import { encode } from 'qss'
+import React from 'react'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 type LinkPreviewProps = {
   children: React.ReactNode
@@ -32,9 +32,9 @@ export const LinkPreview = ({
   width = 200,
   height = 125,
   // quality = 50,
-  // layout = "fixed",
+  // layout = 'fixed',
   isStatic = false,
-  imageSrc = "",
+  imageSrc = '',
 }: LinkPreviewProps) => {
   let src
   if (!isStatic) {
@@ -42,12 +42,12 @@ export const LinkPreview = ({
       url,
       screenshot: true,
       meta: false,
-      embed: "screenshot.url",
-      colorScheme: "dark",
-      "viewport.isMobile": true,
-      "viewport.deviceScaleFactor": 1,
-      "viewport.width": width * 3,
-      "viewport.height": height * 3,
+      embed: 'screenshot.url',
+      colorScheme: 'dark',
+      'viewport.isMobile': true,
+      'viewport.deviceScaleFactor': 1,
+      'viewport.width': width * 3,
+      'viewport.height': height * 3,
     })
     src = `https://api.microlink.io/?${params}`
   } else {
@@ -77,12 +77,12 @@ export const LinkPreview = ({
   return (
     <>
       {isMounted ? (
-        <div className="hidden">
+        <div className='hidden'>
           <img
             src={src}
             width={width}
             height={height}
-            alt="hidden image"
+            alt='hidden image'
           />
         </div>
       ) : null}
@@ -96,19 +96,19 @@ export const LinkPreview = ({
       >
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
-          className={cn("", className)}
+          className={cn('', className)}
           href={url}
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener noreferrer'
         >
           {children}
         </HoverCardPrimitive.Trigger>
 
         <HoverCardPrimitive.Portal>
           <HoverCardPrimitive.Content
-            className="origin-(--radix-hover-card-content-transform-origin)"
-            side="top"
-            align="center"
+            className='origin-(--radix-hover-card-content-transform-origin)'
+            side='top'
+            align='center'
             sideOffset={10}
           >
             <AnimatePresence>
@@ -120,30 +120,30 @@ export const LinkPreview = ({
                     y: 0,
                     scale: 1,
                     transition: {
-                      type: "spring",
+                      type: 'spring',
                       stiffness: 260,
                       damping: 20,
                     },
                   }}
                   exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                  className="shadow-lg rounded-lg"
+                  className='shadow-lg rounded-lg'
                   style={{
                     x: translateX,
                   }}
                 >
                   <a
                     href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-0.5 bg-secondary shadow rounded-lg"
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='block p-0.5 bg-secondary shadow rounded-lg'
                     style={{ fontSize: 0 }}
                   >
                     <img
                       src={isStatic ? imageSrc : src}
                       width={width}
                       height={height}
-                      className="rounded-lg"
-                      alt="preview image"
+                      className='rounded-lg'
+                      alt='preview image'
                     />
                   </a>
                 </motion.div>

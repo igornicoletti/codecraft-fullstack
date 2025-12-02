@@ -12,8 +12,8 @@ export const Home = () => (
     <Navbar />
     <HeroSection />
     <ExperienceSection />
-    <ProjectSection />
     <SkillsSection />
+    <ProjectSection />
     <Footer />
   </div>
 )

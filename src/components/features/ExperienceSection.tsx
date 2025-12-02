@@ -36,7 +36,7 @@ export const ExperienceSection = () => {
   return (
     <section id='experience' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
-        <div className='grid gap-12 py-24 md:pt-40'>
+        <div className='grid gap-12 py-24'>
           {/* Section Header Wrapper */}
           <div className='flex flex-col gap-4 md:gap-6'>
             <div className='flex items-baseline justify-between md:items-end'>
@@ -51,7 +51,7 @@ export const ExperienceSection = () => {
                 </h2>
               </div>
               <div className='shrink-0 relative z-10'>
-                <a href={spinning.path} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/30 backdrop-blur-xs transition-all duration-400 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
+                <a href={spinning.path} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/50 backdrop-blur-md transition-all duration-400 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
                   <SpinningText radius={6} duration={12} className='font-medium text-sm md:text-base uppercase tracking-widest text-secondary transition-colors duration-300 group-hover:text-primary'>
                     {spinning.animationText}
                   </SpinningText>

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 const wavePaths = [
   { d: 'M237.815 277.461C228.959 248.369 266.413 223.957 295.275 238.227C318.052 249.488 338.927 236.258 357.881 243.119C394.808 256.492 374.622 271.097 399.735 288.211C427.658 308.031 429.245 368.545 382.376 368.784C341.942 369.024 353.781 386.995 320.834 401.403C287.888 415.812 244.673 393.788 249.125 353.313C253.576 330.79 250.168 317.228 237.815 277.461Z', opacity: '0.2' },
@@ -16,13 +16,13 @@ const wavePaths = [
 export const WaveBackground = ({ className }: { className?: string }) => (
   <div className={cn('absolute top-0 left-1/2 -translate-x-1/2 h-full max-h-svh w-full max-w-4xl -z-10 overflow-hidden pointer-events-none', className)}>
     <svg
-      width="100%"
-      height="100%"
-      fill="none"
-      viewBox="0 0 649 634"
+      width='100%'
+      height='100%'
+      fill='none'
+      viewBox='0 0 649 634'
       className='opacity-70'
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMax slice">
+      xmlns='http://www.w3.org/2000/svg'
+      preserveAspectRatio='xMidYMax slice'>
       {wavePaths.map((path, index) => (
         <path
           key={index}
@@ -30,8 +30,8 @@ export const WaveBackground = ({ className }: { className?: string }) => (
           strokeWidth='2'
           stroke='var(--secondary)'
           strokeOpacity={path.opacity}
-          vectorEffect="non-scaling-stroke"
-          className="animate-wave-float"
+          vectorEffect='non-scaling-stroke'
+          className='animate-wave-float'
           style={{ '--i': index } as React.CSSProperties}
         />
       ))}

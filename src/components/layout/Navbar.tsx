@@ -53,7 +53,7 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => {
     <motion.div
       initial={{ y: 0 }}
       animate={{
-        backdropFilter: 'blur(10px)',
+        backdropFilter: 'blur(12px)',
         y: yPosition
       }}
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
