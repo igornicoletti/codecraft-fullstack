@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, CalendarBlankIcon, DownloadSimpleIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon, CalendarBlankIcon, CaretRightIcon, DownloadSimpleIcon } from '@phosphor-icons/react'
 import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
 import { useEffect, useRef, useState } from 'react'
@@ -7,6 +7,7 @@ import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BlurFade } from '@/components/ui/blur-fade'
 import { BorderBeam } from '@/components/ui/border-beam'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
@@ -30,7 +31,7 @@ export const ExperienceSection = () => {
     api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
   }, [api])
 
-  const { label, headline, spinning, description, positions } = experienceData
+  const { label, headline, spinning, description, action, positions } = experienceData
   const activeExperience = positions[current - 1] || positions[0]
 
   return (
@@ -38,8 +39,8 @@ export const ExperienceSection = () => {
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-24'>
           {/* Section Header Wrapper */}
-          <div className='flex flex-col gap-4 md:gap-6'>
-            <div className='flex items-baseline justify-between md:items-end'>
+          <div className='flex flex-col items-start gap-4 md:gap-6'>
+            <div className='w-full flex items-baseline justify-between md:items-end'>
               <div className='flex flex-col gap-4 md:gap-6'>
                 <AnimatedShinyText className='text-primary font-medium'>
                   {label}
@@ -62,6 +63,12 @@ export const ExperienceSection = () => {
               </div>
             </div>
             <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
+            <Button asChild variant='link' className='group has-[>svg]:px-0'>
+              <a href={action.path} target='_blank' rel='noopener noreferrer'>
+                {action.label}
+                <CaretRightIcon className='transition-transform duration-300 group-hover:translate-x-1 text-primary' />
+              </a>
+            </Button>
           </div>
           {/* Work Position */}
           <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
@@ -76,7 +83,7 @@ export const ExperienceSection = () => {
                           <CardTitle>
                             <LinkPreview url={item.websiteLink} className='inline-flex items-center gap-2 text-lg md:text-xl'>
                               {item.organizationName}
-                              <ArrowUpRightIcon className='text-muted-foreground' />
+                              <ArrowUpRightIcon className='text-primary' />
                             </LinkPreview>
                           </CardTitle>
                           <CardDescription className='flex items-center gap-2'>
