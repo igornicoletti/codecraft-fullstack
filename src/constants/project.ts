@@ -5,7 +5,7 @@ export interface ProjectData {
 }
 
 export const projectData: ProjectData = {
-  label: 'Projetos mais recentes',
-  headline: 'Lorem ipsum!',
-  description: 'With the online text generator you can process your personal Lorem Ipsum enriching it with html elements that define its structure, with the possibility to insert external links, but not only.',
+  label: 'Projetos recentes',
+  headline: 'Casos de uso',
+  description: 'Explore alguns dos projetos práticos que demonstram soluções inovadoras para desafios do mundo real, destacando a expertise em desenvolvimento fullstack.',
 }
