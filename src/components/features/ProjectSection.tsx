@@ -8,10 +8,10 @@ export const ProjectSection = () => {
 
   return (
     <section id='projects' className='relative overflow-hidden'>
-      <div className='container mx-auto xl:max-w-7xl px-6'>
+      <div className='container mx-auto xl:max-w-7xl'>
         <div className='grid gap-12 py-24'>
           {/* Section Header */}
-          <div className='flex flex-col items-center text-center gap-4 md:gap-6'>
+          <div className='flex flex-col items-center text-center gap-4 md:gap-6 px-6'>
             <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
@@ -61,7 +61,7 @@ export default function SlideScale() {
       <Carousel setApi={setApi} opts={{ loop: true }} className="w-full overflow-hidden">
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index} className={cn("basis-full sm:basis-1/3")}>
+            <CarouselItem key={index} className={cn("basis-1/2 sm:basis-1/3")}>
               <Card className={cn("transition-transform duration-500", index !== current - 1 && "scale-95 opacity-80")}>
                 <CardContent className="flex aspect-square items-center justify-center">
                   <span className="text-4xl font-semibold">{index + 1}</span>
