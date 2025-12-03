@@ -26,9 +26,64 @@ export const ProjectSection = () => {
               </a>
             </Button>
           </div>
-
+          <SlideScale />
         </div>
       </div>
     </section>
+  )
+}
+
+
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel"
+import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react"
+
+export default function SlideScale() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    if (!api) return
+    setCurrent(api.selectedScrollSnap() + 1)
+    api.on("select", () => setCurrent(api.selectedScrollSnap() + 1))
+  }, [api])
+
+  return (
+    <div className="w-full flex flex-col items-center gap-6">
+      <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
+        <CarouselContent>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem
+              key={index}
+              className={cn(
+                "basis-1/2 sm:basis-1/3"
+              )}
+            >
+              <Card
+                className={cn(
+                  "transition-transform duration-500",
+                  index !== current - 1 && "scale-[0.9] opacity-80")}>
+                <CardContent className="flex aspect-square items-center justify-center">
+                  <span className="text-4xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        <div className="flex items-center justify-center gap-4 mt-4">
+          <CarouselPrevious variant='ghost' className="static translate-y-0" />
+          <CarouselNext variant='ghost' className="static translate-y-0" />
+        </div>
+      </Carousel>
+    </div>
   )
 }
