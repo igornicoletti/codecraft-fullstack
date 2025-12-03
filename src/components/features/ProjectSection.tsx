@@ -8,10 +8,10 @@ export const ProjectSection = () => {
 
   return (
     <section id='projects' className='relative overflow-hidden'>
-      <div className='container mx-auto xl:max-w-7xl px-6'>
+      <div className='container mx-auto xl:max-w-7xl'>
         <div className='grid gap-12 py-24'>
           {/* Section Header */}
-          <div className='flex flex-col items-center text-center gap-4 md:gap-6'>
+          <div className='flex flex-col items-center text-center gap-4 md:gap-6 px-6'>
             <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
@@ -57,7 +57,7 @@ export default function SlideScale() {
   }, [api])
 
   return (
-    <div className="w-full flex flex-col items-center gap-6">
+    <div className="w-full flex flex-col items-center">
       <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
@@ -70,7 +70,7 @@ export default function SlideScale() {
               <Card
                 className={cn(
                   "transition-transform duration-500",
-                  index !== current - 1 && "scale-[0.9] opacity-80")}>
+                  index !== current - 1 && "scale-90 opacity-80")}>
                 <CardContent className="flex aspect-square items-center justify-center">
                   <span className="text-4xl font-semibold">{index + 1}</span>
                 </CardContent>
@@ -78,7 +78,6 @@ export default function SlideScale() {
             </CarouselItem>
           ))}
         </CarouselContent>
-
         <div className="flex items-center justify-center gap-4 mt-4">
           <CarouselPrevious variant='ghost' className="static translate-y-0" />
           <CarouselNext variant='ghost' className="static translate-y-0" />
