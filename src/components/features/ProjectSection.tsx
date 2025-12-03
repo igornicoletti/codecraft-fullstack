@@ -57,20 +57,27 @@ export default function SlideScale() {
   }, [api])
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
-        <CarouselContent>
+    <div className="w-full flex flex-col items-center overflow-hidden"> {/* 👈 impede overflow horizontal */}
+      <Carousel
+        setApi={setApi}
+        opts={{ loop: true }}
+        className="w-full overflow-hidden" /* 👈 reforço */
+      >
+        <CarouselContent className="-ml-2 md:-ml-4"> {/* 👈 controla spacing interno */}
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem
               key={index}
               className={cn(
-                "basis-full sm:basis-1/3"
+                "pl-2 md:pl-4", // spacing responsivo
+                "basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4",
               )}
             >
               <Card
                 className={cn(
                   "transition-transform duration-500",
-                  index !== current - 1 && "scale-90 opacity-80")}>
+                  index !== current - 1 && "scale-95 opacity-80"
+                )}
+              >
                 <CardContent className="flex aspect-square items-center justify-center">
                   <span className="text-4xl font-semibold">{index + 1}</span>
                 </CardContent>
@@ -79,8 +86,8 @@ export default function SlideScale() {
           ))}
         </CarouselContent>
         <div className="flex items-center justify-center gap-4 mt-4">
-          <CarouselPrevious variant='ghost' className="static translate-y-0" />
-          <CarouselNext variant='ghost' className="static translate-y-0" />
+          <CarouselPrevious variant="ghost" className="static translate-y-0" />
+          <CarouselNext variant="ghost" className="static translate-y-0" />
         </div>
       </Carousel>
     </div>
