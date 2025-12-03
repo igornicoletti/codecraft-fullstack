@@ -8,10 +8,10 @@ export const ProjectSection = () => {
 
   return (
     <section id='projects' className='relative overflow-hidden'>
-      <div className='container mx-auto xl:max-w-7xl'>
+      <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-24'>
           {/* Section Header */}
-          <div className='flex flex-col items-center text-center gap-4 md:gap-6 px-6'>
+          <div className='flex flex-col items-center text-center gap-4 md:gap-6'>
             <AnimatedShinyText className='text-primary font-medium'>
               {label}
             </AnimatedShinyText>
@@ -64,7 +64,7 @@ export default function SlideScale() {
             <CarouselItem
               key={index}
               className={cn(
-                "basis-1/2 sm:basis-1/3"
+                "basis-full sm:basis-1/3"
               )}
             >
               <Card
