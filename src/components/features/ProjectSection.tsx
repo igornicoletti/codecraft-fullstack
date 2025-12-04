@@ -61,7 +61,7 @@ export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
       </div>
       <CardHeader>
         <CardTitle>
-          <a href={project.repoUrl} target='_blank' rel='noopener noreferrer' className='flex items-center gap-2 text-lg md:text-xl'>
+          <a href={project.repoUrl} target='_blank' rel='noopener noreferrer' className='flex items-center gap-2'>
             {project.title}
             <ArrowUpRightIcon className='text-primary' />
           </a>
