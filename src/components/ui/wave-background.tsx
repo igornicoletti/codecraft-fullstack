@@ -14,7 +14,7 @@ const wavePaths = [
 ]
 
 export const WaveBackground = ({ className }: { className?: string }) => (
-  <div className={cn('absolute top-0 left-1/2 -translate-x-1/2 h-full max-h-svh w-full max-w-4xl -z-10 overflow-hidden pointer-events-none', className)}>
+  <div className={cn('absolute top-0 left-1/2 -translate-x-1/2 h-full max-h-svh w-full max-w-5xl -z-10 overflow-hidden pointer-events-none', className)}>
     <svg
       width='100%'
       height='100%'
