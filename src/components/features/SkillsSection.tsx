@@ -49,7 +49,7 @@ const SkillsItem = ({ item }: { item: TSkillsItem }) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className='relative flex items-center justify-center size-20 md:size-24 rounded-xl border border-secondary/50 bg-background/50 backdrop-blur-md cursor-pointer overflow-hidden transition-all duration-200'
+          <div className='relative flex items-center justify-center size-20 md:size-24 rounded-xl border border-secondary/50 bg-linear-to-b from-secondary/30 to-transparent backdrop-blur-md cursor-pointer overflow-hidden transition-all duration-200'
             style={style}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>

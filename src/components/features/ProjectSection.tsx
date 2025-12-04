@@ -45,7 +45,7 @@ export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
   }, [project.liveUrl])
 
   return (
-    <Card className={cn('pt-0! relative flex h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}    >
+    <Card className={cn('pt-0! relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}    >
       <div className='relative w-full h-full overflow-hidden group'>
         {imageUrl && (
           <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
@@ -61,12 +61,12 @@ export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
       </div>
       <CardHeader>
         <CardTitle>
-          <a href={project.repoUrl} target='_blank' rel='noopener noreferrer' className='flex items-center gap-2 text-lg md:text-xl'>
+          <a href={project.repoUrl} target='_blank' rel='noopener noreferrer' className='flex items-center gap-2'>
             {project.title}
             <ArrowUpRightIcon className='text-primary' />
           </a>
         </CardTitle>
-        <CardDescription className='line-clamp-4'>
+        <CardDescription className='line-clamp-5'>
           {project.description}
         </CardDescription>
       </CardHeader>
@@ -104,9 +104,9 @@ export const ProjectSection = () => {
 
   return (
     <section id='projects' className='relative overflow-hidden'>
-      <div className='container mx-auto xl:max-w-7xl px-6'>
+      <div className='container mx-auto xl:max-w-7xl'>
         <div className='grid gap-12 py-24'>
-          <div className='flex flex-col items-center text-center gap-4 md:gap-6'>
+          <div className='flex flex-col items-center text-center gap-4 px-6 md:gap-6'>
             <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
             <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>{headline}</h2>
             <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
@@ -120,7 +120,7 @@ export const ProjectSection = () => {
           <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden'>
             <CarouselContent>
               {projects.map((project, index) => (
-                <CarouselItem key={index} className='basis-full sm:basis-1/2 lg:basis-1/3'>
+                <CarouselItem key={index} className='basis-1/2 lg:basis-1/3'>
                   <ProjectCard project={project} isActive={index === current - 1} />
                 </CarouselItem>
               ))}
