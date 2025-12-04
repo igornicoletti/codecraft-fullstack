@@ -11,8 +11,8 @@ export const Home = () => (
     <WaveBackground />
     <Navbar />
     <HeroSection />
-    <ExperienceSection />
     <SkillsSection />
+    <ExperienceSection />
     <ProjectSection />
     <Footer />
   </div>

@@ -45,7 +45,7 @@ export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
   }, [project.liveUrl])
 
   return (
-    <Card className={cn('pt-0! relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}    >
+    <Card className={cn('pt-0! relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}>
       <div className='relative w-full h-full overflow-hidden group'>
         {imageUrl && (
           <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
@@ -117,18 +117,18 @@ export const ProjectSection = () => {
               </a>
             </Button>
           </div>
-          <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden'>
+          <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden px-6 sm:px-0'>
             <CarouselContent>
               {projects.map((project, index) => (
-                <CarouselItem key={index} className='basis-1/2 lg:basis-1/3'>
+                <CarouselItem key={index} className='basis-full sm:basis-1/2 lg:basis-1/3'>
                   <ProjectCard project={project} isActive={index === current - 1} />
                 </CarouselItem>
               ))}
             </CarouselContent>
             <div className='flex items-center justify-center gap-6 mt-8'>
-              <CarouselPrevious variant='link' className='static translate-y-0' />
-              <span className='text-sm font-medium text-muted-foreground select-none'>{current} / {projects.length}</span>
-              <CarouselNext variant='link' className='static translate-y-0' />
+              <CarouselPrevious variant='link' className='text-primary static translate-y-0' />
+              <span className='text-sm select-none'>{current} / {projects.length}</span>
+              <CarouselNext variant='link' className='text-primary static translate-y-0' />
             </div>
           </Carousel>
         </div>
