@@ -82,19 +82,17 @@ export const SkillsSection = () => {
   return (
     <section id='skills' className='relative overflow-hidden'>
       <div className='grid gap-12 py-24'>
-        <Marquee pauseOnHover>
-          {firstRow.map((skill) => (
-            <SkillsItem key={skill.slug} item={skill} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover>
-          {secondRow.map((skill) => (
-            <SkillsItem key={skill.slug} item={skill} />
-          ))}
-        </Marquee>
+        <div className='relative z-20 mt-10 flex items-center justify-center gap-4'>
+          <Marquee pauseOnHover vertical>
+            {firstRow.map((skill) => (<SkillsItem key={skill.slug} item={skill} />))}
+          </Marquee>
+          <Marquee reverse pauseOnHover vertical>
+            {secondRow.map((skill) => (<SkillsItem key={skill.slug} item={skill} />))}
+          </Marquee>
+        </div>
+        <div className='from-background pointer-events-none absolute inset-x-0 top-0 w-1/4 bg-linear-to-b z-10' />
+        <div className='from-background pointer-events-none absolute inset-x-0 bottom-0 w-1/4 bg-linear-to-b z-10' />
       </div>
-      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-background to-transparent z-10' />
-      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-background to-transparent z-10' />
     </section>
   )
 }
