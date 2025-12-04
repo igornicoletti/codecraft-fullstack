@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
-import { LinkPreview } from '@/components/ui/link-preview'
 import { projectData } from '@/constants/project'
 import { CaretRightIcon, GithubLogoIcon } from '@phosphor-icons/react'
 import { ArrowUpRightIcon } from 'lucide-react'
@@ -25,12 +24,12 @@ interface Project {
 const generateProjects = (count: number): Project[] =>
   Array.from({ length: count }).map((_, index) => ({
     id: index + 1,
-    title: `Lorem Ipsum ${index + 1}!`,
+    title: `codecraft-fullstack`,
     description:
       "Lorem ipsum dolor sit amet. Non totam exercitationem et repudiandae Quis non distinctio expedita! Sed quam quos non tenetur veniam sed perferendis labore ut architecto vero rem aperiam nihil ad recusandae quia non voluptatem tenetur. Aut odit excepturi 33 quia perspiciatis ut adipisci tenetur aut cumque velit ut repellendus exercitationem et cupiditate expedita in omnis nemo.",
-    image: `https://picsum.photos/seed/${index + 10}/600/400`,
-    liveUrl: "https://example.com/live",
-    repoUrl: "https://github.com/example/repo",
+    image: `/images/screenshot.png`,
+    liveUrl: "https://codecraft-fullstack.vercel.app/",
+    repoUrl: "https://github.com/igornicoletti/codecraft-fullstack",
   }))
 
 const projects: Project[] = generateProjects(5)
@@ -52,16 +51,19 @@ const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
         <img
           src={project.image}
           alt={project.title}
-          className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+          className={cn(
+            "object-cover w-full h-full transition-transform duration-500 group-hover:scale-105",
+            !isActive && "blur-xs"
+          )}
         />
       </div>
 
       <CardHeader>
         <CardTitle>
-          <LinkPreview url={'https://codecraft-fullstack.vercel.app/'} className='inline-flex items-center gap-2 text-lg md:text-xl'>
+          <a href={project.liveUrl} className='inline-flex items-center gap-2 text-lg md:text-xl'>
             {project.title}
             <ArrowUpRightIcon className='text-primary' />
-          </LinkPreview>
+          </a>
         </CardTitle>
         <CardDescription className="line-clamp-4">{project.description}</CardDescription>
       </CardHeader>
