@@ -1,8 +1,3 @@
-import { ArrowUpRightIcon, CalendarBlankIcon, CaretRightIcon, DownloadSimpleIcon } from '@phosphor-icons/react'
-import Autoplay from 'embla-carousel-autoplay'
-import Fade from 'embla-carousel-fade'
-import { useEffect, useRef, useState } from 'react'
-
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BlurFade } from '@/components/ui/blur-fade'
@@ -15,6 +10,10 @@ import { SpinningText } from '@/components/ui/spinning-text'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { experienceData } from '@/constants/experience'
 import { cn } from '@/lib/utils'
+import { ArrowUpRightIcon, CalendarBlankIcon, CaretRightIcon, DownloadSimpleIcon } from '@phosphor-icons/react'
+import Autoplay from 'embla-carousel-autoplay'
+import Fade from 'embla-carousel-fade'
+import { useEffect, useRef, useState } from 'react'
 
 export const ExperienceSection = () => {
   const [api, setApi] = useState<CarouselApi>()
@@ -42,9 +41,7 @@ export const ExperienceSection = () => {
           <div className='flex flex-col items-start gap-4 md:gap-6'>
             <div className='w-full flex items-baseline justify-between md:items-end'>
               <div className='flex flex-col gap-4 md:gap-6'>
-                <AnimatedShinyText className='text-primary font-medium'>
-                  {label}
-                </AnimatedShinyText>
+                <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
                 <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
                   {headline.prefix}{' '}
                   <br className='sm:hidden' />
@@ -114,7 +111,6 @@ export const ExperienceSection = () => {
                 </CarouselContent>
               </Carousel>
             </div>
-
             {/* Metrics Column */}
             <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
               {activeExperience?.impactMetrics?.map((metric, idx) => (
@@ -129,7 +125,6 @@ export const ExperienceSection = () => {
                 </div>
               ))}
             </div>
-
             {/* Navigation Dots */}
             <div className='lg:col-span-2'>
               <div className='flex w-full max-w-sm gap-2 mx-auto'>
