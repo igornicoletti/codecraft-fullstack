@@ -45,7 +45,7 @@ export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
   }, [project.liveUrl])
 
   return (
-    <Card className={cn('pt-0! relative flex w-full min-w-sm h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}    >
+    <Card className={cn('pt-0! relative flex w-full min-w-3xs h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}    >
       <div className='relative w-full h-full overflow-hidden group'>
         {imageUrl && (
           <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
