@@ -15,19 +15,19 @@ export const skillsData: SkillsSectionData[] = [
   { slug: 'express', label: 'Express', color: '000000', invert: true },
   { slug: 'firebase', label: 'Firebase', color: 'FFCA28' },
   { slug: 'vercel', label: 'Vercel', color: '000000', invert: true },
-  { slug: 'dotenv', label: '.ENV', color: 'ECD53F' },
 
   // --- Tools & Workflow ---
   { slug: 'git', label: 'Git', color: 'F05032' },
   { slug: 'github', label: 'GitHub', color: '181717', invert: true },
   { slug: 'vitest', label: 'Vitest', color: '6E9F18' },
+  { slug: 'jest', label: 'Jest', color: 'C21325' },
+  { slug: 'testinglibrary', label: 'Testing Library', color: 'E33332' },
   { slug: 'zod', label: 'Zod', color: '3E67B1' },
   { slug: 'vite', label: 'Vite', color: '646CFF' },
 
   // --- UI Libraries / Design ---
   { slug: 'shadcnui', label: 'Shadcn UI', color: '000000', invert: true },
   { slug: 'radixui', label: 'Radix UI', color: '000000', invert: true },
-  { slug: 'materialdesign', label: 'Material Design', color: '6750A4' },
   { slug: 'framer', label: 'Motion', color: '0055FF' },
   { slug: 'figma', label: 'Figma', color: 'F24E1E' },
 ]
