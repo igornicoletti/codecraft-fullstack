@@ -11,12 +11,15 @@ import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel'
 
+type CardPosition = 'center' | 'left' | 'right'
+
 interface ProjectCardProps {
   project: ProjectCardStack
   isActive: boolean
+  position: CardPosition
 }
 
-export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
+const ProjectCard = ({ project, isActive, position }: ProjectCardProps) => {
   const [imageUrl, setImageUrl] = useState<string>('')
 
   useEffect(() => {
@@ -40,8 +43,23 @@ export const ProjectCard = ({ project, isActive }: ProjectCardProps) => {
     setImageUrl(microlinkUrl)
   }, [project.liveUrl])
 
+  const transformStyle = {
+    left: 'translate3d(0px, 0px, -100px) rotateY(25deg)',
+    right: 'translate3d(0px, 0px, -100px) rotateY(-25deg)',
+    center: 'translate3d(0px, 0px, 0px) rotateY(0deg)',
+  }[position]
+
   return (
-    <Card className={cn('pt-0! relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'scale-95 opacity-80')}>
+    <Card
+      className={cn(
+        'pt-0! relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300',
+        !isActive && 'scale-95 opacity-80'
+      )}
+      style={{
+        transform: transformStyle,
+        zIndex: isActive ? 10 : 0,
+      }}
+    >
       <div className='relative w-full h-full overflow-hidden group'>
         {imageUrl && (
           <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
@@ -75,7 +93,7 @@ interface ProjectCarouselDotsProps extends HTMLAttributes<HTMLDivElement> {
   totalSlides: number
 }
 
-export const ProjectCarouselDots = ({ current, totalSlides, ...props }: ProjectCarouselDotsProps) => (
+const ProjectCarouselDots = ({ current, totalSlides, ...props }: ProjectCarouselDotsProps) => (
   <div className='flex items-center justify-center gap-6 mt-8' {...props}>
     <CarouselPrevious variant='link' className='text-primary static translate-y-0' />
     <span className='text-sm select-none'>{current} / {totalSlides}</span>
@@ -85,7 +103,7 @@ export const ProjectCarouselDots = ({ current, totalSlides, ...props }: ProjectC
 
 type ProjectHeaderProps = Pick<ProjectSectionData, 'label' | 'headline' | 'description' | 'action'>
 
-export const ProjectHeader = ({ label, headline, description, action }: ProjectHeaderProps) => (
+const ProjectHeader = ({ label, headline, description, action }: ProjectHeaderProps) => (
   <div className='flex flex-col items-center text-center gap-4 px-6 md:gap-6'>
     <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
     <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>{headline}</h2>
@@ -115,6 +133,22 @@ export const ProjectSection = () => {
 
   const { label, headline, description, action, projects } = projectData as ProjectSectionData
 
+  const getCardPosition = (index: number, current: number, total: number): CardPosition => {
+    const activeIndex = current - 1
+
+    const prevIndex = (activeIndex - 1 + total) % total
+    const nextIndex = (activeIndex + 1) % total
+
+    if (index === activeIndex) {
+      return 'center'
+    } else if (index === prevIndex) {
+      return 'left'
+    } else if (index === nextIndex) {
+      return 'right'
+    }
+    return 'left'
+  }
+
   return (
     <section id='projects' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl'>
@@ -123,11 +157,23 @@ export const ProjectSection = () => {
 
           <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden px-6 sm:px-0'>
             <CarouselContent>
-              {projects.map((project, index) => (
-                <CarouselItem key={index} className='basis-full sm:basis-1/2 lg:basis-1/3'>
-                  <ProjectCard project={project} isActive={index === current - 1} />
-                </CarouselItem>
-              ))}
+              {projects.map((project, index) => {
+                const position = getCardPosition(index, current, projects.length)
+
+                return (
+                  <CarouselItem
+                    key={index}
+                    className='basis-full sm:basis-1/2 lg:basis-1/3'
+                    style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
+                  >
+                    <ProjectCard
+                      project={project}
+                      isActive={position === 'center'}
+                      position={position}
+                    />
+                  </CarouselItem>
+                )
+              })}
             </CarouselContent>
 
             <ProjectCarouselDots current={current} totalSlides={projects.length} />
