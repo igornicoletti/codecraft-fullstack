@@ -52,7 +52,7 @@ const SkillsDesktop = ({ dataGroups }: SkillsDesktopProps) => (
       const config = getDesktopConfig(idx)
       return (
         <div key={idx} className="relative overflow-hidden shrink-0" style={{ height: config.height }}>
-          <Marquee reverse={config.reverse} pauseOnHover vertical className="[--duration:20s]">
+          <Marquee reverse={config.reverse} pauseOnHover vertical>
             {columnItems.map((skill) => (<SkillItem key={skill.slug} item={skill} />))}
           </Marquee>
           <div className='pointer-events-none absolute inset-x-0 top-0 h-8 bg-linear-to-b from-background z-10' />
