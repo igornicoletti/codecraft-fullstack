@@ -2,14 +2,15 @@ import { GithubLogoIcon, LinkedinLogoIcon, ListIcon } from '@phosphor-icons/reac
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { Children, cloneElement, isValidElement, useState, type ReactElement, type ReactNode } from 'react'
 
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
+import { cn } from '@/lib/utils'
+
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
 import { Separator } from '@/components/ui/separator'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { useSmoothScroll } from '@/hooks/useSmoothScroll'
-import { cn } from '@/lib/utils'
 
 interface NavbarProps {
   children: ReactNode

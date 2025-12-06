@@ -1,30 +1,5 @@
-import type { Icon, IconProps } from '@tabler/icons-react'
+import type { HeroSectionData } from '@/types/hero.types'
 import { IconBrandFramerMotion, IconBrandNextjs, IconBrandRadixUi, IconBrandReact, IconBrandTailwind, IconBrandTypescript } from '@tabler/icons-react'
-import type { ForwardRefExoticComponent, RefAttributes } from 'react'
-
-export interface HeroAction {
-  label: string
-  href?: string
-}
-
-export interface HeroTechItem {
-  icon: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>
-  label: string
-}
-
-export interface HeroSectionData {
-  label: string
-  headline: {
-    prefix: string
-    dynamicWords: string[]
-  }
-  description: string
-  actions: {
-    primary: HeroAction
-    secondary: HeroAction
-  }
-  techStack: HeroTechItem[]
-}
 
 export const heroData: HeroSectionData = {
   label: 'Igor Nicoletti – Desenvolvedor Front-End',

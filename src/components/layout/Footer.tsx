@@ -9,14 +9,12 @@ export const Footer = () => {
     <footer className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-8 md:pt-40'>
-          {/* Copyright */}
           <AnimatedShinyText className='z-50 mx-auto font-medium text-xs md:text-sm'>
             &copy; {currentYear}. O código fonte está disponível em{' '}
             <LinkPreview url='https://github.com/igornicoletti/codecraft-fullstack'>GitHub</LinkPreview>.
           </AnimatedShinyText>
         </div>
       </div>
-      {/* Text Effect */}
       <div className='absolute w-full bottom-1/5 translate-y-1/2'>
         <TextHoverEffect text='CODECRAFT' />
       </div>

@@ -20,7 +20,7 @@ export const WaveBackground = ({ className }: { className?: string }) => (
       height='100%'
       fill='none'
       viewBox='0 0 649 634'
-      className='opacity-70'
+      className='opacity-50'
       xmlns='http://www.w3.org/2000/svg'
       preserveAspectRatio='xMidYMax slice'>
       {wavePaths.map((path, index) => (

@@ -1,20 +1,6 @@
-export interface ProjectData {
-  label: string
-  headline: string
-  description: string
-  action: {
-    path: string
-    label: string
-  }
-  projects: {
-    title: string
-    description: string
-    liveUrl: string
-    repoUrl: string
-  }[]
-}
+import type { ProjectSectionData } from '@/types/project.types'
 
-export const projectData: ProjectData = {
+export const projectData: ProjectSectionData = {
   label: 'Projetos open source',
   headline: 'Códigos que falam por si só',
   description: 'Explore uma coleção selecionada de projetos que exemplificam minha habilidade em transformar ideias complexas em aplicações web funcionais e eficientes, utilizando tecnologias modernas e melhores práticas de desenvolvimento.',

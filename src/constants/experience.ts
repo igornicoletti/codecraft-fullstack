@@ -1,42 +1,6 @@
-export interface TechStackItem {
-  slug: string
-  label: string
-}
+import type { ExperienceSectionData } from '@/types/experience.types'
 
-export interface ImpactMetric {
-  value: string
-  context: string
-  description: string
-}
-
-export interface WorkPosition {
-  organizationName: string
-  websiteLink: string
-  employmentPeriod: string
-  projectDescription: string
-  techStack: TechStackItem[]
-  impactMetrics: ImpactMetric[]
-}
-
-export interface WorkExperienceData {
-  label: string
-  headline: {
-    prefix: string
-    dynamicWords: string
-  }
-  spinning: {
-    path: string
-    animationText: string
-  }
-  description: string
-  action: {
-    path: string
-    label: string
-  }
-  positions: WorkPosition[]
-}
-
-export const experienceData: WorkExperienceData = {
+export const experienceData: ExperienceSectionData = {
   label: 'Experiência profissional',
   headline: {
     prefix: 'Aplicações',
