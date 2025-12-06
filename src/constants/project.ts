@@ -3,35 +3,35 @@ import type { ProjectSectionData } from '@/types/project.types'
 export const projectData: ProjectSectionData = {
   label: 'Projetos open source',
   headline: 'Códigos que falam por si só',
-  description: 'Explore uma coleção selecionada de projetos que exemplificam minha habilidade em transformar ideias complexas em aplicações web funcionais e eficientes, utilizando tecnologias modernas e melhores práticas de desenvolvimento.',
+  description: 'Explore uma coleção selecionada de projetos que mostram como transformar ideias em aplicações web eficientes, utilizando tecnologias modernas e melhores práticas de desenvolvimento.',
   action: {
     path: 'https://github.com/igornicoletti?tab=repositories',
     label: 'Explorar projetos no GitHub',
   },
   projects: [
     {
-      title: "CodeCraft",
+      title: "CodeCraft FullStack",
       description: "Projeto abrangente que demonstra o desenvolvimento de um sistema CRUD (Create, Read, Update, Delete) completo com tecnologias full-stack. Ideal para visualizar a integração de backend e frontend em um ambiente de produção.",
       liveUrl: "https://codecraft-fullstack.vercel.app/",
       repoUrl: "https://github.com/igornicoletti/codecraft-fullstack",
     },
     {
-      title: "Tarot free online",
+      title: "Tarot Free Online",
       description: "Plataforma de tarot online construída com Next.js, oferecendo uma experiência multilíngue (i18n) e altamente performática. Focada em SEO e renderização no lado do servidor para um carregamento rápido e confiável.",
       liveUrl: "https://nextjs-tarotdoor-free.vercel.app/en",
       repoUrl: "https://github.com/igornicoletti/nextjs-tarotdoor-free",
-    },
-    {
-      title: "Coffee Delivery",
-      description: "Aplicação completa de e-commerce de café, desenvolvida em React e TypeScript. Apresenta carrinho de compras, controle de estado via Context API e persistência de dados no localStorage para simular um fluxo de pedido robusto.",
-      liveUrl: "https://reactjs-coffee-delivery-igornicoletti.vercel.app/",
-      repoUrl: "https://github.com/igornicoletti/reactjs-coffee-delivery",
     },
     {
       title: "CodeCraft FullStack",
       description: "Projeto abrangente que demonstra o desenvolvimento de um sistema CRUD (Create, Read, Update, Delete) completo com tecnologias full-stack. Ideal para visualizar a integração de backend e frontend em um ambiente de produção.",
       liveUrl: "https://codecraft-fullstack.vercel.app/",
       repoUrl: "https://github.com/igornicoletti/codecraft-fullstack",
+    },
+    {
+      title: "Coffee Delivery",
+      description: "Aplicação completa de e-commerce de café, desenvolvida em React e TypeScript. Apresenta carrinho de compras, controle de estado via Context API e persistência de dados no localStorage para simular um fluxo de pedido robusto.",
+      liveUrl: "https://reactjs-coffee-delivery-igornicoletti.vercel.app/",
+      repoUrl: "https://github.com/igornicoletti/reactjs-coffee-delivery",
     },
     {
       title: "My App",
