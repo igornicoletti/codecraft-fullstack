@@ -17,7 +17,7 @@ const SkillItem = ({ item }: SkillItemProps) => (
   <TooltipProvider>
     <Tooltip>
       <TooltipTrigger asChild>
-        <div className='relative flex items-center justify-center size-20 md:size-24 rounded-xl border border-secondary/50 bg-linear-to-b from-secondary/30 backdrop-blur-md cursor-pointer overflow-hidden transition-all duration-300 hover:border-secondary shrink-0'>
+        <div className='relative flex items-center justify-center size-20 lg:size-24 rounded-xl border border-secondary/50 bg-linear-to-b from-secondary/30 backdrop-blur-md cursor-pointer overflow-hidden transition-all duration-300 hover:border-secondary shrink-0'>
           <Avatar className='bg-transparent rounded-none size-8'>
             <AvatarImage
               src={`https://cdn.simpleicons.org/${item.slug}/${item.color}`}

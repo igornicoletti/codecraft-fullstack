@@ -1,6 +1,6 @@
 import { GithubLogoIcon, LinkedinLogoIcon, ListIcon } from '@phosphor-icons/react'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { Children, cloneElement, isValidElement, useState, type ReactElement, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
@@ -12,19 +12,13 @@ import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
 import { Separator } from '@/components/ui/separator'
 
-interface NavbarProps {
-  children: ReactNode
-  className?: string
-}
-
-interface NavbarContentProps {
-  children: ReactNode
-  visible?: boolean
-}
-
-interface NavbarMenuItemsProps {
+interface NavbarLink {
   title: string
   id: string
+}
+
+interface NavbarProps {
+  children: ReactNode
 }
 
 const NavbarRoot = ({ children }: NavbarProps) => {
@@ -38,12 +32,16 @@ const NavbarRoot = ({ children }: NavbarProps) => {
 
   return (
     <motion.header className='sticky inset-x-0 top-0 z-50 w-full'>
-      {Children.map(children, (child) => isValidElement(child)
-        ? cloneElement(child as ReactElement<{ visible?: boolean }>, { visible })
-        : child
-      )}
+      <NavbarContent visible={visible}>
+        {children}
+      </NavbarContent>
     </motion.header>
   )
+}
+
+interface NavbarContentProps {
+  children: ReactNode
+  visible: boolean
 }
 
 const NavbarContent = ({ children, visible }: NavbarContentProps) => {
@@ -76,7 +74,11 @@ const NavbarContent = ({ children, visible }: NavbarContentProps) => {
   )
 }
 
-const NavbarBrand = ({ onClick }: { onClick: () => void }) => (
+interface NavbarBrandProps {
+  onClick: () => void
+}
+
+const NavbarBrand = ({ onClick }: NavbarBrandProps) => (
   <Button onClick={onClick} variant='link' className='p-0'>
     <Avatar>
       <AvatarImage src='images/igornicoletti.png' alt='@igornicoletti' />
@@ -102,10 +104,12 @@ const NavbarIcons = () => (
   </div>
 )
 
-const NavbarMenuDesktop = ({ navigations, onLinkClick }: {
-  navigations: NavbarMenuItemsProps[],
+interface NavbarMenuDesktopProps {
+  navigations: NavbarLink[]
   onLinkClick: (id: string) => void
-}) => {
+}
+
+const NavbarMenuDesktop = ({ navigations, onLinkClick }: NavbarMenuDesktopProps) => {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
@@ -132,11 +136,13 @@ const NavbarMenuDesktop = ({ navigations, onLinkClick }: {
   )
 }
 
-const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
-  navigations: NavbarMenuItemsProps[],
-  onBrandClick: () => void,
+interface NavbarMenuMobileProps {
+  navigations: NavbarLink[]
+  onBrandClick: () => void
   onLinkClick: (id: string) => void
-}) => {
+}
+
+const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: NavbarMenuMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleDrawerLinkClick = (id: string) => {
@@ -180,7 +186,7 @@ const NavbarMenuMobile = ({ navigations, onBrandClick, onLinkClick }: {
 export const Navbar = () => {
   const handleLinkClick = useSmoothScroll()
 
-  const NAV_ITEMS: NavbarMenuItemsProps[] = [
+  const NAV_ITEMS: NavbarLink[] = [
     { title: 'Expertise', id: '#expertise' },
     { title: 'Experiência', id: '#experience' },
     { title: 'Projetos', id: '#projects' },
@@ -188,19 +194,17 @@ export const Navbar = () => {
 
   return (
     <NavbarRoot>
-      <NavbarContent>
-        <NavbarBrand onClick={() => handleLinkClick('#app')} />
-        <div className='flex items-center gap-2 sm:gap-4'>
-          <NavbarMenuDesktop
-            navigations={NAV_ITEMS}
-            onLinkClick={handleLinkClick} />
-          <NavbarIcons />
-          <NavbarMenuMobile
-            navigations={NAV_ITEMS}
-            onBrandClick={() => handleLinkClick('#app')}
-            onLinkClick={handleLinkClick} />
-        </div>
-      </NavbarContent>
+      <NavbarBrand onClick={() => handleLinkClick('#app')} />
+      <div className='flex items-center gap-2 sm:gap-4'>
+        <NavbarMenuDesktop
+          navigations={NAV_ITEMS}
+          onLinkClick={handleLinkClick} />
+        <NavbarIcons />
+        <NavbarMenuMobile
+          navigations={NAV_ITEMS}
+          onBrandClick={() => handleLinkClick('#app')}
+          onLinkClick={handleLinkClick} />
+      </div>
     </NavbarRoot>
   )
 }
