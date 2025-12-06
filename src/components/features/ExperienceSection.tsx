@@ -27,14 +27,8 @@ type ExperienceCarouselDotsProps = {
 const ExperienceCarouselDots = ({ count, current, scrollTo }: ExperienceCarouselDotsProps) => (
   <div className='flex w-full max-w-sm gap-2 mx-auto'>
     {Array.from({ length: count }).map((_, idx) => (
-      <button
-        key={idx}
-        onClick={() => scrollTo?.(idx)}
-        aria-label={`Go to slide ${idx + 1}`}
-        className='group py-2 flex-1 cursor-pointer'>
-        <div className={cn(
-          'h-1 w-full rounded-full transition-all',
-          current === idx + 1 ? 'bg-primary' : 'bg-secondary/50 group-hover:bg-secondary/80')} />
+      <button key={idx} onClick={() => scrollTo?.(idx)} aria-label={`Go to slide ${idx + 1}`} className='group py-2 flex-1 cursor-pointer'>
+        <div className={cn('h-1 w-full rounded-full transition-all', current === idx + 1 ? 'bg-primary' : 'bg-secondary/50 group-hover:bg-secondary/80')} />
       </button>
     ))}
   </div>
@@ -101,27 +95,23 @@ const ExperienceMetrics = ({ activeExperience }: ExperienceMetricsProps) => (
 type ExperienceHeaderProps = Pick<typeof experienceData, 'label' | 'headline' | 'spinning' | 'description' | 'action'>
 
 const ExperienceHeader = ({ label, headline, spinning, description, action }: ExperienceHeaderProps) => (
-  <div className='flex flex-col items-start gap-4 md:gap-6'>
-    <div className='w-full flex items-baseline justify-between md:items-end'>
-      <div className='flex flex-col gap-4 md:gap-6'>
-        <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
-        <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
-          {headline.prefix}{' '}
-          <br className='sm:hidden' />
-          {headline.dynamicWords}
-        </h2>
-      </div>
-      <div className='shrink-0 relative z-10'>
-        <a href={spinning.path} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/50 backdrop-blur-md transition-all duration-300 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
-          <SpinningText radius={6} duration={12} className='font-medium text-sm md:text-base uppercase tracking-widest text-secondary transition-colors duration-400 group-hover:text-primary'>
-            {spinning.animationText}
-          </SpinningText>
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <DownloadSimpleIcon weight='bold' className='size-8 text-secondary transition-all duration-400 group-hover:text-primary group-hover:scale-105' />
-          </div>
-        </a>
-      </div>
+  <div className='relative flex flex-col items-start gap-4 md:gap-6'>
+    <div className='absolute top-0 right-0 translate-x-0 -translate-y-1/2'>
+      <a href={spinning.path} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/50 backdrop-blur-md transition-all duration-300 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
+        <SpinningText radius={6} duration={12} className='font-medium text-sm md:text-base uppercase tracking-widest text-secondary transition-colors duration-400 group-hover:text-primary'>
+          {spinning.animationText}
+        </SpinningText>
+        <div className='absolute inset-0 flex items-center justify-center'>
+          <DownloadSimpleIcon weight='bold' className='size-8 text-secondary transition-all duration-400 group-hover:text-primary group-hover:scale-105' />
+        </div>
+      </a>
     </div>
+    <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
+    <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
+      {headline.prefix}{' '}
+      <br className='sm:hidden' />
+      {headline.dynamicWords}
+    </h2>
     <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
     <Button asChild variant='link' className='group has-[>svg]:px-0'>
       <a href={action.path} target='_blank' rel='noopener noreferrer'>

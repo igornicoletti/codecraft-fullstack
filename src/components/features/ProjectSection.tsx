@@ -51,7 +51,7 @@ const ProjectCard = ({ project, isActive, position }: ProjectCardProps) => {
   }[position]
 
   return (
-    <Card className={cn('pt-0! relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'blur-xs scale-95')}
+    <Card className={cn('relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'blur-xs scale-95')}
       style={{ transform: transformStyle, zIndex: isActive ? 10 : 0 }}>
       <div className='relative w-full h-full overflow-hidden group'>
         {imageUrl && (
