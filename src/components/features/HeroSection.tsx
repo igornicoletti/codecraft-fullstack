@@ -13,7 +13,7 @@ const HeroTechStack = ({ techStack }: HeroTechStackProps) => (
     {techStack.map(({ icon: Icon, label }) => (
       <Tooltip key={label}>
         <TooltipTrigger asChild>
-          <Icon stroke={0.6} className='size-10 hover:text-primary' />
+          <Icon stroke={1} className='size-10 hover:text-primary' />
         </TooltipTrigger>
         <TooltipContent>{label}</TooltipContent>
       </Tooltip>
@@ -55,7 +55,7 @@ export const HeroSection = () => {
   return (
     <section id='hero' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
-        <div className='grid gap-12 py-24 pt-8 md:pt-40'>
+        <div className='grid gap-12 py-24 md:pt-40'>
           <HeroHeader label={label} headline={headline} description={description} />
           <HeroActions actions={actions} />
           <HeroTechStack techStack={techStack} />

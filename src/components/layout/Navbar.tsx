@@ -202,7 +202,7 @@ export const Navbar = () => {
         <NavbarIcons />
         <NavbarMenuMobile
           navigations={NAV_ITEMS}
-          onBrandClick={() => handleLinkClick('#app')}
+          onBrandClick={() => handleLinkClick('#hero')}
           onLinkClick={handleLinkClick} />
       </div>
     </NavbarRoot>

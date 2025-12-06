@@ -40,9 +40,9 @@ interface SkillsDesktopProps {
 
 const getDesktopConfig = (index: number) => {
   const isEvenColumn = (index + 1) % 2 !== 0
-  let height = '8rem'
-  if (index === 1 || index === 3 || index === 5) height = '16rem'
-  if (index === 2 || index === 4) height = '24rem'
+  let height = '12rem'
+  if (index === 1 || index === 3 || index === 5) height = '20rem'
+  if (index === 2 || index === 4) height = '28rem'
   return { height, reverse: isEvenColumn }
 }
 
@@ -94,7 +94,7 @@ export const SkillsSection = () => {
   return (
     <section id='expertise' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl'>
-        <div className='grid py-24'>
+        <div className='grid gap-12 py-24'>
           {isDesktop
             ? <SkillsDesktop dataGroups={dataGroups} />
             : <SkillsMobile dataGroups={dataGroups} />

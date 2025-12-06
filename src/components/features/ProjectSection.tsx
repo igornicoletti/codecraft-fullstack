@@ -14,18 +14,18 @@ import { LinkPreview } from '@/components/ui/link-preview'
 
 type CardPosition = 'center' | 'left' | 'right'
 
-interface ProjectCardProps {
+interface ProjectCarouselCardProps {
   project: ProjectCardStack
   isActive: boolean
   position: CardPosition
 }
 
-const ProjectCard = ({ project, isActive, position }: ProjectCardProps) => {
+const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCardProps) => {
   const [imageUrl, setImageUrl] = useState<string>('')
 
   useEffect(() => {
-    const width = 1920
-    const height = 1080
+    const width = 1368
+    const height = 912
 
     const params = new URLSearchParams({
       url: project.liveUrl,
@@ -51,17 +51,21 @@ const ProjectCard = ({ project, isActive, position }: ProjectCardProps) => {
   }[position]
 
   return (
-    <Card className={cn('relative flex w-full max-w-md h-full flex-col overflow-hidden transition-all duration-300', !isActive && 'blur-xs scale-95')}
+    <Card className={cn(
+      'relative w-full flex flex-col transition-transform duration-500 will-change-transform',
+      !isActive && 'blur-xs scale-95')}
       style={{ transform: transformStyle, zIndex: isActive ? 10 : 0 }}>
-      <div className='relative w-full h-full overflow-hidden group'>
+      <div className='relative w-full h-full overflow-hidden'>
         {imageUrl && (
           <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
             <img
               src={imageUrl}
               alt={project.title}
               loading='lazy'
-              className={cn('object-cover w-full h-full scale-95 transition-transform duration-400', isActive && ' group-hover:scale-100')}
-              style={{ borderRadius: '0.6125rem' }} />
+              className={cn(
+                'object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500',
+                isActive && ' hover:scale-100')}
+            />
           </a>
         )}
       </div>
@@ -72,7 +76,7 @@ const ProjectCard = ({ project, isActive, position }: ProjectCardProps) => {
             <ArrowUpRightIcon className='text-primary' />
           </LinkPreview>
         </CardTitle>
-        <CardDescription className='line-clamp-5'>{project.description}</CardDescription>
+        <CardDescription className='line-clamp-4'>{project.description}</CardDescription>
       </CardHeader>
       {isActive && (<BorderBeam duration={20} size={200} className='from-secondary via-primary to-secondary' />)}
     </Card>
@@ -144,13 +148,13 @@ export const ProjectSection = () => {
       <div className='container mx-auto xl:max-w-7xl'>
         <div className='grid gap-12 py-24'>
           <ProjectHeader label={label} headline={headline} description={description} action={action} />
-          <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden px-6 sm:px-0'>
+          <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden px-6 sm:px-0 lg:px-6'>
             <CarouselContent>
               {projects.map((project, index) => {
                 const position = getCardPosition(index, current, projects.length)
                 return (
                   <CarouselItem key={index} className='basis-full sm:basis-1/2 lg:basis-1/3' style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}>
-                    <ProjectCard project={project} isActive={position === 'center'} position={position} />
+                    <ProjectCarouselCard project={project} isActive={position === 'center'} position={position} />
                   </CarouselItem>
                 )
               })}
