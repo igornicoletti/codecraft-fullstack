@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { experienceData } from '@/constants/experience'
 import { cn } from '@/lib/utils'
-import type { ExperiencePosition, ExperienceSectionData } from '@/types/experience.types'
+import type { ExperiencePosition } from '@/types/experience.types'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -145,7 +145,7 @@ export const ExperienceSection = () => {
     }
   }, [api])
 
-  const { label, headline, spinning, description, action, positions } = experienceData as ExperienceSectionData
+  const { label, headline, spinning, description, action, positions } = experienceData
   const activeExperience: ExperiencePosition = positions[current - 1] || positions[0]
 
   return (

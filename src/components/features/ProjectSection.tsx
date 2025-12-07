@@ -126,7 +126,7 @@ export const ProjectSection = () => {
     }
   }, [api])
 
-  const { label, headline, description, action, projects } = projectData as ProjectSectionData
+  const { label, headline, description, action, projects } = projectData
 
   const getCardPosition = (index: number, current: number, total: number): CardPosition => {
     const activeIndex = current - 1

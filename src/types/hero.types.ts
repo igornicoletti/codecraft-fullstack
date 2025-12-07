@@ -3,7 +3,7 @@ import type { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 export interface HeroAction {
   label: string
-  href?: string
+  href: string
 }
 
 export interface HeroTechStack {

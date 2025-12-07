@@ -3,7 +3,7 @@ import type { ProjectSectionData } from '@/types/project.types'
 export const projectData: ProjectSectionData = {
   label: 'Projetos open source',
   headline: 'Códigos que falam por si só',
-  description: 'Explore uma coleção selecionada de projetos que mostram como transformar ideias em aplicações web eficientes, utilizando tecnologias modernas e melhores práticas de desenvolvimento.',
+  description: 'Explore uma coleção selecionada de projetos que mostram conceitos de aplicações web eficientes, utilizando tecnologias modernas e melhores práticas de desenvolvimento.',
   action: {
     path: 'https://github.com/igornicoletti?tab=repositories',
     label: 'Explorar projetos no GitHub',

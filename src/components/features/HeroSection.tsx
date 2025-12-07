@@ -5,6 +5,7 @@ import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 type HeroTechStackProps = Pick<HeroSectionData, 'techStack'>
 
@@ -23,18 +24,27 @@ const HeroTechStack = ({ techStack }: HeroTechStackProps) => (
 
 type HeroActionsProps = Pick<HeroSectionData, 'actions'>
 
-const HeroActions = ({ actions }: HeroActionsProps) => (
-  <div className='flex flex-wrap justify-center gap-4'>
-    <Button size='lg' variant='default' className='group w-full uppercase sm:max-w-3xs'>
-      {actions.primary.label}
-    </Button>
-    <Button asChild size='lg' variant='outline' className='group w-full uppercase sm:max-w-3xs'>
-      <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
-        {actions.secondary.label}
-      </a>
-    </Button>
-  </div>
-)
+const HeroActions = ({ actions }: HeroActionsProps) => {
+  const handleScroll = useSmoothScroll()
+
+  return (
+    <div className='flex flex-wrap justify-center gap-4'>
+      <Button
+        size='lg'
+        variant='default'
+        className='group w-full uppercase sm:max-w-3xs'
+        onClick={() => handleScroll(actions.primary.href)}>
+        {actions.primary.label}
+      </Button>
+
+      <Button asChild size='lg' variant='outline' className='group w-full uppercase sm:max-w-3xs'>
+        <a href={actions.secondary.href} target='_blank' rel='noopener noreferrer'>
+          {actions.secondary.label}
+        </a>
+      </Button>
+    </div>
+  )
+}
 
 type HeroHeaderProps = Pick<HeroSectionData, 'label' | 'headline' | 'description'>
 
@@ -50,7 +60,7 @@ const HeroHeader = ({ label, headline, description }: HeroHeaderProps) => (
 )
 
 export const HeroSection = () => {
-  const { label, headline, description, actions, techStack } = heroData as HeroSectionData
+  const { label, headline, description, actions, techStack } = heroData
 
   return (
     <section id='hero' className='relative overflow-hidden'>
