@@ -8,7 +8,7 @@ import type { ProjectCardStack, ProjectSectionData } from '@/types/project.types
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { Button } from '@/components/ui/button'
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
 
@@ -68,8 +68,7 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       style={{ transform: transformStyle, zIndex: isActive ? 10 : 0 }}>
       <div className='relative w-full h-full overflow-hidden'>
         {imageUrl && (
-          <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
-            <img
+          <img
               src={imageUrl}
               alt={project.title}
               loading='lazy'
@@ -77,18 +76,24 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
                 'object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500',
                 isActive && ' hover:scale-100')}
             />
-          </a>
         )}
       </div>
       <CardHeader>
         <CardTitle>
-          <LinkPreview url={project.repoUrl} className='flex items-center gap-2'>
+          <LinkPreview url={project.liveUrl} className='flex items-center gap-2'>
             {project.title}
             <ArrowUpRightIcon className='text-primary' />
           </LinkPreview>
         </CardTitle>
         <CardDescription className='line-clamp-4'>{project.description}</CardDescription>
       </CardHeader>
+<CardFooter>
+    <Button asChild variant='outline' className='w-full'>
+      <a href={project.repoUrl} target='_blank' rel='noopener noreferrer'>
+Explorar repositório GitHub
+      </a>
+    </Button>
+</CardFooter>
       {isActive && (<BorderBeam duration={20} size={200} className='from-secondary via-primary to-secondary' />)}
     </Card>
   )
