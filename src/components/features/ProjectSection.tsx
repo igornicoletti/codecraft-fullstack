@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, CaretRightIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon, CaretRightIcon, GithubLogoIcon } from '@phosphor-icons/react'
 import { useEffect, useState, type HTMLAttributes } from 'react'
 
 import { projectData } from '@/constants/project'
@@ -69,13 +69,13 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       <div className='relative w-full h-full overflow-hidden'>
         {imageUrl && (
           <img
-              src={imageUrl}
-              alt={project.title}
-              loading='lazy'
-              className={cn(
-                'object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500',
-                isActive && ' hover:scale-100')}
-            />
+            src={imageUrl}
+            alt={project.title}
+            loading='lazy'
+            className={cn(
+              'object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500',
+              isActive && ' hover:scale-100')}
+          />
         )}
       </div>
       <CardHeader>
@@ -87,13 +87,14 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
         </CardTitle>
         <CardDescription className='line-clamp-4'>{project.description}</CardDescription>
       </CardHeader>
-<CardFooter>
-    <Button asChild variant='outline' className='w-full'>
-      <a href={project.repoUrl} target='_blank' rel='noopener noreferrer'>
-Explorar repositório GitHub
-      </a>
-    </Button>
-</CardFooter>
+      <CardFooter>
+        <Button asChild variant={isActive ? 'default' : 'secondary'} className='w-full'>
+          <a href={project.repoUrl} target='_blank' rel='noopener noreferrer'>
+            <GithubLogoIcon />
+            Explorar código no GitHub
+          </a>
+        </Button>
+      </CardFooter>
       {isActive && (<BorderBeam duration={20} size={200} className='from-secondary via-primary to-secondary' />)}
     </Card>
   )
