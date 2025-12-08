@@ -1,9 +1,9 @@
 import { ArrowUpRightIcon, CaretRightIcon, GithubLogoIcon } from '@phosphor-icons/react'
 import { useEffect, useState, type HTMLAttributes } from 'react'
 
-import { projectData } from '@/constants/project'
+import { projectSectionData } from '@/constants/project'
 import { cn } from '@/lib/utils'
-import type { ProjectCardStack, ProjectSectionData } from '@/types/project.types'
+import type { ProjectItem, ProjectSectionContent } from '@/types/project.types'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { BorderBeam } from '@/components/ui/border-beam'
@@ -26,7 +26,7 @@ const ProjectCarouselDots = ({ current, totalSlides, ...props }: ProjectCarousel
 )
 
 type ProjectCarouselCardProps = {
-  project: ProjectCardStack
+  project: ProjectItem
   isActive: boolean
   position: 'center' | 'left' | 'right'
 }
@@ -39,7 +39,7 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
     const height = 912
 
     const params = new URLSearchParams({
-      url: project.liveUrl,
+      url: project.liveDemoUrl,
       screenshot: 'true',
       meta: 'false',
       embed: 'screenshot.url',
@@ -53,7 +53,7 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
     const microlinkUrl = `https://api.microlink.io/?${params}`
 
     setImageUrl(microlinkUrl)
-  }, [project.liveUrl])
+  }, [project.liveDemoUrl])
 
   const transformStyle = {
     left: 'translate3d(0px, 0px, -100px) rotateY(25deg)',
@@ -71,23 +71,23 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
           <img
             loading='lazy'
             src={imageUrl}
-            alt={project.title}
+            alt={project.projectTitle}
             className={cn('object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500', isActive && ' hover:scale-100')} />)}
       </div>
       <CardHeader>
         <CardTitle>
-          <LinkPreview url={project.liveUrl} className='flex items-center gap-2'>
-            {project.title}
+          <LinkPreview url={project.liveDemoUrl} className='flex items-center gap-2'>
+            {project.projectTitle}
             <ArrowUpRightIcon className='text-primary' />
           </LinkPreview>
         </CardTitle>
-        <CardDescription className='line-clamp-4'>{project.description}</CardDescription>
+        <CardDescription className='line-clamp-4'>{project.shortDescription}</CardDescription>
       </CardHeader>
       <CardFooter>
         <Button asChild variant={isActive ? 'default' : 'outline'} className='w-full'>
-          <a href={project.repoUrl} target='_blank' rel='noopener noreferrer'>
+          <a href={project.repositoryUrl} target='_blank' rel='noopener noreferrer'>
             <GithubLogoIcon />
-            Explorar código no GitHub
+            {project.repositoryActionText}
           </a>
         </Button>
       </CardFooter>
@@ -96,17 +96,17 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
   )
 }
 
-type ProjectHeaderProps = Pick<ProjectSectionData, 'label' | 'headline' | 'description' | 'action'>
+type ProjectHeaderProps = Pick<ProjectSectionContent, 'sectionTagline' | 'mainHeadline' | 'sectionSummary' | 'externalAction'>
 
-const ProjectHeader = ({ label, headline, description, action }: ProjectHeaderProps) => (
+const ProjectHeader = ({ sectionTagline, mainHeadline, sectionSummary, externalAction }: ProjectHeaderProps) => (
   <div className='flex flex-col items-center text-center gap-4 px-6 md:gap-6'>
-    <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
-    <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>{headline}</h2>
-    <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
+    <AnimatedShinyText className='text-primary font-medium'>{sectionTagline}</AnimatedShinyText>
+    <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>{mainHeadline}</h2>
+    <p className='max-w-4xl text-muted-foreground md:text-lg'>{sectionSummary}</p>
     <Button asChild variant='link' className='group has-[>svg]:px-0'>
-      <a href={action.path} target='_blank' rel='noopener noreferrer'>
-        {action.label}
-        <CaretRightIcon className='transition-transform duration-300 group-hover:translate-x-1 text-primary' />
+      <a href={externalAction.url} target='_blank' rel='noopener noreferrer'>
+        {externalAction.buttonText}
+        <CaretRightIcon className='text-primary transition-transform duration-300 group-hover:translate-x-1' />
       </a>
     </Button>
   </div>
@@ -126,7 +126,7 @@ export const ProjectSection = () => {
     }
   }, [api])
 
-  const { label, headline, description, action, projects } = projectData
+  const { sectionTagline, mainHeadline, sectionSummary, externalAction, projectList } = projectSectionData
 
   const getCardPosition = (index: number, current: number, total: number) => {
     const activeIndex = current - 1
@@ -147,11 +147,11 @@ export const ProjectSection = () => {
     <section id='projects' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl'>
         <div className='grid gap-12 py-24'>
-          <ProjectHeader label={label} headline={headline} description={description} action={action} />
+          <ProjectHeader sectionTagline={sectionTagline} mainHeadline={mainHeadline} sectionSummary={sectionSummary} externalAction={externalAction} />
           <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden px-6 sm:px-0 lg:px-6'>
             <CarouselContent>
-              {projects.map((project, index) => {
-                const position = getCardPosition(index, current, projects.length)
+              {projectList.map((project, index) => {
+                const position = getCardPosition(index, current, projectList.length)
                 return (
                   <CarouselItem key={index} className='basis-full sm:basis-1/2 lg:basis-1/3' style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}>
                     <ProjectCarouselCard project={project} isActive={position === 'center'} position={position} />
@@ -159,7 +159,7 @@ export const ProjectSection = () => {
                 )
               })}
             </CarouselContent>
-            <ProjectCarouselDots current={current} totalSlides={projects.length} />
+            <ProjectCarouselDots current={current} totalSlides={projectList.length} />
           </Carousel>
         </div>
       </div>

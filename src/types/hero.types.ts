@@ -1,26 +1,26 @@
 import type { Icon, IconProps } from '@tabler/icons-react'
 import type { ForwardRefExoticComponent, RefAttributes } from 'react'
 
-export interface HeroAction {
-  label: string
+export interface PrimaryCta {
   href: string
-}
-
-export interface HeroTechStack {
-  icon: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>
   label: string
 }
 
-export interface HeroSectionData {
-  label: string
-  headline: {
+export interface TechnologyItem {
+  iconSlug: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>
+  displayName: string
+}
+
+export interface HeroSectionContent {
+  sectionTagline: string
+  mainHeadline: {
     prefix: string
-    dynamicWords: string[]
+    highlightedWords: string[]
   }
-  description: string
-  actions: {
-    primary: HeroAction
-    secondary: HeroAction
+  catchphrase: string
+  callToAction: {
+    primary: PrimaryCta
+    secondary: PrimaryCta
   }
-  techStack: HeroTechStack[]
+  technologiesUsed: TechnologyItem[]
 }

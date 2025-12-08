@@ -1,6 +1,6 @@
-export interface SkillsSectionData {
-  slug: string
-  label: string
-  color?: string
-  invert?: boolean
+export interface TechnologySkill {
+  iconSlug: string
+  displayName: string
+  hexColorCode?: string
+  isDarkThemed?: boolean
 }

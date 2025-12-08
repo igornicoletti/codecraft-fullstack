@@ -1,37 +1,37 @@
-export interface ExperienceTechStack {
-  slug: string
-  label: string
+export interface TechnologyItem {
+  iconSlug: string
+  displayName: string
 }
 
-export interface ExperienceImpactMetric {
-  value: string
-  context: string
-  description: string
+export interface PerformanceMetric {
+  displayValue: string
+  metricLabel: string
+  details: string
 }
 
-export interface ExperiencePosition {
+export interface ProfessionalExperience {
   organizationName: string
-  websiteLink: string
+  websiteUrl: string
   employmentPeriod: string
-  projectDescription: string
-  techStack: ExperienceTechStack[]
-  impactMetrics: ExperienceImpactMetric[]
+  roleDescription: string
+  technologiesUsed: TechnologyItem[]
+  keyAchievements: PerformanceMetric[]
 }
 
-export interface ExperienceSectionData {
-  label: string
-  headline: {
+export interface ExperienceSectionContent {
+  sectionTagline: string
+  mainHeading: {
     prefix: string
-    dynamicWords: string
+    highlightedText: string
   }
-  spinning: {
-    path: string
-    animationText: string
+  resumeDownloadAction: {
+    fileUrl: string
+    circleText: string
   }
-  description: string
-  action: {
-    path: string
+  careerSummary: string
+  externalProfileCta: {
+    url: string
     label: string
   }
-  positions: ExperiencePosition[]
+  careerHistory: ProfessionalExperience[]
 }

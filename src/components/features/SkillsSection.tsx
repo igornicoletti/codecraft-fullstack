@@ -1,16 +1,16 @@
 import { useMemo } from 'react'
 
-import { skillsData } from '@/constants/skills'
+import { professionalSkills } from '@/constants/skills'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { cn } from '@/lib/utils'
-import type { SkillsSectionData } from '@/types/skills.types'
+import type { TechnologySkill } from '@/types/skills.types'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Marquee } from '@/components/ui/marquee'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 type SkillItemProps = {
-  item: SkillsSectionData
+  item: TechnologySkill
 }
 
 const SkillItem = ({ item }: SkillItemProps) => (
@@ -20,22 +20,22 @@ const SkillItem = ({ item }: SkillItemProps) => (
         <div className='relative flex items-center justify-center size-20 lg:size-24 rounded-xl border border-secondary/50 bg-linear-to-b from-secondary/30 backdrop-blur-md cursor-pointer overflow-hidden transition-all duration-300 hover:border-secondary shrink-0'>
           <Avatar className='bg-transparent rounded-none size-8'>
             <AvatarImage
-              src={`https://cdn.simpleicons.org/${item.slug}/${item.color}`}
-              alt={item.label}
-              className={cn('object-contain', item.invert && 'dark:invert')} />
-            <AvatarFallback>{item.label.slice(0, 2).toUpperCase()}</AvatarFallback>
+              src={`https://cdn.simpleicons.org/${item.iconSlug}/${item.hexColorCode}`}
+              alt={item.displayName}
+              className={cn('object-contain', item.isDarkThemed && 'dark:invert')} />
+            <AvatarFallback>{item.displayName.slice(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
         </div>
       </TooltipTrigger>
       <TooltipContent>
-        <p>{item.label}</p>
+        <p>{item.displayName}</p>
       </TooltipContent>
     </Tooltip>
   </TooltipProvider>
 )
 
 type SkillsDesktopProps = {
-  dataGroups: SkillsSectionData[][]
+  dataGroups: TechnologySkill[][]
 }
 
 const getDesktopConfig = (index: number) => {
@@ -53,7 +53,7 @@ const SkillsDesktop = ({ dataGroups }: SkillsDesktopProps) => (
       return (
         <div key={idx} className="relative overflow-hidden shrink-0" style={{ height: config.height }}>
           <Marquee reverse={config.reverse} pauseOnHover vertical>
-            {columnItems.map((skill) => (<SkillItem key={skill.slug} item={skill} />))}
+            {columnItems.map((skill) => (<SkillItem key={skill.iconSlug} item={skill} />))}
           </Marquee>
           <div className='pointer-events-none absolute inset-x-0 top-0 h-8 bg-linear-to-b from-background z-10' />
           <div className='pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-linear-to-t from-background z-10' />
@@ -64,14 +64,14 @@ const SkillsDesktop = ({ dataGroups }: SkillsDesktopProps) => (
 )
 
 type SkillsMobileProps = {
-  dataGroups: SkillsSectionData[][]
+  dataGroups: TechnologySkill[][]
 }
 
 const SkillsMobile = ({ dataGroups }: SkillsMobileProps) => (
   <div className='relative overflow-hidden flex flex-col gap-4 z-20'>
     {dataGroups.map((rowItems, idx) => (
       <Marquee key={idx} reverse={idx % 2 === 1} pauseOnHover>
-        {rowItems.map((skill) => (<SkillItem key={skill.slug} item={skill} />))}
+        {rowItems.map((skill) => (<SkillItem key={skill.iconSlug} item={skill} />))}
       </Marquee>
     ))}
     <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r" />
@@ -84,8 +84,8 @@ export const SkillsSection = () => {
 
   const dataGroups = useMemo(() => {
     const groupCount = isDesktop ? 7 : 3
-    const groups: SkillsSectionData[][] = Array.from({ length: groupCount }, () => [])
-    skillsData.forEach((skill, index) => {
+    const groups: TechnologySkill[][] = Array.from({ length: groupCount }, () => [])
+    professionalSkills.forEach((skill, index) => {
       groups[index % groupCount].push(skill)
     })
     return groups

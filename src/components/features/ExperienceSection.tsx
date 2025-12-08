@@ -3,8 +3,8 @@ import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
 import { useEffect, useRef, useState } from 'react'
 
-import { experienceData } from '@/constants/experience'
-import type { ExperiencePosition } from '@/types/experience.types'
+import { experienceSectionData } from '@/constants/experience'
+import type { ExperienceSectionContent, ProfessionalExperience } from '@/types/experience.types'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -34,22 +34,22 @@ const ExperienceCarouselDots = ({ count, current, progress, scrollTo }: Experien
         key={idx}
         onClick={() => scrollTo?.(idx)}
         aria-label={`Go to slide ${idx + 1}`}
-        className='flex-1 cursor-pointer'>
-        <Progress value={current === idx + 1 ? progress : 0} className="transition-all duration-300" />
+        className='flex-1 cursor-pointer outline-none'>
+        <Progress value={current === idx + 1 ? progress : 0} />
       </button>
     ))}
   </div>
 )
 
 type ExperienceCarouselCardProps = {
-  item: ExperiencePosition
+  item: ProfessionalExperience
 }
 
 const ExperienceCarouselCard = ({ item }: ExperienceCarouselCardProps) => (
   <Card className='relative flex h-full flex-col overflow-hidden'>
     <CardHeader>
       <CardTitle>
-        <LinkPreview url={item.websiteLink} className='inline-flex items-center gap-2 text-lg md:text-xl'>
+        <LinkPreview url={item.websiteUrl} className='inline-flex items-center gap-2 text-lg md:text-xl'>
           {item.organizationName}
           <ArrowUpRightIcon className='text-primary' />
         </LinkPreview>
@@ -60,18 +60,18 @@ const ExperienceCarouselCard = ({ item }: ExperienceCarouselCardProps) => (
       </CardDescription>
     </CardHeader>
     <CardContent className='flex-1'>
-      <p className='md:text-lg'>{item.projectDescription}</p>
+      <p className='md:text-lg'>{item.roleDescription}</p>
     </CardContent>
     <CardFooter className='mt-auto flex -space-x-3 rtl:space-x-reverse'>
-      {item.techStack.map(({ slug, label }) => (
-        <Tooltip key={label}>
+      {item.technologiesUsed.map(({ iconSlug, displayName }) => (
+        <Tooltip key={displayName}>
           <TooltipTrigger>
             <Avatar className='p-2 bg-muted ring-2 ring-card transition-transform hover:z-10 hover:scale-105'>
-              <AvatarImage src={`https://cdn.simpleicons.org/${slug}`} alt={label} />
-              <AvatarFallback>{label?.[0]}</AvatarFallback>
+              <AvatarImage src={`https://cdn.simpleicons.org/${iconSlug}`} alt={displayName} />
+              <AvatarFallback>{displayName?.[0]}</AvatarFallback>
             </Avatar>
           </TooltipTrigger>
-          <TooltipContent>{label}</TooltipContent>
+          <TooltipContent>{displayName}</TooltipContent>
         </Tooltip>
       ))}
     </CardFooter>
@@ -80,49 +80,49 @@ const ExperienceCarouselCard = ({ item }: ExperienceCarouselCardProps) => (
 )
 
 type ExperienceMetricsProps = {
-  activeExperience: ExperiencePosition
+  activeExperience: ProfessionalExperience
 }
 
 const ExperienceMetrics = ({ activeExperience }: ExperienceMetricsProps) => (
   <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
-    {activeExperience?.impactMetrics?.map((metric, idx) => (
+    {activeExperience?.keyAchievements?.map((metric, idx) => (
       <div key={`${activeExperience.organizationName}-${idx}`} className='flex flex-col gap-2 pl-4 border-l border-primary'>
         <div className='flex items-baseline gap-2'>
-          <BlurFade key={`${activeExperience.organizationName}-${metric.value}`} delay={0.1 * idx}>
-            <span className='text-xl'>{metric.value}</span>
+          <BlurFade key={`${activeExperience.organizationName}-${metric.displayValue}`} delay={0.1 * idx}>
+            <span className='text-xl'>{metric.displayValue}</span>
           </BlurFade>
-          <span className='text-xl'>{metric.context}</span>
+          <span className='text-xl'>{metric.metricLabel}</span>
         </div>
-        <span className='text-muted-foreground'>{metric.description}</span>
+        <span className='text-muted-foreground'>{metric.details}</span>
       </div>
     ))}
   </div>
 )
 
-type ExperienceHeaderProps = Pick<typeof experienceData, 'label' | 'headline' | 'spinning' | 'description' | 'action'>
+type ExperienceHeaderProps = Pick<ExperienceSectionContent, 'sectionTagline' | 'mainHeading' | 'resumeDownloadAction' | 'careerSummary' | 'externalProfileCta'>
 
-const ExperienceHeader = ({ label, headline, spinning, description, action }: ExperienceHeaderProps) => (
+const ExperienceHeader = ({ sectionTagline, mainHeading, resumeDownloadAction, careerSummary, externalProfileCta }: ExperienceHeaderProps) => (
   <div className='relative flex flex-col items-start gap-4 md:gap-6'>
     <div className='absolute top-0 right-0 translate-x-0 -translate-y-1/2'>
-      <a href={spinning.path} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/50 backdrop-blur-md transition-all duration-300 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
+      <a href={resumeDownloadAction.fileUrl} download className='group relative flex items-center justify-center size-24 md:size-40 rounded-full border border-secondary/50 bg-background/50 backdrop-blur-md transition-all duration-300 hover:border-secondary hover:bg-secondary/30 hover:scale-105 cursor-pointer'>
         <SpinningText radius={6} duration={12} className='font-medium text-sm md:text-base uppercase tracking-widest text-secondary transition-colors duration-400 group-hover:text-primary'>
-          {spinning.animationText}
+          {resumeDownloadAction.circleText}
         </SpinningText>
         <div className='absolute inset-0 flex items-center justify-center'>
           <DownloadSimpleIcon weight='bold' className='size-8 text-secondary transition-all duration-400 group-hover:text-primary group-hover:scale-105' />
         </div>
       </a>
     </div>
-    <AnimatedShinyText className='text-primary font-medium'>{label}</AnimatedShinyText>
+    <AnimatedShinyText className='text-primary font-medium'>{sectionTagline}</AnimatedShinyText>
     <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>
-      {headline.prefix}{' '}
+      {mainHeading.prefix}{' '}
       <br className='sm:hidden' />
-      {headline.dynamicWords}
+      {mainHeading.highlightedText}
     </h2>
-    <p className='max-w-4xl text-muted-foreground md:text-lg'>{description}</p>
+    <p className='max-w-4xl text-muted-foreground md:text-lg'>{careerSummary}</p>
     <Button asChild variant='link' className='group has-[>svg]:px-0'>
-      <a href={action.path} target='_blank' rel='noopener noreferrer'>
-        {action.label}
+      <a href={externalProfileCta.url} target='_blank' rel='noopener noreferrer'>
+        {externalProfileCta.label}
         <CaretRightIcon className='text-primary transition-transform duration-300 group-hover:translate-x-1' />
       </a>
     </Button>
@@ -185,30 +185,39 @@ export const ExperienceSection = () => {
     }
   }, [api])
 
-  const { label, headline, spinning, description, action, positions } = experienceData
-  const activeExperience: ExperiencePosition = positions[current - 1] || positions[0]
+  const {
+    sectionTagline,
+    mainHeading,
+    resumeDownloadAction,
+    careerSummary,
+    externalProfileCta,
+    careerHistory
+  } = experienceSectionData
+
+  const activeExperience: ProfessionalExperience = careerHistory[current - 1] || careerHistory[0]
 
   return (
     <section id='experience' className='relative overflow-hidden'>
       <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-24'>
           <ExperienceHeader
-            label={label}
-            headline={headline}
-            spinning={spinning}
-            description={description}
-            action={action} />
-          <div className='grid grid-cols-1 items-center gap-6 lg:grid-cols-3'>
-            <div className='lg:col-span-2'>
+            sectionTagline={sectionTagline}
+            mainHeading={mainHeading}
+            resumeDownloadAction={resumeDownloadAction}
+            careerSummary={careerSummary}
+            externalProfileCta={externalProfileCta}
+          />
+          <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-3'>
+            <div className='lg:col-span-2 min-w-0'>
               <Carousel
                 setApi={setApi}
                 opts={{ loop: true }}
                 plugins={[autoplayPlugin.current, fadePlugin.current]}
                 className="w-full overflow-hidden">
                 <CarouselContent>
-                  {positions.map((position, idx) => (
+                  {careerHistory.map((experienceItem, idx) => (
                     <CarouselItem key={idx}>
-                      <ExperienceCarouselCard item={position} />
+                      <ExperienceCarouselCard item={experienceItem} />
                     </CarouselItem>
                   ))}
                 </CarouselContent>

@@ -1,17 +1,18 @@
-export interface ProjectCardStack {
-  title: string
-  description: string
-  liveUrl: string
-  repoUrl: string
+export interface ProjectItem {
+  projectTitle: string
+  shortDescription: string
+  repositoryActionText: string
+  liveDemoUrl: string
+  repositoryUrl: string
 }
 
-export interface ProjectSectionData {
-  label: string
-  headline: string
-  description: string
-  action: {
-    path: string
-    label: string
+export interface ProjectSectionContent {
+  sectionTagline: string
+  mainHeadline: string
+  sectionSummary: string
+  externalAction: {
+    url: string
+    buttonText: string
   }
-  projects: ProjectCardStack[]
+  projectList: ProjectItem[]
 }
