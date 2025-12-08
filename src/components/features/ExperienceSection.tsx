@@ -4,7 +4,6 @@ import Fade from 'embla-carousel-fade'
 import { useEffect, useRef, useState } from 'react'
 
 import { experienceData } from '@/constants/experience'
-import { cn } from '@/lib/utils'
 import type { ExperiencePosition } from '@/types/experience.types'
 
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
@@ -15,20 +14,28 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
+import { Progress } from '@/components/ui/progress'
 import { SpinningText } from '@/components/ui/spinning-text'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+
+const AUTOPLAY_DURATION = 10000
 
 type ExperienceCarouselDotsProps = {
   count: number
   current: number
+  progress: number
   scrollTo: ((index: number, jump?: boolean) => void) | undefined
 }
 
-const ExperienceCarouselDots = ({ count, current, scrollTo }: ExperienceCarouselDotsProps) => (
+const ExperienceCarouselDots = ({ count, current, progress, scrollTo }: ExperienceCarouselDotsProps) => (
   <div className='flex w-full max-w-sm gap-2 mx-auto'>
     {Array.from({ length: count }).map((_, idx) => (
-      <button key={idx} onClick={() => scrollTo?.(idx)} aria-label={`Go to slide ${idx + 1}`} className='group py-2 flex-1 cursor-pointer'>
-        <div className={cn('h-1 w-full rounded-full transition-all', current === idx + 1 ? 'bg-primary' : 'bg-secondary/50 group-hover:bg-secondary/80')} />
+      <button
+        key={idx}
+        onClick={() => scrollTo?.(idx)}
+        aria-label={`Go to slide ${idx + 1}`}
+        className='flex-1 cursor-pointer'>
+        <Progress value={current === idx + 1 ? progress : 0} className="transition-all duration-300" />
       </button>
     ))}
   </div>
@@ -81,10 +88,10 @@ const ExperienceMetrics = ({ activeExperience }: ExperienceMetricsProps) => (
     {activeExperience?.impactMetrics?.map((metric, idx) => (
       <div key={`${activeExperience.organizationName}-${idx}`} className='flex flex-col gap-2 pl-4 border-l border-primary'>
         <div className='flex items-baseline gap-2'>
-          <BlurFade key={metric.value} delay={0.1 * idx}>
-            <span className='text-xl md:text-2xl'>{metric.value}</span>
+          <BlurFade key={`${activeExperience.organizationName}-${metric.value}`} delay={0.1 * idx}>
+            <span className='text-xl'>{metric.value}</span>
           </BlurFade>
-          <span className='text-xl md:text-2xl'>{metric.context}</span>
+          <span className='text-xl'>{metric.context}</span>
         </div>
         <span className='text-muted-foreground'>{metric.description}</span>
       </div>
@@ -116,7 +123,7 @@ const ExperienceHeader = ({ label, headline, spinning, description, action }: Ex
     <Button asChild variant='link' className='group has-[>svg]:px-0'>
       <a href={action.path} target='_blank' rel='noopener noreferrer'>
         {action.label}
-        <CaretRightIcon className='transition-transform duration-300 group-hover:translate-x-1 text-primary' />
+        <CaretRightIcon className='text-primary transition-transform duration-300 group-hover:translate-x-1' />
       </a>
     </Button>
   </div>
@@ -126,22 +133,55 @@ export const ExperienceSection = () => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
+  const [progress, setProgress] = useState(0)
 
-  const autoplayPlugin = useRef(Autoplay({ delay: 12000 }))
   const fadePlugin = useRef(Fade())
+  const autoplayPlugin = useRef(Autoplay({
+    delay: AUTOPLAY_DURATION,
+    stopOnInteraction: false
+  }))
 
   useEffect(() => {
     if (!api) return
+
     const newCount = api.scrollSnapList().length
     setCount(newCount)
+    setCurrent(api.selectedScrollSnap() + 1)
 
-    const updateCurrent = () => setCurrent(api.selectedScrollSnap() + 1)
-    updateCurrent()
+    let animationFrameId: number
+    let startTime: number | null = null
 
-    api.on('select', updateCurrent)
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const elapsed = timestamp - startTime
+
+      const progressValue = Math.min((elapsed / AUTOPLAY_DURATION) * 100, 100)
+      setProgress(progressValue)
+
+      if (elapsed < AUTOPLAY_DURATION) {
+        animationFrameId = requestAnimationFrame(animate)
+      } else {
+        setProgress(100)
+      }
+    }
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+      setProgress(0)
+      startTime = null
+      if (animationFrameId) cancelAnimationFrame(animationFrameId)
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    api.on('select', onSelect)
+    api.on('reInit', onSelect)
+
+    onSelect()
 
     return () => {
-      api.off('select', updateCurrent)
+      api.off('select', onSelect)
+      api.off('reInit', onSelect)
+      cancelAnimationFrame(animationFrameId)
     }
   }, [api])
 
@@ -162,12 +202,13 @@ export const ExperienceSection = () => {
             <div className='lg:col-span-2'>
               <Carousel
                 setApi={setApi}
-                opts={{ loop: true, containScroll: false }}
-                plugins={[autoplayPlugin.current, fadePlugin.current]}>
+                opts={{ loop: true }}
+                plugins={[autoplayPlugin.current, fadePlugin.current]}
+                className="w-full overflow-hidden">
                 <CarouselContent>
-                  {positions.map((item, idx) => (
+                  {positions.map((position, idx) => (
                     <CarouselItem key={idx}>
-                      <ExperienceCarouselCard item={item} />
+                      <ExperienceCarouselCard item={position} />
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -178,6 +219,7 @@ export const ExperienceSection = () => {
               <ExperienceCarouselDots
                 count={count}
                 current={current}
+                progress={progress}
                 scrollTo={api?.scrollTo} />
             </div>
           </div>

@@ -69,14 +69,10 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       <div className='relative w-full h-full overflow-hidden'>
         {imageUrl && (
           <img
+            loading='lazy'
             src={imageUrl}
             alt={project.title}
-            loading='lazy'
-            className={cn(
-              'object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500',
-              isActive && ' hover:scale-100')}
-          />
-        )}
+            className={cn('object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500', isActive && ' hover:scale-100')} />)}
       </div>
       <CardHeader>
         <CardTitle>
@@ -88,7 +84,7 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
         <CardDescription className='line-clamp-4'>{project.description}</CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button asChild variant={isActive ? 'default' : 'secondary'} className='w-full'>
+        <Button asChild variant={isActive ? 'default' : 'outline'} className='w-full'>
           <a href={project.repoUrl} target='_blank' rel='noopener noreferrer'>
             <GithubLogoIcon />
             Explorar código no GitHub
