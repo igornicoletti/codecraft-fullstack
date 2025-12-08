@@ -41,8 +41,8 @@ interface SkillsDesktopProps {
 const getDesktopConfig = (index: number) => {
   const isEvenColumn = (index + 1) % 2 !== 0
   let height = '9rem'
-  if (index === 1 || index === 3 || index === 5) height = '17rem'
-  if (index === 2 || index === 4) height = '25rem'
+  if (index === 1 || index === 3 || index === 5) height = '15.5rem'
+  if (index === 2 || index === 4) height = '22rem'
   return { height, reverse: isEvenColumn }
 }
 
