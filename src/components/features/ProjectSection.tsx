@@ -12,12 +12,23 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
 
-type CardPosition = 'center' | 'left' | 'right'
+type ProjectCarouselDotsProps = HTMLAttributes<HTMLDivElement> & {
+  current: number
+  totalSlides: number
+}
 
-interface ProjectCarouselCardProps {
+const ProjectCarouselDots = ({ current, totalSlides, ...props }: ProjectCarouselDotsProps) => (
+  <div className='flex items-center justify-center gap-6 mt-8' {...props}>
+    <CarouselPrevious variant='link' className='text-primary static translate-y-0' />
+    <span className='text-sm select-none'>{current} / {totalSlides}</span>
+    <CarouselNext variant='link' className='text-primary static translate-y-0' />
+  </div>
+)
+
+type ProjectCarouselCardProps = {
   project: ProjectCardStack
   isActive: boolean
-  position: CardPosition
+  position: 'center' | 'left' | 'right'
 }
 
 const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCardProps) => {
@@ -83,19 +94,6 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
   )
 }
 
-interface ProjectCarouselDotsProps extends HTMLAttributes<HTMLDivElement> {
-  current: number
-  totalSlides: number
-}
-
-const ProjectCarouselDots = ({ current, totalSlides, ...props }: ProjectCarouselDotsProps) => (
-  <div className='flex items-center justify-center gap-6 mt-8' {...props}>
-    <CarouselPrevious variant='link' className='text-primary static translate-y-0' />
-    <span className='text-sm select-none'>{current} / {totalSlides}</span>
-    <CarouselNext variant='link' className='text-primary static translate-y-0' />
-  </div>
-)
-
 type ProjectHeaderProps = Pick<ProjectSectionData, 'label' | 'headline' | 'description' | 'action'>
 
 const ProjectHeader = ({ label, headline, description, action }: ProjectHeaderProps) => (
@@ -128,7 +126,7 @@ export const ProjectSection = () => {
 
   const { label, headline, description, action, projects } = projectData
 
-  const getCardPosition = (index: number, current: number, total: number): CardPosition => {
+  const getCardPosition = (index: number, current: number, total: number) => {
     const activeIndex = current - 1
     const prevIndex = (activeIndex - 1 + total) % total
     const nextIndex = (activeIndex + 1) % total

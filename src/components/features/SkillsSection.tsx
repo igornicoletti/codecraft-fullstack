@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Marquee } from '@/components/ui/marquee'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
-interface SkillItemProps {
+type SkillItemProps = {
   item: SkillsSectionData
 }
 
@@ -34,7 +34,7 @@ const SkillItem = ({ item }: SkillItemProps) => (
   </TooltipProvider>
 )
 
-interface SkillsDesktopProps {
+type SkillsDesktopProps = {
   dataGroups: SkillsSectionData[][]
 }
 
@@ -63,7 +63,7 @@ const SkillsDesktop = ({ dataGroups }: SkillsDesktopProps) => (
   </div>
 )
 
-interface SkillsMobileProps {
+type SkillsMobileProps = {
   dataGroups: SkillsSectionData[][]
 }
 
