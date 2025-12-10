@@ -47,18 +47,19 @@ interface NavbarContentProps {
 const NavbarContent = ({ children, visible }: NavbarContentProps) => {
   const isMobile = useBreakpoint('(max-width: 1024px)')
   const yPosition = isMobile || visible ? 0 : 20
+  const backdropBlur = isMobile || visible ? 'blur(12px)' : 'blur(0px)'
 
   return (
     <motion.div
       initial={{ y: 0 }}
       animate={{
-        backdropFilter: 'blur(12px)',
+        backdropFilter: backdropBlur,
         y: yPosition
       }}
       transition={{ type: 'spring', stiffness: 200, damping: 50 }}
       className={cn(
-        'relative w-full bg-transparent transition-colors duration-300',
-        visible && 'bg-background/50 border-b border-secondary/50'
+        'relative w-full bg-transparent border-b border-transparent transition-colors duration-300',
+        visible && 'bg-background/50 border-secondary/50'
       )}>
       <motion.div
         animate={{

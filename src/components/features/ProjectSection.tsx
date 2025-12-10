@@ -30,13 +30,12 @@ type ProjectCarouselCardProps = {
   isActive: boolean
   position: 'center' | 'left' | 'right'
 }
-
 const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCardProps) => {
   const [imageUrl, setImageUrl] = useState<string>('')
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
-    const width = 1368
-    const height = 912
+    setIsError(false)
 
     const params = new URLSearchParams({
       url: project.liveDemoUrl,
@@ -46,14 +45,21 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       colorScheme: 'dark',
       'viewport.isMobile': 'true',
       'viewport.deviceScaleFactor': '1',
-      'viewport.width': width.toString(),
-      'viewport.height': height.toString(),
-    }).toString()
+      'viewport.width': '1366',
+      'viewport.height': '1024',
+    })
 
-    const microlinkUrl = `https://api.microlink.io/?${params}`
+    const microlinkUrl = `https://api.microlink.io/?${params.toString()}`
 
     setImageUrl(microlinkUrl)
   }, [project.liveDemoUrl])
+
+  const handleImageError = () => {
+    if (!isError) {
+      setImageUrl('/images/placeholder.svg')
+      setIsError(true)
+    }
+  }
 
   const transformStyle = {
     left: 'translate3d(0px, 0px, -100px) rotateY(25deg)',
@@ -66,13 +72,14 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       'relative w-full flex flex-col transition-transform duration-500 will-change-transform',
       !isActive && 'blur-xs scale-95')}
       style={{ transform: transformStyle, zIndex: isActive ? 10 : 0 }}>
-      <div className='relative w-full h-full overflow-hidden'>
+      <div className='relative w-full overflow-hidden'>
         {imageUrl && (
           <img
             loading='lazy'
             src={imageUrl}
+            onError={handleImageError}
             alt={project.projectTitle}
-            className={cn('object-cover w-full h-full rounded-xl scale-95 transition-transform duration-500', isActive && ' hover:scale-100')} />)}
+            className={cn('object-cover w-full rounded-lg scale-95 transition-transform duration-500', isActive && ' hover:scale-100')} />)}
       </div>
       <CardHeader>
         <CardTitle>
