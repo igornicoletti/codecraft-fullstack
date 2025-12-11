@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, CaretRightIcon, GithubLogoIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon, CaretRightIcon } from '@phosphor-icons/react'
 import { useEffect, useState, type HTMLAttributes } from 'react'
 
 import { projectSectionData } from '@/constants/project'
@@ -8,7 +8,7 @@ import type { ProjectItem, ProjectSectionContent } from '@/types/project.types'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { Button } from '@/components/ui/button'
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
 
@@ -90,14 +90,6 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
         </CardTitle>
         <CardDescription className='line-clamp-4'>{project.shortDescription}</CardDescription>
       </CardHeader>
-      <CardFooter>
-        <Button asChild variant={isActive ? 'default' : 'outline'} className='w-full'>
-          <a href={project.repositoryUrl} target='_blank' rel='noopener noreferrer'>
-            <GithubLogoIcon />
-            {project.repositoryActionText}
-          </a>
-        </Button>
-      </CardFooter>
       {isActive && (<BorderBeam duration={20} size={200} className='from-secondary via-primary to-secondary' />)}
     </Card>
   )

@@ -188,7 +188,7 @@ export const Navbar = () => {
   const handleLinkClick = useSmoothScroll()
 
   const NAV_ITEMS: NavbarLink[] = [
-    { title: 'Expertise', id: '#expertise' },
+    { title: 'Habilidades', id: '#expertise' },
     { title: 'Experiência', id: '#experience' },
     { title: 'Projetos', id: '#projects' },
   ]

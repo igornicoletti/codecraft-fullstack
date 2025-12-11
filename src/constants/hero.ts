@@ -10,11 +10,11 @@ export const heroSectionData: HeroSectionContent = {
   catchphrase: 'Engenheiro de software focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
   callToAction: {
     primary: {
-      label: 'Explorar Projetos',
+      label: 'Explorar portfólio',
       href: '#projects'
     },
     secondary: {
-      label: 'Iniciar Contato',
+      label: 'Iniciar contato',
       href: 'mailto:igor93nicoletti@gmail.com'
     }
   },

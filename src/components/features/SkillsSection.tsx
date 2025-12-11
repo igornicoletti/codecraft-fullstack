@@ -16,9 +16,9 @@ type SkillItemProps = {
 const SkillItem = ({ item }: SkillItemProps) => (
   <TooltipProvider>
     <Tooltip>
-      <TooltipTrigger asChild>
-        <div className='relative flex items-center justify-center size-20 lg:size-24 rounded-xl border border-secondary/50 bg-linear-to-b from-secondary/30 backdrop-blur-md cursor-pointer overflow-hidden transition-all duration-300 hover:border-secondary shrink-0'>
-          <Avatar className='bg-transparent rounded-none size-8'>
+      <TooltipTrigger>
+        <div className='group/avatar relative flex items-center justify-center size-20 lg:size-24 rounded-xl border border-secondary/50 bg-linear-to-b from-secondary/30 backdrop-blur-md cursor-pointer overflow-hidden transition-colors duration-300 hover:border-secondary shrink-0'>
+          <Avatar className='bg-transparent rounded-none size-8 transition-transform duration-500 group-hover/avatar:scale-120'>
             <AvatarImage
               src={`https://cdn.simpleicons.org/${item.iconSlug}/${item.hexColorCode}`}
               alt={item.displayName}
@@ -53,7 +53,9 @@ const SkillsDesktop = ({ dataGroups }: SkillsDesktopProps) => (
       return (
         <div key={idx} className="relative overflow-hidden shrink-0" style={{ height: config.height }}>
           <Marquee reverse={config.reverse} pauseOnHover vertical>
-            {columnItems.map((skill) => (<SkillItem key={skill.iconSlug} item={skill} />))}
+            {columnItems.map((skill) => (
+              <SkillItem key={skill.iconSlug} item={skill} />
+            ))}
           </Marquee>
           <div className='pointer-events-none absolute inset-x-0 top-0 h-8 bg-linear-to-b from-background z-10' />
           <div className='pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-linear-to-t from-background z-10' />
@@ -71,7 +73,9 @@ const SkillsMobile = ({ dataGroups }: SkillsMobileProps) => (
   <div className='relative overflow-hidden flex flex-col gap-4 z-20'>
     {dataGroups.map((rowItems, idx) => (
       <Marquee key={idx} reverse={idx % 2 === 1} pauseOnHover>
-        {rowItems.map((skill) => (<SkillItem key={skill.iconSlug} item={skill} />))}
+        {rowItems.map((skill) => (
+          <SkillItem key={skill.iconSlug} item={skill} />
+        ))}
       </Marquee>
     ))}
     <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r" />

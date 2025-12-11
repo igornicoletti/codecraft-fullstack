@@ -1,7 +1,6 @@
 export interface ProjectItem {
   projectTitle: string
   shortDescription: string
-  repositoryActionText: string
   liveDemoUrl: string
   repositoryUrl: string
 }
