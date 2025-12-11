@@ -45,8 +45,8 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       colorScheme: 'dark',
       'viewport.isMobile': 'true',
       'viewport.deviceScaleFactor': '1',
-      'viewport.width': '1366',
-      'viewport.height': '1024',
+      'viewport.width': '1920',
+      'viewport.height': '1080',
     })
 
     const microlinkUrl = `https://api.microlink.io/?${params.toString()}`
@@ -62,9 +62,9 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
   }
 
   const transformStyle = {
-    left: 'translate3d(0px, 0px, -100px) rotateY(25deg)',
+    left: 'translate3d(0px, 0px, -50px) rotateY(10deg)',
     center: 'translate3d(0px, 0px, 0px) rotateY(0deg)',
-    right: 'translate3d(0px, 0px, -100px) rotateY(-25deg)',
+    right: 'translate3d(0px, 0px, -50px) rotateY(-10deg)',
   }[position]
 
   return (
@@ -106,7 +106,7 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
 type ProjectHeaderProps = Pick<ProjectSectionContent, 'sectionTagline' | 'mainHeadline' | 'sectionSummary' | 'externalAction'>
 
 const ProjectHeader = ({ sectionTagline, mainHeadline, sectionSummary, externalAction }: ProjectHeaderProps) => (
-  <div className='flex flex-col items-center text-center gap-4 px-6 md:gap-6'>
+  <div className='flex flex-col items-center text-center gap-4 md:gap-6'>
     <AnimatedShinyText className='text-primary font-medium'>{sectionTagline}</AnimatedShinyText>
     <h2 className='text-balance text-4xl sm:text-3xl md:text-4xl lg:text-5xl'>{mainHeadline}</h2>
     <p className='max-w-4xl text-muted-foreground md:text-lg'>{sectionSummary}</p>
@@ -152,15 +152,19 @@ export const ProjectSection = () => {
 
   return (
     <section id='projects' className='relative overflow-hidden'>
-      <div className='container mx-auto xl:max-w-7xl'>
+      <div className='container mx-auto xl:max-w-7xl px-6'>
         <div className='grid gap-12 py-24'>
-          <ProjectHeader sectionTagline={sectionTagline} mainHeadline={mainHeadline} sectionSummary={sectionSummary} externalAction={externalAction} />
-          <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden px-6 sm:px-0 lg:px-6'>
+          <ProjectHeader
+            sectionTagline={sectionTagline}
+            mainHeadline={mainHeadline}
+            sectionSummary={sectionSummary}
+            externalAction={externalAction} />
+          <Carousel setApi={setApi} opts={{ loop: true }} className='w-full overflow-hidden'>
             <CarouselContent>
               {projectList.map((project, index) => {
                 const position = getCardPosition(index, current, projectList.length)
                 return (
-                  <CarouselItem key={index} className='basis-full sm:basis-1/2 lg:basis-1/3' style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}>
+                  <CarouselItem key={index} className='basis-full lg:basis-1/3' style={{ perspective: '500px', transformStyle: 'preserve-3d' }}>
                     <ProjectCarouselCard project={project} isActive={position === 'center'} position={position} />
                   </CarouselItem>
                 )
