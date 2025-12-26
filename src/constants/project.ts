@@ -16,10 +16,10 @@ export const projectSectionData: ProjectSectionContent = {
       repositoryUrl: "https://github.com/igornicoletti/codecraft-fullstack",
     },
     {
-      projectTitle: "Tarot Free Online",
-      shortDescription: "Plataforma de tarot online construída com Next.js, oferecendo uma experiência multilíngue (i18n) e altamente performática. Focada em SEO e renderização no lado do servidor para um carregamento rápido e confiável.",
-      liveDemoUrl: "https://nextjs-tarotdoor-free.vercel.app/en",
-      repositoryUrl: "https://github.com/igornicoletti/nextjs-tarotdoor-free",
+      projectTitle: "CodeCraft Auth",
+      shortDescription: "Get started with Supabase and React by building a user management app with auth, file storage, and database.",
+      liveDemoUrl: "https://codecraft-auth.vercel.app/",
+      repositoryUrl: "https://github.com/igornicoletti/codecraft-auth",
     },
     {
       projectTitle: "Coffee Delivery",

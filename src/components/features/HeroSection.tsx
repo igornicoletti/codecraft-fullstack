@@ -50,7 +50,7 @@ type HeroHeaderProps = Pick<HeroSectionContent, 'sectionTagline' | 'mainHeadline
 
 const HeroHeader = ({ sectionTagline, mainHeadline, catchphrase }: HeroHeaderProps) => (
   <div className='flex flex-col gap-6 sm:items-center sm:text-center md:gap-8'>
-    <AnimatedShinyText className='text-primary font-medium'>{sectionTagline}</AnimatedShinyText>
+    <AnimatedShinyText className='text-base sm:text-lg text-primary font-medium'>{sectionTagline}</AnimatedShinyText>
     <h1 className='text-balance text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
       {mainHeadline.prefix}{' '}
       <FlipWords words={mainHeadline.highlightedWords} />

@@ -1,6 +1,17 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('@/assets/fonts/Satoshi-Variable.woff2') format('woff2-variations'),
+       url('@/assets/fonts/Satoshi-Variable.woff2') format('woff2'),
+       url('/assets/fonts/Satoshi-Variable.woff') format('woff'),
+       url('@/assets/fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -22,11 +33,13 @@
   --border: oklch(0.94 0.01 238.46);
   --input: oklch(0.85 0.02 240.75);
   --ring: oklch(0.67 0.17 153.85);
+
   --chart-1: oklch(0.67 0.17 153.85);
   --chart-2: oklch(0.50 0.10 270.06);
   --chart-3: oklch(0.72 0.12 201.79);
   --chart-4: oklch(0.80 0.10 100.65);
   --chart-5: oklch(0.60 0.15 300.14);
+
   --sidebar: oklch(0.98 0.01 238.45);
   --sidebar-foreground: oklch(0.35 0.02 165.48);
   --sidebar-primary: oklch(0.67 0.17 153.85);
@@ -36,7 +49,7 @@
   --sidebar-border: oklch(0.85 0.02 240.75);
   --sidebar-ring: oklch(0.67 0.17 153.85);
 
-  --radius: 0.375rem;
+  --radius: 0.625rem;
 
   --shadow-2xs: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.02);
   --shadow-xs: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.02);
@@ -46,7 +59,6 @@
   --shadow-lg: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.04), 0px 4px 6px -1px oklch(0.35 0.05 163.02 / 0.04);
   --shadow-xl: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.04), 0px 8px 10px -1px oklch(0.35 0.05 163.02 / 0.04);
   --shadow-2xl: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.10);
-
 }
 
 .dark {
@@ -65,14 +77,16 @@
   --accent: oklch(0.30 0.03 271.05);
   --accent-foreground: oklch(0.95 0.01 238.46);
   --destructive: oklch(0.64 0.25 19.69);
-  --border: oklch(0.95 0.01 238.46 / 15%);
+  --border: oklch(0.30 0.03 271.05);
   --input: oklch(0.95 0.01 238.46 / 20%);
   --ring: oklch(0.67 0.17 153.85);
+
   --chart-1: oklch(0.67 0.17 153.85);
   --chart-2: oklch(0.60 0.10 269.83);
   --chart-3: oklch(0.72 0.12 201.79);
   --chart-4: oklch(0.80 0.10 100.65);
   --chart-5: oklch(0.60 0.15 300.14);
+
   --sidebar: oklch(0.20 0.02 266.02);
   --sidebar-foreground: oklch(0.95 0.01 238.46);
   --sidebar-primary: oklch(0.67 0.17 153.85);
@@ -111,11 +125,13 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -140,56 +156,47 @@
   --shadow-2xl: var(--shadow-2xl);
 
   --animate-rippling: rippling var(--duration) ease-out;
-  @keyframes rippling {
-    0% { opacity: 1; }
-    100% { transform: scale(2); opacity: 0; }
-  }
-
   --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
-  @keyframes rainbow {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
-  }
-
   --animate-shiny-text: shiny-text 8s infinite;
-  @keyframes shiny-text {
-    0%, 90%, 100% { background-position: calc(-100% - var(--shiny-width)) 0; }
-    30%, 60% { background-position: calc(100% + var(--shiny-width)) 0;}
-  }
-
   --animate-line-shadow: line-shadow 15s linear infinite;
-  @keyframes line-shadow {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% -100%; }
-  }
-
   --animate-wave-float: wave-float var(--duration, 15s) ease-in-out calc(var(--i, 0) * 0.5s) infinite alternate;
-  @keyframes wave-float {
-    0% { transform-origin: center center; transform: translateY(0px) rotate(1deg) scale(1); opacity: 0.8; }
-    100% { transform: translateY(-10px) rotate(-1deg) scale(0.98); opacity: 1; }
-  }
-
   --animate-marquee: marquee var(--duration) infinite linear;
-  @keyframes marquee {
-    from {transform: translateX(0); }
-    to { transform: translateX(calc(-100% - var(--gap))); }
-  }
-
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-  @keyframes marquee-vertical {
-  from { transform: translateY(0); }
-  to { transform: translateY(calc(-100% - var(--gap))); }
-  }
 }
 
-@font-face {
-  font-family: 'Satoshi-Variable';
-  src: url('/fonts/Satoshi-Variable.woff2') format('woff2'),
-       url('/fonts/Satoshi-Variable.woff') format('woff'),
-       url('/fonts/Satoshi-Variable.ttf') format('truetype');
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
+@keyframes rippling {
+  0% { opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+@keyframes shiny-text {
+  0%, 90%, 100% { background-position: calc(-100% - var(--shiny-width)) 0; }
+  30%, 60% { background-position: calc(100% + var(--shiny-width)) 0;}
+}
+
+@keyframes line-shadow {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% -100%; }
+}
+
+@keyframes wave-float {
+  0% { transform-origin: center center; transform: translateY(0px) rotate(1deg) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-10px) rotate(-1deg) scale(0.98); opacity: 1; }
+}
+
+@keyframes marquee {
+  from {transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--gap))); }
 }
 
 @layer base {
@@ -198,7 +205,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Satoshi-Variable', sans-serif;
+    font-family: 'Satoshi', sans-serif;
   }
 }
 

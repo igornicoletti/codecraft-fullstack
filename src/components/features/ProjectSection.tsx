@@ -5,6 +5,7 @@ import { projectSectionData } from '@/constants/project'
 import { cn } from '@/lib/utils'
 import type { ProjectItem, ProjectSectionContent } from '@/types/project.types'
 
+import placeholder from '@/assets/images/placeholder.svg'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { Button } from '@/components/ui/button'
@@ -56,7 +57,7 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
 
   const handleImageError = () => {
     if (!isError) {
-      setImageUrl('/images/placeholder.svg')
+      setImageUrl(placeholder)
       setIsError(true)
     }
   }
@@ -74,16 +75,18 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
       style={{ transform: transformStyle, zIndex: isActive ? 10 : 0 }}>
       <div className='relative w-full overflow-hidden'>
         {imageUrl && (
-          <img
-            loading='lazy'
-            src={imageUrl}
-            onError={handleImageError}
-            alt={project.projectTitle}
-            className={cn('object-cover w-full rounded-lg scale-95 transition-transform duration-500', isActive && ' hover:scale-100')} />)}
+          <a href={project.liveDemoUrl} target='_blank' rel='noopener noreferrer'>
+            <img
+              loading='lazy'
+              src={imageUrl}
+              onError={handleImageError}
+              alt={project.projectTitle}
+              className={cn('object-cover w-full rounded-lg scale-95 transition-transform duration-500', isActive && ' hover:scale-100')} />
+          </a>)}
       </div>
       <CardHeader>
         <CardTitle>
-          <LinkPreview url={project.liveDemoUrl} className='flex items-center gap-2'>
+          <LinkPreview url={project.repositoryUrl} className='flex items-center gap-2'>
             {project.projectTitle}
             <ArrowUpRightIcon className='text-primary' />
           </LinkPreview>

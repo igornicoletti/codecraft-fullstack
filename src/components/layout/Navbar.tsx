@@ -6,6 +6,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import { cn } from '@/lib/utils'
 
+import igornicoletti from '@/assets/images/igornicoletti.png'
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -82,7 +83,7 @@ interface NavbarBrandProps {
 const NavbarBrand = ({ onClick }: NavbarBrandProps) => (
   <Button onClick={onClick} variant='link' className='p-0'>
     <Avatar>
-      <AvatarImage src='images/igornicoletti.png' alt='@igornicoletti' />
+      <AvatarImage src={igornicoletti} alt='@igornicoletti' />
       <AvatarFallback>IN</AvatarFallback>
     </Avatar>
     <span className='font-semibold tracking-tight uppercase'>CodeCraft</span>
