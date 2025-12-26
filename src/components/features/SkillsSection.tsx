@@ -87,7 +87,7 @@ export const SkillsSection = () => {
   const isDesktop = useBreakpoint('(min-width: 768px)')
 
   const dataGroups = useMemo(() => {
-    const groupCount = isDesktop ? 7 : 3
+    const groupCount = isDesktop ? 7 : 4
     const groups: TechnologySkill[][] = Array.from({ length: groupCount }, () => [])
     professionalSkills.forEach((skill, index) => {
       groups[index % groupCount].push(skill)
