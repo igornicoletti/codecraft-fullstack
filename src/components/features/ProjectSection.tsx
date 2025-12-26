@@ -82,8 +82,8 @@ const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCar
               onError={handleImageError}
               alt={project.projectTitle}
               className={cn(
-                'object-cover w-full rounded-lg scale-95 transition-transform duration-500',
-                isActive && ' hover:scale-100')} />
+                'object-cover w-full rounded-lg transition-transform duration-500',
+                isActive && ' hover:scale-200')} />
           </a>)}
       </div>
       <CardHeader>
