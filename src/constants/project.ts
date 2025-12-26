@@ -11,39 +11,39 @@ export const projectSectionData: ProjectSectionContent = {
   projectList: [
     {
       projectTitle: "CodeCraft FullStack",
-      shortDescription: "Projeto abrangente que demonstra o desenvolvimento de um sistema CRUD (Create, Read, Update, Delete) completo com tecnologias full-stack. Ideal para visualizar a integração de backend e frontend em um ambiente de produção.",
+      shortDescription: "Lorem ipsum dolor sit amet. Est officia esse et illo libero aut esse galisum id modi omnis non perspiciatis cumque? Qui odio asperiores et officiis veniam et aperiam voluptatum?",
       liveDemoUrl: "https://codecraft-fullstack.vercel.app/",
       repositoryUrl: "https://github.com/igornicoletti/codecraft-fullstack",
     },
     {
       projectTitle: "CodeCraft Auth",
-      shortDescription: "Get started with Supabase and React by building a user management app with auth, file storage, and database.",
+      shortDescription: "Lorem ipsum dolor sit amet. Est officia esse et illo libero aut esse galisum id modi omnis non perspiciatis cumque? Qui odio asperiores et officiis veniam et aperiam voluptatum?",
       liveDemoUrl: "https://codecraft-auth.vercel.app/",
       repositoryUrl: "https://github.com/igornicoletti/codecraft-auth",
     },
     {
-      projectTitle: "Coffee Delivery",
-      shortDescription: "Aplicação completa de e-commerce de café, desenvolvida em React e TypeScript. Apresenta carrinho de compras, controle de estado via Context API e persistência de dados no localStorage para simular um fluxo de pedido robusto.",
-      liveDemoUrl: "https://reactjs-coffee-delivery-igornicoletti.vercel.app/",
-      repositoryUrl: "https://github.com/igornicoletti/reactjs-coffee-delivery",
-    },
-    {
       projectTitle: "CodeCraft FullStack",
-      shortDescription: "Projeto abrangente que demonstra o desenvolvimento de um sistema CRUD (Create, Read, Update, Delete) completo com tecnologias full-stack. Ideal para visualizar a integração de backend e frontend em um ambiente de produção.",
+      shortDescription: "Lorem ipsum dolor sit amet. Est officia esse et illo libero aut esse galisum id modi omnis non perspiciatis cumque? Qui odio asperiores et officiis veniam et aperiam voluptatum?",
       liveDemoUrl: "https://codecraft-fullstack.vercel.app/",
       repositoryUrl: "https://github.com/igornicoletti/codecraft-fullstack",
     },
     {
-      projectTitle: "Tarot Free Online",
-      shortDescription: "Plataforma de tarot online construída com Next.js, oferecendo uma experiência multilíngue (i18n) e altamente performática. Focada em SEO e renderização no lado do servidor para um carregamento rápido e confiável.",
-      liveDemoUrl: "https://nextjs-tarotdoor-free.vercel.app/en",
-      repositoryUrl: "https://github.com/igornicoletti/nextjs-tarotdoor-free",
+      projectTitle: "CodeCraft Auth",
+      shortDescription: "Lorem ipsum dolor sit amet. Est officia esse et illo libero aut esse galisum id modi omnis non perspiciatis cumque? Qui odio asperiores et officiis veniam et aperiam voluptatum?",
+      liveDemoUrl: "https://codecraft-auth.vercel.app/",
+      repositoryUrl: "https://github.com/igornicoletti/codecraft-auth",
     },
     {
-      projectTitle: "Coffee Delivery",
-      shortDescription: "Aplicação completa de e-commerce de café, desenvolvida em React e TypeScript. Apresenta carrinho de compras, controle de estado via Context API e persistência de dados no localStorage para simular um fluxo de pedido robusto.",
-      liveDemoUrl: "https://reactjs-coffee-delivery-igornicoletti.vercel.app/",
-      repositoryUrl: "https://github.com/igornicoletti/reactjs-coffee-delivery",
+      projectTitle: "CodeCraft FullStack",
+      shortDescription: "Lorem ipsum dolor sit amet. Est officia esse et illo libero aut esse galisum id modi omnis non perspiciatis cumque? Qui odio asperiores et officiis veniam et aperiam voluptatum?",
+      liveDemoUrl: "https://codecraft-fullstack.vercel.app/",
+      repositoryUrl: "https://github.com/igornicoletti/codecraft-fullstack",
+    },
+    {
+      projectTitle: "CodeCraft Auth",
+      shortDescription: "Lorem ipsum dolor sit amet. Est officia esse et illo libero aut esse galisum id modi omnis non perspiciatis cumque? Qui odio asperiores et officiis veniam et aperiam voluptatum?",
+      liveDemoUrl: "https://codecraft-auth.vercel.app/",
+      repositoryUrl: "https://github.com/igornicoletti/codecraft-auth",
     },
   ]
 }
