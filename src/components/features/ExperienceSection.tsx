@@ -213,7 +213,7 @@ export const ExperienceSection = () => {
                 setApi={setApi}
                 opts={{ loop: true }}
                 plugins={[autoplayPlugin.current, fadePlugin.current]}
-                className="w-full overflow-hidden">
+                className='w-full overflow-hidden'>
                 <CarouselContent>
                   {careerHistory.map((experienceItem, idx) => (
                     <CarouselItem key={idx}>

@@ -51,7 +51,7 @@ const SkillsDesktop = ({ dataGroups }: SkillsDesktopProps) => (
     {dataGroups.map((columnItems, idx) => {
       const config = getDesktopConfig(idx)
       return (
-        <div key={idx} className="relative overflow-hidden shrink-0" style={{ height: config.height }}>
+        <div key={idx} className='relative overflow-hidden shrink-0' style={{ height: config.height }}>
           <Marquee reverse={config.reverse} pauseOnHover vertical>
             {columnItems.map((skill) => (
               <SkillItem key={skill.iconSlug} item={skill} />
@@ -78,8 +78,8 @@ const SkillsMobile = ({ dataGroups }: SkillsMobileProps) => (
         ))}
       </Marquee>
     ))}
-    <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r" />
-    <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l" />
+    <div className='from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r' />
+    <div className='from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l' />
   </div>
 )
 
