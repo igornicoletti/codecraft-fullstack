@@ -31,6 +31,7 @@ type ProjectCarouselCardProps = {
   isActive: boolean
   position: 'center' | 'left' | 'right'
 }
+
 const ProjectCarouselCard = ({ project, isActive, position }: ProjectCarouselCardProps) => {
   const [imageUrl, setImageUrl] = useState<string>('')
   const [isError, setIsError] = useState(false)
