@@ -4,7 +4,6 @@ export interface TechnologyItem {
 }
 
 export interface PerformanceMetric {
-  displayValue: string
   metricLabel: string
   details: string
 }

@@ -14,29 +14,30 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
-import { Progress } from '@/components/ui/progress'
 import { SpinningText } from '@/components/ui/spinning-text'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { cn } from '@/lib/utils'
 
-const AUTOPLAY_DURATION = 10000
+const AUTOPLAY_DURATION = 20000
 
 type ExperienceCarouselDotsProps = {
   count: number
   current: number
-  progress: number
   scrollTo: ((index: number, jump?: boolean) => void) | undefined
 }
 
-const ExperienceCarouselDots = ({ count, current, progress, scrollTo }: ExperienceCarouselDotsProps) => (
-  <div className='flex w-full max-w-sm gap-2 mx-auto'>
+const ExperienceCarouselDots = ({ count, current, scrollTo }: ExperienceCarouselDotsProps) => (
+  <div className='flex w-full max-w-sm mx-auto items-center gap-2'>
     {Array.from({ length: count }).map((_, idx) => (
       <button
         key={idx}
         onClick={() => scrollTo?.(idx)}
         aria-label={`Go to slide ${idx + 1}`}
-        className='flex-1 cursor-pointer outline-none'>
-        <Progress value={current === idx + 1 ? progress : 0} />
-      </button>
+        className={cn(
+          'relative h-1 flex-1 rounded-full cursor-pointer transition-colors',
+          current === idx + 1 ? 'bg-primary' : 'bg-secondary/50 hover:bg-secondary'
+        )}
+      />
     ))}
   </div>
 )
@@ -87,12 +88,9 @@ const ExperienceMetrics = ({ activeExperience }: ExperienceMetricsProps) => (
   <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
     {activeExperience?.keyAchievements?.map((metric, idx) => (
       <div key={`${activeExperience.organizationName}-${idx}`} className='flex flex-col gap-2 pl-4 border-l border-primary'>
-        <div className='flex items-baseline gap-2'>
-          <BlurFade key={`${activeExperience.organizationName}-${metric.displayValue}`} delay={0.1 * idx}>
-            <span className='text-xl'>{metric.displayValue}</span>
-          </BlurFade>
-          <span className='text-xl'>{metric.metricLabel}</span>
-        </div>
+        <BlurFade key={`${activeExperience.organizationName}-${metric.metricLabel}`} delay={0.1 * idx}>
+          <span className='text-lg'>{metric.metricLabel}</span>
+        </BlurFade>
         <span className='text-muted-foreground'>{metric.details}</span>
       </div>
     ))}
@@ -133,7 +131,6 @@ export const ExperienceSection = () => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
-  const [progress, setProgress] = useState(0)
 
   const fadePlugin = useRef(Fade())
   const autoplayPlugin = useRef(Autoplay({
@@ -144,44 +141,19 @@ export const ExperienceSection = () => {
   useEffect(() => {
     if (!api) return
 
-    const newCount = api.scrollSnapList().length
-    setCount(newCount)
+    setCount(api.scrollSnapList().length)
     setCurrent(api.selectedScrollSnap() + 1)
-
-    let animationFrameId: number
-    let startTime: number | null = null
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const elapsed = timestamp - startTime
-
-      const progressValue = Math.min((elapsed / AUTOPLAY_DURATION) * 100, 100)
-      setProgress(progressValue)
-
-      if (elapsed < AUTOPLAY_DURATION) {
-        animationFrameId = requestAnimationFrame(animate)
-      } else {
-        setProgress(100)
-      }
-    }
 
     const onSelect = () => {
       setCurrent(api.selectedScrollSnap() + 1)
-      setProgress(0)
-      startTime = null
-      if (animationFrameId) cancelAnimationFrame(animationFrameId)
-      animationFrameId = requestAnimationFrame(animate)
     }
 
     api.on('select', onSelect)
     api.on('reInit', onSelect)
 
-    onSelect()
-
     return () => {
       api.off('select', onSelect)
       api.off('reInit', onSelect)
-      cancelAnimationFrame(animationFrameId)
     }
   }, [api])
 
@@ -207,7 +179,7 @@ export const ExperienceSection = () => {
             careerSummary={careerSummary}
             externalProfileCta={externalProfileCta}
           />
-          <div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-3'>
+          <div className='grid grid-cols-1 items-center-safe gap-8 lg:grid-cols-3'>
             <div className='lg:col-span-2 min-w-0'>
               <Carousel
                 setApi={setApi}
@@ -228,7 +200,6 @@ export const ExperienceSection = () => {
               <ExperienceCarouselDots
                 count={count}
                 current={current}
-                progress={progress}
                 scrollTo={api?.scrollTo} />
             </div>
           </div>

@@ -7,7 +7,7 @@ export const heroSectionData: HeroSectionContent = {
     prefix: 'Experiências web',
     highlightedWords: ['modernas', 'eficientes', 'escaláveis']
   },
-  catchphrase: 'Engenheiro de software focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança. Não escrevo apenas código; projeto soluções de escalabilidade.',
+  catchphrase: 'Engenheiro de software focado na arquitetura de aplicações web de alta complexidade e missão crítica. Desenvolvimento de aplicações modernas com enfase em performance e segurança.',
   callToAction: {
     primary: {
       label: 'Explorar portfólio',
