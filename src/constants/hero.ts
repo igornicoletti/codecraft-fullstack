@@ -14,7 +14,7 @@ export const heroSectionData: HeroSectionContent = {
       href: '#projects'
     },
     secondary: {
-      label: 'Iniciar contato',
+      label: 'Enviar mensagem',
       href: 'mailto:igor93nicoletti@gmail.com'
     }
   },
