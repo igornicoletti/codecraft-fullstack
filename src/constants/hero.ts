@@ -2,7 +2,7 @@ import type { HeroSectionContent } from '@/types/hero.types'
 import { IconBrandFramerMotion, IconBrandNextjs, IconBrandRadixUi, IconBrandReact, IconBrandTailwind, IconBrandTypescript } from '@tabler/icons-react'
 
 export const heroSectionData: HeroSectionContent = {
-  sectionTagline: 'Igor Nicoletti – Desenvolvedor Front-End',
+  sectionTagline: 'Igor Nicoletti – Desenvolvedor Full-Stack',
   mainHeadline: {
     prefix: 'Experiências web',
     highlightedWords: ['modernas', 'eficientes', 'escaláveis']

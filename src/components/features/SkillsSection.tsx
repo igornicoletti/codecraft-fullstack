@@ -1,13 +1,12 @@
 import { useMemo } from 'react'
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Marquee } from '@/components/ui/marquee'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { professionalSkills } from '@/constants/skills'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { cn } from '@/lib/utils'
 import type { TechnologySkill } from '@/types/skills.types'
-
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Marquee } from '@/components/ui/marquee'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 type SkillItemProps = {
   item: TechnologySkill

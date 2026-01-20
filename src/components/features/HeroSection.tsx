@@ -1,11 +1,10 @@
-import { heroSectionData } from '@/constants/hero'
-import { useSmoothScroll } from '@/hooks/useSmoothScroll'
-import type { HeroSectionContent } from '@/types/hero.types'
-
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Button } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { heroSectionData } from '@/constants/hero'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
+import type { HeroSectionContent } from '@/types/hero.types'
 
 type HeroTechStackProps = Pick<HeroSectionContent, 'technologiesUsed'>
 

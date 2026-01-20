@@ -3,9 +3,6 @@ import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
 import { useEffect, useRef, useState } from 'react'
 
-import { experienceSectionData } from '@/constants/experience'
-import type { ExperienceSectionContent, ProfessionalExperience } from '@/types/experience.types'
-
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BlurFade } from '@/components/ui/blur-fade'
@@ -16,7 +13,9 @@ import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/com
 import { LinkPreview } from '@/components/ui/link-preview'
 import { SpinningText } from '@/components/ui/spinning-text'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { experienceSectionData } from '@/constants/experience'
 import { cn } from '@/lib/utils'
+import type { ExperienceSectionContent, ProfessionalExperience } from '@/types/experience.types'
 
 const AUTOPLAY_DURATION = 20000
 
@@ -87,8 +86,8 @@ type ExperienceMetricsProps = {
 const ExperienceMetrics = ({ activeExperience }: ExperienceMetricsProps) => (
   <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
     {activeExperience?.keyAchievements?.map((metric, idx) => (
-      <div key={`${activeExperience.organizationName}-${idx}`} className='flex flex-col gap-2 pl-4 border-l border-primary'>
-        <BlurFade key={`${activeExperience.organizationName}-${metric.metricLabel}`} delay={0.1 * idx}>
+      <div key={`${metric.metricLabel}-${idx}`} className='flex flex-col gap-2 pl-4 border-l border-primary'>
+        <BlurFade delay={0.1 * idx}>
           <span className='text-lg'>{metric.metricLabel}</span>
         </BlurFade>
         <span className='text-muted-foreground'>{metric.details}</span>
@@ -177,8 +176,7 @@ export const ExperienceSection = () => {
             mainHeading={mainHeading}
             resumeDownloadAction={resumeDownloadAction}
             careerSummary={careerSummary}
-            externalProfileCta={externalProfileCta}
-          />
+            externalProfileCta={externalProfileCta} />
           <div className='grid grid-cols-1 items-center-safe gap-8 lg:grid-cols-3'>
             <div className='lg:col-span-2 min-w-0'>
               <Carousel

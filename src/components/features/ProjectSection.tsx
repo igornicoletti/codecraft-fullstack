@@ -1,10 +1,6 @@
 import { ArrowUpRightIcon, CaretRightIcon } from '@phosphor-icons/react'
 import { useEffect, useState, type HTMLAttributes } from 'react'
 
-import { projectSectionData } from '@/constants/project'
-import { cn } from '@/lib/utils'
-import type { ProjectItem, ProjectSectionContent } from '@/types/project.types'
-
 import placeholder from '@/assets/images/placeholder.svg'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { BorderBeam } from '@/components/ui/border-beam'
@@ -12,6 +8,9 @@ import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel'
 import { LinkPreview } from '@/components/ui/link-preview'
+import { projectSectionData } from '@/constants/project'
+import { cn } from '@/lib/utils'
+import type { ProjectItem, ProjectSectionContent } from '@/types/project.types'
 
 type ProjectCarouselDotsProps = HTMLAttributes<HTMLDivElement> & {
   current: number
@@ -123,15 +122,27 @@ export const ProjectSection = () => {
 
   useEffect(() => {
     if (!api) return
+
     setCurrent(api.selectedScrollSnap() + 1)
-    const onSelect = () => setCurrent(api.selectedScrollSnap() + 1)
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    }
+
     api.on('select', onSelect)
+
     return () => {
       api.off('select', onSelect)
     }
   }, [api])
 
-  const { sectionTagline, mainHeadline, sectionSummary, externalAction, projectList } = projectSectionData
+  const {
+    sectionTagline,
+    mainHeadline,
+    sectionSummary,
+    externalAction,
+    projectList
+  } = projectSectionData
 
   const getCardPosition = (index: number, current: number, total: number) => {
     const activeIndex = current - 1
@@ -163,7 +174,9 @@ export const ProjectSection = () => {
                 const position = getCardPosition(index, current, projectList.length)
                 return (
                   <CarouselItem key={index} className='basis-full lg:basis-1/3' style={{ perspective: '500px', transformStyle: 'preserve-3d' }}>
-                    <ProjectCarouselCard project={project} isActive={position === 'center'} position={position} />
+                    <ProjectCarouselCard
+                      project={project} isActive={position === 'center'}
+                      position={position} />
                   </CarouselItem>
                 )
               })}
